@@ -1,6 +1,13 @@
 import { gql } from 'apollo-server-express';
 
 export default gql`
+
+enum genderType {
+  MALE
+  FEMALE
+  BOTH
+}
+
 type Staff {
   _id: ID,
   title: String,
@@ -16,7 +23,7 @@ type Staff {
   employement_to: String,
   experience_month: Int,
   experience_year: Int,
-  gender: String,
+  gender: genderType,
   description: String,
   display_name: String,
   color_code: Int,
@@ -64,7 +71,7 @@ input staffInput {
   employement_to: String,
   experience_month: Int,
   experience_year: Int,
-  gender: String,
+  gender: genderType,
   description: String,
   display_name: String,
   color_code: Int,

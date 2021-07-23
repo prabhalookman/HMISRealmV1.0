@@ -22,7 +22,11 @@ const staffSchema = new mongoose.Schema({
   employement_to: String,
   experience_month: Number,
   experience_year: Number,
-  gender: String,
+  gender: {
+    type: String,
+    enum: ["MALE", "FEMALE", "BOTH"],
+    default: ["MALE"]
+  },
   description: String,
   display_name: String,
   color_code: Number,
