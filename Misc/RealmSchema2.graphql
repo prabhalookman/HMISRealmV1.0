@@ -1,0 +1,6647 @@
+input BusinesscategoryUpdateInput {
+  deleted_unset: Boolean
+  _id: ObjectId
+  type: String
+  deleted_at_unset: Boolean
+  deleted_at: DateTime
+  created_by_unset: Boolean
+  type_unset: Boolean
+  updated_at: DateTime
+  parant_category_id_unset: Boolean
+  category_name: String
+  updated_at_unset: Boolean
+  accessible_unset: Boolean
+  category_name_unset: Boolean
+  created_at_unset: Boolean
+  active: Boolean
+  created_by: BusinesscategoryCreated_byRelationInput
+  accessible: Boolean
+  _id_unset: Boolean
+  created_at: DateTime
+  parant_category_id: BusinesscategoryParant_category_idRelationInput
+  site_id: ObjectId
+  site_id_unset: Boolean
+  active_unset: Boolean
+  deleted: Boolean
+}
+
+input Events_satff_mappingUpdateInput {
+  workspace_ids: Events_satff_mappingWorkspace_idsRelationInput
+  deleted_at: DateTime
+  event_id_unset: Boolean
+  deleted_at_unset: Boolean
+  staff_id: Events_satff_mappingStaff_idRelationInput
+  updated_at_unset: Boolean
+  staff_id_unset: Boolean
+  updated_at: DateTime
+  workspace_ids_unset: Boolean
+  created_by_unset: Boolean
+  _id_unset: Boolean
+  created_at: DateTime
+  _id: ObjectId
+  site_id_unset: Boolean
+  event_id: Events_satff_mappingEvent_idRelationInput
+  created_at_unset: Boolean
+  created_by: Events_satff_mappingCreated_byRelationInput
+  site_id: Events_satff_mappingSite_idRelationInput
+}
+
+type EventExcluded {
+  extra_price: Boolean
+  name: String
+  price: Float
+  type: String
+}
+
+input EventCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input BusinessinfoAddress_idsRelationInput {
+  create: [AddressInsertInput]
+  link: [ObjectId]
+}
+
+input StaffdetailSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input TimingWorkspace_idsRelationInput {
+  create: [WorkspaceInsertInput]
+  link: [ObjectId]
+}
+
+input TimingCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input EventAvailability_rangeAdvanceUpdateInput {
+  no: Int
+  no_inc: Int
+  no_unset: Boolean
+  type: String
+  type_unset: Boolean
+}
+
+input LocationsettingInpersonQueryInput {
+  OR: [LocationsettingInpersonQueryInput!]
+  client_address_exists: Boolean
+  AND: [LocationsettingInpersonQueryInput!]
+  buinsess_address_ne: Boolean
+  buinsess_id: BusinessQueryInput
+  buinsess_id_exists: Boolean
+  buinsess_address: Boolean
+  client_address: Boolean
+  client_address_ne: Boolean
+  buinsess_address_exists: Boolean
+}
+
+type TimingBreaktime {
+  end_time: String
+  start_time: String
+}
+
+enum Events_satff_mappingSortByInput {
+  DELETED_AT_ASC
+  DELETED_AT_DESC
+  EVENT_ID_ASC
+  SITE_ID_DESC
+  CREATED_AT_DESC
+  CREATED_BY_ASC
+  SITE_ID_ASC
+  STAFF_ID_ASC
+  _ID_ASC
+  _ID_DESC
+  CREATED_AT_ASC
+  CREATED_BY_DESC
+  EVENT_ID_DESC
+  STAFF_ID_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}
+
+input PermissionSite_idRelationInput {
+  link: ObjectId
+  create: SiteInsertInput
+}
+
+input EventInsertInput {
+  created_by: EventCreated_byRelationInput
+  business_timings: Boolean
+  event_category_id: EventEvent_category_idRelationInput
+  accept_deposits: Boolean
+  no_of_multiple_appointment: Int
+  buffer_before_min: Int
+  scheduling_notice: EventScheduling_noticeInsertInput
+  created_at: DateTime
+  _id: ObjectId
+  retailPrice: Float
+  extra_time_type: String
+  tax_percentage: Float
+  display_name: String
+  avatar_or_icon_path: String
+  color_code: String
+  staff_commission_percentage: Float
+  currency: String
+  rosource_id: ObjectId
+  deleted_at: DateTime
+  display_order: Int
+  timing_ids: EventTiming_idsRelationInput
+  delete: Boolean
+  payment_type: String
+  allow_multiple_appointment: Boolean
+  voucher_id: ObjectId
+  event_round_robin: Boolean
+  booking_limit: Int
+  resourceRequired: Boolean
+  advanced_appointment: Int
+  event_group: Boolean
+  display_booking_page: Boolean
+  business_id: [ObjectId]
+  staff_commission: Boolean
+  prefered_gender: String
+  deposit: Float
+  sortingId: Int
+  voucherEnabled: Boolean
+  buffer_after_min: Int
+  is_recurring: Boolean
+  enable_appointment_at_fixed_time: Boolean
+  payment_show_in_booking_page: Boolean
+  enable_accept_payments: Boolean
+  description: String
+  priceType: String
+  maxDurationInSeconds: Int
+  multiple_duration: Boolean
+  availability_range: EventAvailability_rangeInsertInput
+  event_staff_mapping_ids: EventEvent_staff_mapping_idsRelationInput
+  voucherExpirationPeriod: String
+  minDurationInSeconds: Int
+  included: [EventIncludedInsertInput]
+  servicePricing_by_staff_enabled: Boolean
+  site_id: EventSite_idRelationInput
+  staff_conformation: Boolean
+  event_collective: Boolean
+  time_zone: String
+  avatar_or_icon: String
+  taxable: Boolean
+  roomId: ObjectId
+  voucher_enabled: Boolean
+  location_setting_ids: EventLocation_setting_idsRelationInput
+  add_on_ids: EventAdd_on_idsRelationInput
+  workspace_id: EventWorkspace_idRelationInput
+  type: String
+  advance_pricing_ids: EventAdvance_pricing_idsRelationInput
+  limit_booking: Boolean
+  date_range_enable: Boolean
+  special_price: Float
+  roomRequired: Boolean
+  name: String
+  staff: EventStaffRelationInput
+  latest_appointment: Int
+  allow_waitlist: Boolean
+  extra_time_in_seconds: Int
+  multiple_pricing_enabled: Boolean
+  require_payment_for_events: Boolean
+  duration_hours: Int
+  updated_at: DateTime
+  active: Boolean
+  event_one_on_one: Boolean
+  commissionEnabled: Boolean
+  advanced_pricing: Boolean
+  excluded: [EventExcludedInsertInput]
+  duration_minutes: Int
+  occupancy: Int
+  booking_url: String
+  hide_duration_on_booking_page: Boolean
+  running_status: Boolean
+}
+
+input StaffdetailBusiness_idRelationInput {
+  create: [BusinessInsertInput]
+  link: [ObjectId]
+}
+
+input StaffdetailUpdateInput {
+  sync: [StaffdetailSyncUpdateInput]
+  staff_commission_unset: Boolean
+  booking_url: String
+  business_id_unset: Boolean
+  _id_unset: Boolean
+  invitation_status_accept: Boolean
+  timings_unset: Boolean
+  paid_plan_commission: Boolean
+  deleted_at_unset: Boolean
+  is_sync_enabled: Boolean
+  business_timings_unset: Boolean
+  sortingId_unset: Boolean
+  workspace_id_unset: Boolean
+  staff_commission: Boolean
+  created_by: StaffdetailCreated_byRelationInput
+  invitation_status_accept_unset: Boolean
+  site_id: StaffdetailSite_idRelationInput
+  is_login_unset: Boolean
+  is_sync_enabled_unset: Boolean
+  timing_ids_unset: Boolean
+  sortingId: Int
+  timings: [ObjectId]
+  business_timings: Boolean
+  created_at: DateTime
+  timing_ids: StaffdetailTiming_idsRelationInput
+  updated_at_unset: Boolean
+  events_ids_unset: Boolean
+  updated_at: DateTime
+  sync_unset: Boolean
+  invitationStatus_unset: Boolean
+  sortingId_inc: Int
+  delete: Boolean
+  booking_url_unset: Boolean
+  active: Boolean
+  created_at_unset: Boolean
+  is_service_provider: Boolean
+  _id: ObjectId
+  is_service_provider_unset: Boolean
+  address_ids_unset: Boolean
+  sorting_id: Int
+  business_id: StaffdetailBusiness_idRelationInput
+  deleted_at: DateTime
+  address_ids: StaffdetailAddress_idsRelationInput
+  location_setting_ids_unset: Boolean
+  site_id_unset: Boolean
+  invitationStatus: String
+  created_by_unset: Boolean
+  sorting_id_unset: Boolean
+  delete_unset: Boolean
+  deafult_calendar_view: String
+  is_login: Boolean
+  active_unset: Boolean
+  events_ids: StaffdetailEvents_idsRelationInput
+  deafult_calendar_view_unset: Boolean
+  workspace_id: StaffdetailWorkspace_idRelationInput
+  sorting_id_inc: Int
+  paid_plan_commission_unset: Boolean
+  location_setting_ids: StaffdetailLocation_setting_idsRelationInput
+}
+
+input SiteUpdateInput {
+  name: String
+  default_language: String
+  active: Boolean
+  subcription_id: ObjectId
+  created_by_unset: Boolean
+  created_at: DateTime
+  active_unset: Boolean
+  created_at_unset: Boolean
+  created_by: ObjectId
+  payment_status_id_unset: Boolean
+  suspended_unset: Boolean
+  payment_status_id: String
+  _id_unset: Boolean
+  deleted_at_unset: Boolean
+  googleAnalyticsCode_unset: Boolean
+  accessible_unset: Boolean
+  suspended: Boolean
+  googleAnalyticsCode: String
+  payment_status_unset: Boolean
+  default_language_unset: Boolean
+  subcription_id_unset: Boolean
+  delete_unset: Boolean
+  account_status_unset: Boolean
+  updated_at: DateTime
+  deleted_at: DateTime
+  payment_status: String
+  delete: Boolean
+  _id: ObjectId
+  account_status: String
+  name_unset: Boolean
+  updated_at_unset: Boolean
+  accessible: Boolean
+}
+
+input AddonVariantUpdateInput {
+  name: String
+  name_unset: Boolean
+  price: Float
+  price_inc: Float
+  price_unset: Boolean
+}
+
+type AddonVariant {
+  name: String
+  price: Float
+}
+
+type Acpwinfo {
+  _id: ObjectId
+  created_at: DateTime
+  created_from: String
+  default: Boolean
+  password: String
+  password_change_dateUtc: DateTime
+  password_expire_dateUtc: DateTime
+  password_expired: Boolean
+  password_format_id: Float
+  password_salt: String
+  updated_at: DateTime
+}
+
+enum StaffdetailSortByInput {
+  CREATED_AT_DESC
+  DEAFULT_CALENDAR_VIEW_DESC
+  INVITATION_STATUS_ASC
+  _ID_ASC
+  _ID_DESC
+  BOOKING_URL_DESC
+  CREATED_BY_ASC
+  DEAFULT_CALENDAR_VIEW_ASC
+  BOOKING_URL_ASC
+  DELETED_AT_ASC
+  DELETED_AT_DESC
+  INVITATION_STATUS_DESC
+  SITE_ID_ASC
+  SORTING_ID_DESC
+  UPDATED_AT_ASC
+  CREATED_AT_ASC
+  CREATED_BY_DESC
+  SITE_ID_DESC
+  SORTING_ID_ASC
+  UPDATED_AT_DESC
+}
+
+input LocationUpdateInput {
+  name_unset: Boolean
+  active_unset: Boolean
+  type: String
+  updated_at: DateTime
+  app_integration_need_unset: Boolean
+  created_at: DateTime
+  deleted_unset: Boolean
+  deleted_at_unset: Boolean
+  active: Boolean
+  created_at_unset: Boolean
+  name: String
+  updated_at_unset: Boolean
+  _id: ObjectId
+  type_param_unset: Boolean
+  app_integration_need: Boolean
+  type_param: Boolean
+  _id_unset: Boolean
+  type_unset: Boolean
+  deleted: Boolean
+  deleted_at: DateTime
+}
+
+type Mutation {
+  deleteManyAcpwinfos(query: AcpwinfoQueryInput): DeleteManyPayload
+  deleteManyAddons(query: AddonQueryInput): DeleteManyPayload
+  deleteManyAddresses(query: AddressQueryInput): DeleteManyPayload
+  deleteManyAdvancepricings(query: AdvancepricingQueryInput): DeleteManyPayload
+  deleteManyBusinesscategories(query: BusinesscategoryQueryInput): DeleteManyPayload
+  deleteManyBusinesses(query: BusinessQueryInput): DeleteManyPayload
+  deleteManyBusinessinfos(query: BusinessinfoQueryInput): DeleteManyPayload
+  deleteManyEventcategories(query: EventcategoryQueryInput): DeleteManyPayload
+  deleteManyEvents(query: EventQueryInput): DeleteManyPayload
+  deleteManyEvents_satff_mappings(query: Events_satff_mappingQueryInput): DeleteManyPayload
+  deleteManyLocations(query: LocationQueryInput): DeleteManyPayload
+  deleteManyLocationsettings(query: LocationsettingQueryInput): DeleteManyPayload
+  deleteManyPermissions(query: PermissionQueryInput): DeleteManyPayload
+  deleteManyRoles(query: RoleQueryInput): DeleteManyPayload
+  deleteManySites(query: SiteQueryInput): DeleteManyPayload
+  deleteManyStaffdetails(query: StaffdetailQueryInput): DeleteManyPayload
+  deleteManyStaffs(query: StaffQueryInput): DeleteManyPayload
+  deleteManyTimeformats(query: TimeformatQueryInput): DeleteManyPayload
+  deleteManyTimings(query: TimingQueryInput): DeleteManyPayload
+  deleteManyUsers(query: UserQueryInput): DeleteManyPayload
+  deleteManyWorkspaces(query: WorkspaceQueryInput): DeleteManyPayload
+  deleteOneAcpwinfo(query: AcpwinfoQueryInput!): Acpwinfo
+  deleteOneAddon(query: AddonQueryInput!): Addon
+  deleteOneAddress(query: AddressQueryInput!): Address
+  deleteOneAdvancepricing(query: AdvancepricingQueryInput!): Advancepricing
+  deleteOneBusiness(query: BusinessQueryInput!): Business
+  deleteOneBusinesscategory(query: BusinesscategoryQueryInput!): Businesscategory
+  deleteOneBusinessinfo(query: BusinessinfoQueryInput!): Businessinfo
+  deleteOneEvent(query: EventQueryInput!): Event
+  deleteOneEventcategory(query: EventcategoryQueryInput!): Eventcategory
+  deleteOneEvents_satff_mapping(query: Events_satff_mappingQueryInput!): Events_satff_mapping
+  deleteOneLocation(query: LocationQueryInput!): Location
+  deleteOneLocationsetting(query: LocationsettingQueryInput!): Locationsetting
+  deleteOnePermission(query: PermissionQueryInput!): Permission
+  deleteOneRole(query: RoleQueryInput!): Role
+  deleteOneSite(query: SiteQueryInput!): Site
+  deleteOneStaff(query: StaffQueryInput!): Staff
+  deleteOneStaffdetail(query: StaffdetailQueryInput!): Staffdetail
+  deleteOneTimeformat(query: TimeformatQueryInput!): Timeformat
+  deleteOneTiming(query: TimingQueryInput!): Timing
+  deleteOneUser(query: UserQueryInput!): User
+  deleteOneWorkspace(query: WorkspaceQueryInput!): Workspace
+  insertManyAcpwinfos(data: [AcpwinfoInsertInput!]!): InsertManyPayload
+  insertManyAddons(data: [AddonInsertInput!]!): InsertManyPayload
+  insertManyAddresses(data: [AddressInsertInput!]!): InsertManyPayload
+  insertManyAdvancepricings(data: [AdvancepricingInsertInput!]!): InsertManyPayload
+  insertManyBusinesscategories(data: [BusinesscategoryInsertInput!]!): InsertManyPayload
+  insertManyBusinesses(data: [BusinessInsertInput!]!): InsertManyPayload
+  insertManyBusinessinfos(data: [BusinessinfoInsertInput!]!): InsertManyPayload
+  insertManyEventcategories(data: [EventcategoryInsertInput!]!): InsertManyPayload
+  insertManyEvents(data: [EventInsertInput!]!): InsertManyPayload
+  insertManyEvents_satff_mappings(data: [Events_satff_mappingInsertInput!]!): InsertManyPayload
+  insertManyLocations(data: [LocationInsertInput!]!): InsertManyPayload
+  insertManyLocationsettings(data: [LocationsettingInsertInput!]!): InsertManyPayload
+  insertManyPermissions(data: [PermissionInsertInput!]!): InsertManyPayload
+  insertManyRoles(data: [RoleInsertInput!]!): InsertManyPayload
+  insertManySites(data: [SiteInsertInput!]!): InsertManyPayload
+  insertManyStaffdetails(data: [StaffdetailInsertInput!]!): InsertManyPayload
+  insertManyStaffs(data: [StaffInsertInput!]!): InsertManyPayload
+  insertManyTimeformats(data: [TimeformatInsertInput!]!): InsertManyPayload
+  insertManyTimings(data: [TimingInsertInput!]!): InsertManyPayload
+  insertManyUsers(data: [UserInsertInput!]!): InsertManyPayload
+  insertManyWorkspaces(data: [WorkspaceInsertInput!]!): InsertManyPayload
+  insertOneAcpwinfo(data: AcpwinfoInsertInput!): Acpwinfo
+  insertOneAddon(data: AddonInsertInput!): Addon
+  insertOneAddress(data: AddressInsertInput!): Address
+  insertOneAdvancepricing(data: AdvancepricingInsertInput!): Advancepricing
+  insertOneBusiness(data: BusinessInsertInput!): Business
+  insertOneBusinesscategory(data: BusinesscategoryInsertInput!): Businesscategory
+  insertOneBusinessinfo(data: BusinessinfoInsertInput!): Businessinfo
+  insertOneEvent(data: EventInsertInput!): Event
+  insertOneEventcategory(data: EventcategoryInsertInput!): Eventcategory
+  insertOneEvents_satff_mapping(data: Events_satff_mappingInsertInput!): Events_satff_mapping
+  insertOneLocation(data: LocationInsertInput!): Location
+  insertOneLocationsetting(data: LocationsettingInsertInput!): Locationsetting
+  insertOnePermission(data: PermissionInsertInput!): Permission
+  insertOneRole(data: RoleInsertInput!): Role
+  insertOneSite(data: SiteInsertInput!): Site
+  insertOneStaff(data: StaffInsertInput!): Staff
+  insertOneStaffdetail(data: StaffdetailInsertInput!): Staffdetail
+  insertOneTimeformat(data: TimeformatInsertInput!): Timeformat
+  insertOneTiming(data: TimingInsertInput!): Timing
+  insertOneUser(data: UserInsertInput!): User
+  insertOneWorkspace(data: WorkspaceInsertInput!): Workspace
+  replaceOneAcpwinfo(query: AcpwinfoQueryInput, data: AcpwinfoInsertInput!): Acpwinfo
+  replaceOneAddon(query: AddonQueryInput, data: AddonInsertInput!): Addon
+  replaceOneAddress(query: AddressQueryInput, data: AddressInsertInput!): Address
+  replaceOneAdvancepricing(query: AdvancepricingQueryInput, data: AdvancepricingInsertInput!): Advancepricing
+  replaceOneBusiness(query: BusinessQueryInput, data: BusinessInsertInput!): Business
+  replaceOneBusinesscategory(query: BusinesscategoryQueryInput, data: BusinesscategoryInsertInput!): Businesscategory
+  replaceOneBusinessinfo(query: BusinessinfoQueryInput, data: BusinessinfoInsertInput!): Businessinfo
+  replaceOneEvent(query: EventQueryInput, data: EventInsertInput!): Event
+  replaceOneEventcategory(query: EventcategoryQueryInput, data: EventcategoryInsertInput!): Eventcategory
+  replaceOneEvents_satff_mapping(query: Events_satff_mappingQueryInput, data: Events_satff_mappingInsertInput!): Events_satff_mapping
+  replaceOneLocation(query: LocationQueryInput, data: LocationInsertInput!): Location
+  replaceOneLocationsetting(query: LocationsettingQueryInput, data: LocationsettingInsertInput!): Locationsetting
+  replaceOnePermission(query: PermissionQueryInput, data: PermissionInsertInput!): Permission
+  replaceOneRole(query: RoleQueryInput, data: RoleInsertInput!): Role
+  replaceOneSite(data: SiteInsertInput!, query: SiteQueryInput): Site
+  replaceOneStaff(query: StaffQueryInput, data: StaffInsertInput!): Staff
+  replaceOneStaffdetail(query: StaffdetailQueryInput, data: StaffdetailInsertInput!): Staffdetail
+  replaceOneTimeformat(query: TimeformatQueryInput, data: TimeformatInsertInput!): Timeformat
+  replaceOneTiming(data: TimingInsertInput!, query: TimingQueryInput): Timing
+  replaceOneUser(query: UserQueryInput, data: UserInsertInput!): User
+  replaceOneWorkspace(query: WorkspaceQueryInput, data: WorkspaceInsertInput!): Workspace
+  updateManyAcpwinfos(query: AcpwinfoQueryInput, set: AcpwinfoUpdateInput!): UpdateManyPayload
+  updateManyAddons(query: AddonQueryInput, set: AddonUpdateInput!): UpdateManyPayload
+  updateManyAddresses(set: AddressUpdateInput!, query: AddressQueryInput): UpdateManyPayload
+  updateManyAdvancepricings(query: AdvancepricingQueryInput, set: AdvancepricingUpdateInput!): UpdateManyPayload
+  updateManyBusinesscategories(query: BusinesscategoryQueryInput, set: BusinesscategoryUpdateInput!): UpdateManyPayload
+  updateManyBusinesses(query: BusinessQueryInput, set: BusinessUpdateInput!): UpdateManyPayload
+  updateManyBusinessinfos(query: BusinessinfoQueryInput, set: BusinessinfoUpdateInput!): UpdateManyPayload
+  updateManyEventcategories(query: EventcategoryQueryInput, set: EventcategoryUpdateInput!): UpdateManyPayload
+  updateManyEvents(query: EventQueryInput, set: EventUpdateInput!): UpdateManyPayload
+  updateManyEvents_satff_mappings(query: Events_satff_mappingQueryInput, set: Events_satff_mappingUpdateInput!): UpdateManyPayload
+  updateManyLocations(query: LocationQueryInput, set: LocationUpdateInput!): UpdateManyPayload
+  updateManyLocationsettings(query: LocationsettingQueryInput, set: LocationsettingUpdateInput!): UpdateManyPayload
+  updateManyPermissions(set: PermissionUpdateInput!, query: PermissionQueryInput): UpdateManyPayload
+  updateManyRoles(query: RoleQueryInput, set: RoleUpdateInput!): UpdateManyPayload
+  updateManySites(set: SiteUpdateInput!, query: SiteQueryInput): UpdateManyPayload
+  updateManyStaffdetails(set: StaffdetailUpdateInput!, query: StaffdetailQueryInput): UpdateManyPayload
+  updateManyStaffs(query: StaffQueryInput, set: StaffUpdateInput!): UpdateManyPayload
+  updateManyTimeformats(query: TimeformatQueryInput, set: TimeformatUpdateInput!): UpdateManyPayload
+  updateManyTimings(set: TimingUpdateInput!, query: TimingQueryInput): UpdateManyPayload
+  updateManyUsers(query: UserQueryInput, set: UserUpdateInput!): UpdateManyPayload
+  updateManyWorkspaces(set: WorkspaceUpdateInput!, query: WorkspaceQueryInput): UpdateManyPayload
+  updateOneAcpwinfo(query: AcpwinfoQueryInput, set: AcpwinfoUpdateInput!): Acpwinfo
+  updateOneAddon(query: AddonQueryInput, set: AddonUpdateInput!): Addon
+  updateOneAddress(query: AddressQueryInput, set: AddressUpdateInput!): Address
+  updateOneAdvancepricing(query: AdvancepricingQueryInput, set: AdvancepricingUpdateInput!): Advancepricing
+  updateOneBusiness(query: BusinessQueryInput, set: BusinessUpdateInput!): Business
+  updateOneBusinesscategory(query: BusinesscategoryQueryInput, set: BusinesscategoryUpdateInput!): Businesscategory
+  updateOneBusinessinfo(query: BusinessinfoQueryInput, set: BusinessinfoUpdateInput!): Businessinfo
+  updateOneEvent(query: EventQueryInput, set: EventUpdateInput!): Event
+  updateOneEventcategory(query: EventcategoryQueryInput, set: EventcategoryUpdateInput!): Eventcategory
+  updateOneEvents_satff_mapping(query: Events_satff_mappingQueryInput, set: Events_satff_mappingUpdateInput!): Events_satff_mapping
+  updateOneLocation(query: LocationQueryInput, set: LocationUpdateInput!): Location
+  updateOneLocationsetting(query: LocationsettingQueryInput, set: LocationsettingUpdateInput!): Locationsetting
+  updateOnePermission(query: PermissionQueryInput, set: PermissionUpdateInput!): Permission
+  updateOneRole(query: RoleQueryInput, set: RoleUpdateInput!): Role
+  updateOneSite(query: SiteQueryInput, set: SiteUpdateInput!): Site
+  updateOneStaff(query: StaffQueryInput, set: StaffUpdateInput!): Staff
+  updateOneStaffdetail(query: StaffdetailQueryInput, set: StaffdetailUpdateInput!): Staffdetail
+  updateOneTimeformat(query: TimeformatQueryInput, set: TimeformatUpdateInput!): Timeformat
+  updateOneTiming(query: TimingQueryInput, set: TimingUpdateInput!): Timing
+  updateOneUser(set: UserUpdateInput!, query: UserQueryInput): User
+  updateOneWorkspace(query: WorkspaceQueryInput, set: WorkspaceUpdateInput!): Workspace
+  upsertOneAcpwinfo(query: AcpwinfoQueryInput, data: AcpwinfoInsertInput!): Acpwinfo
+  upsertOneAddon(query: AddonQueryInput, data: AddonInsertInput!): Addon
+  upsertOneAddress(query: AddressQueryInput, data: AddressInsertInput!): Address
+  upsertOneAdvancepricing(query: AdvancepricingQueryInput, data: AdvancepricingInsertInput!): Advancepricing
+  upsertOneBusiness(query: BusinessQueryInput, data: BusinessInsertInput!): Business
+  upsertOneBusinesscategory(query: BusinesscategoryQueryInput, data: BusinesscategoryInsertInput!): Businesscategory
+  upsertOneBusinessinfo(query: BusinessinfoQueryInput, data: BusinessinfoInsertInput!): Businessinfo
+  upsertOneEvent(query: EventQueryInput, data: EventInsertInput!): Event
+  upsertOneEventcategory(query: EventcategoryQueryInput, data: EventcategoryInsertInput!): Eventcategory
+  upsertOneEvents_satff_mapping(query: Events_satff_mappingQueryInput, data: Events_satff_mappingInsertInput!): Events_satff_mapping
+  upsertOneLocation(query: LocationQueryInput, data: LocationInsertInput!): Location
+  upsertOneLocationsetting(query: LocationsettingQueryInput, data: LocationsettingInsertInput!): Locationsetting
+  upsertOnePermission(query: PermissionQueryInput, data: PermissionInsertInput!): Permission
+  upsertOneRole(query: RoleQueryInput, data: RoleInsertInput!): Role
+  upsertOneSite(data: SiteInsertInput!, query: SiteQueryInput): Site
+  upsertOneStaff(query: StaffQueryInput, data: StaffInsertInput!): Staff
+  upsertOneStaffdetail(query: StaffdetailQueryInput, data: StaffdetailInsertInput!): Staffdetail
+  upsertOneTimeformat(query: TimeformatQueryInput, data: TimeformatInsertInput!): Timeformat
+  upsertOneTiming(query: TimingQueryInput, data: TimingInsertInput!): Timing
+  upsertOneUser(query: UserQueryInput, data: UserInsertInput!): User
+  upsertOneWorkspace(query: WorkspaceQueryInput, data: WorkspaceInsertInput!): Workspace
+}
+
+input LocationsettingInpersonBuinsess_idRelationInput {
+  link: ObjectId
+  create: BusinessInsertInput
+}
+
+input SiteInsertInput {
+  created_by: ObjectId
+  default_language: String
+  payment_status: String
+  updated_at: DateTime
+  _id: ObjectId
+  googleAnalyticsCode: String
+  name: String
+  suspended: Boolean
+  created_at: DateTime
+  payment_status_id: String
+  account_status: String
+  delete: Boolean
+  deleted_at: DateTime
+  subcription_id: ObjectId
+  accessible: Boolean
+  active: Boolean
+}
+
+input StaffdetailSyncInsertInput {
+  key: String
+  type: String
+}
+
+input BusinesscategoryCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+type Staff {
+  _id: ObjectId
+  avatar_or_icon: String
+  avatar_or_icon_path: String
+  color_code: String
+  created_at: DateTime
+  created_by: Staff
+  deleted_at: DateTime
+  description: String
+  display_name: String
+  email: String
+  email_verified_date_time: DateTime
+  employement_from: DateTime
+  employement_to: DateTime
+  event_staff_mapping_ids: [Events_satff_mapping]
+  experience_month: Int
+  experience_year: Int
+  first_name: String
+  gender: String
+  is_email_verified: Boolean
+  last_name: String
+  name: String
+  phone: [StaffPhone]
+  showSocialShare: Boolean
+  site_id: Site
+  site_owener: Boolean
+  slug: String
+  social_network: [StaffSocial_network]
+  sortingId: Int
+  staff_detail_id: [Staffdetail]
+  title: String
+  updated_at: DateTime
+  user_id: User
+  workspace_ids: [Workspace]
+}
+
+input EventExcludedInsertInput {
+  extra_price: Boolean
+  name: String
+  price: Float
+  type: String
+}
+
+input StaffdetailInsertInput {
+  location_setting_ids: StaffdetailLocation_setting_idsRelationInput
+  invitation_status_accept: Boolean
+  sortingId: Int
+  created_at: DateTime
+  address_ids: StaffdetailAddress_idsRelationInput
+  deafult_calendar_view: String
+  created_by: StaffdetailCreated_byRelationInput
+  is_sync_enabled: Boolean
+  delete: Boolean
+  is_login: Boolean
+  timing_ids: StaffdetailTiming_idsRelationInput
+  site_id: StaffdetailSite_idRelationInput
+  business_id: StaffdetailBusiness_idRelationInput
+  updated_at: DateTime
+  sync: [StaffdetailSyncInsertInput]
+  sorting_id: Int
+  business_timings: Boolean
+  staff_commission: Boolean
+  booking_url: String
+  workspace_id: StaffdetailWorkspace_idRelationInput
+  is_service_provider: Boolean
+  timings: [ObjectId]
+  paid_plan_commission: Boolean
+  _id: ObjectId
+  events_ids: StaffdetailEvents_idsRelationInput
+  invitationStatus: String
+  active: Boolean
+  deleted_at: DateTime
+}
+
+input TimingBreaktimeInsertInput {
+  start_time: String
+  end_time: String
+}
+
+input TimingRecurringRuleQueryInput {
+  until_nin: [DateTime]
+  AND: [TimingRecurringRuleQueryInput!]
+  until_exists: Boolean
+  freq: String
+  repeatEvery_ne: Int
+  repeatEvery_gt: Int
+  until: DateTime
+  freq_ne: String
+  freq_lt: String
+  repeatEvery_exists: Boolean
+  freq_nin: [String]
+  repeatEvery_lt: Int
+  freq_exists: Boolean
+  repeatEvery_nin: [Int]
+  until_gte: DateTime
+  until_lte: DateTime
+  repeatEvery_lte: Int
+  until_ne: DateTime
+  until_in: [DateTime]
+  freq_lte: String
+  freq_gt: String
+  OR: [TimingRecurringRuleQueryInput!]
+  repeatEvery: Int
+  freq_gte: String
+  until_gt: DateTime
+  repeatEvery_gte: Int
+  repeatEvery_in: [Int]
+  until_lt: DateTime
+  freq_in: [String]
+}
+
+type StaffPhone {
+  country_code: String
+  is_verified: Boolean
+  name: String
+  no: String
+  type: String
+}
+
+input Events_satff_mappingSite_idRelationInput {
+  link: ObjectId
+  create: SiteInsertInput
+}
+
+input AdvancepricingSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input StaffUser_idRelationInput {
+  create: UserInsertInput
+  link: ObjectId
+}
+
+input BusinessinfoPolicyInsertInput {
+  terms_and_condition: String
+  appointment: String
+  cancellation: String
+}
+
+input BusinessinfoBusiness_categoryRelationInput {
+  link: [ObjectId]
+  create: [BusinesscategoryInsertInput]
+}
+
+type Staffdetail {
+  _id: ObjectId
+  active: Boolean
+  address_ids: [Address]
+  booking_url: String
+  business_id: [Business]
+  business_timings: Boolean
+  created_at: DateTime
+  created_by: Staff
+  deafult_calendar_view: String
+  delete: Boolean
+  deleted_at: DateTime
+  events_ids: [Event]
+  invitationStatus: String
+  invitation_status_accept: Boolean
+  is_login: Boolean
+  is_service_provider: Boolean
+  is_sync_enabled: Boolean
+  location_setting_ids: [Locationsetting]
+  paid_plan_commission: Boolean
+  site_id: Site
+  sortingId: Int
+  sorting_id: Int
+  staff_commission: Boolean
+  sync: [StaffdetailSync]
+  timing_ids: [Timing]
+  timings: [ObjectId]
+  updated_at: DateTime
+  workspace_id: [Workspace]
+}
+
+enum BusinessSortByInput {
+  BUSINESS_BRANCH_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  SITE_ID_ASC
+  TYPE_ASC
+  _ID_ASC
+  AVATAR_OR_ICON_ASC
+  COLOR_CODE_DESC
+  UPDATED_AT_DESC
+  AVATAR_OR_ICON_DESC
+  BUSINESS_BRANCH_ASC
+  DISPLAY_NAME_DESC
+  TYPE_DESC
+  WEB_URL_DESC
+  AVATAR_OR_ICON_PATH_ASC
+  DELETED_AT_DESC
+  EMAIL_SIGNATURE_DESC
+  WEB_URL_ASC
+  CREATED_BY_DESC
+  EMAIL_SIGNATURE_ASC
+  DESCRIPTION_ASC
+  STAFF_SIZE_ASC
+  UPDATED_AT_ASC
+  DELETED_AT_ASC
+  STAFF_SIZE_DESC
+  COLOR_CODE_ASC
+  SITE_ID_DESC
+  _ID_DESC
+  AVATAR_OR_ICON_PATH_DESC
+  DISPLAY_NAME_ASC
+  NAME_ASC
+  NAME_DESC
+  CREATED_BY_ASC
+  DESCRIPTION_DESC
+}
+
+input AdvancepricingCreated_byRelationInput {
+  link: ObjectId
+  create: StaffInsertInput
+}
+
+input StaffEvent_staff_mapping_idsRelationInput {
+  create: [Events_satff_mappingInsertInput]
+  link: [ObjectId]
+}
+
+input TimingBreaktimeUpdateInput {
+  start_time_unset: Boolean
+  end_time: String
+  end_time_unset: Boolean
+  start_time: String
+}
+
+enum StaffSortByInput {
+  _ID_ASC
+  DELETED_AT_ASC
+  EMPLOYEMENT_FROM_DESC
+  EMPLOYEMENT_TO_ASC
+  UPDATED_AT_ASC
+  COLOR_CODE_ASC
+  DESCRIPTION_DESC
+  EMAIL_VERIFIED_DATE_TIME_ASC
+  FIRST_NAME_ASC
+  FIRST_NAME_DESC
+  GENDER_DESC
+  LAST_NAME_ASC
+  NAME_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  EMPLOYEMENT_FROM_ASC
+  EXPERIENCE_MONTH_ASC
+  GENDER_ASC
+  UPDATED_AT_DESC
+  SLUG_DESC
+  AVATAR_OR_ICON_PATH_ASC
+  CREATED_BY_DESC
+  DISPLAY_NAME_ASC
+  EMAIL_VERIFIED_DATE_TIME_DESC
+  EXPERIENCE_YEAR_DESC
+  SORTING_ID_ASC
+  TITLE_DESC
+  USER_ID_ASC
+  AVATAR_OR_ICON_ASC
+  DESCRIPTION_ASC
+  EXPERIENCE_MONTH_DESC
+  LAST_NAME_DESC
+  SITE_ID_ASC
+  SLUG_ASC
+  USER_ID_DESC
+  AVATAR_OR_ICON_DESC
+  COLOR_CODE_DESC
+  DELETED_AT_DESC
+  EMAIL_DESC
+  EMPLOYEMENT_TO_DESC
+  _ID_DESC
+  AVATAR_OR_ICON_PATH_DESC
+  CREATED_BY_ASC
+  SITE_ID_DESC
+  SORTING_ID_DESC
+  DISPLAY_NAME_DESC
+  EMAIL_ASC
+  EXPERIENCE_YEAR_ASC
+  NAME_ASC
+  TITLE_ASC
+}
+
+input RoleInsertInput {
+  name: String
+  permission_ids: RolePermission_idsRelationInput
+  system_name: String
+  active: Boolean
+  delete: Boolean
+  is_system_role: Boolean
+  site_id: RoleSite_idRelationInput
+  createdOn_utc: DateTime
+  _id: ObjectId
+  workspace_id: RoleWorkspace_idRelationInput
+}
+
+input RolePermission_idsRelationInput {
+  link: [ObjectId]
+  create: [PermissionInsertInput]
+}
+
+input BusinesscategoryParant_category_idRelationInput {
+  create: BusinesscategoryInsertInput
+  link: ObjectId
+}
+
+input EventcategoryUpdateInput {
+  workspace_id_unset: Boolean
+  active: Boolean
+  _id: ObjectId
+  type_unset: Boolean
+  updated_at_unset: Boolean
+  created_at: DateTime
+  active_unset: Boolean
+  parant_category_id: ObjectId
+  icon: String
+  icon_unset: Boolean
+  site_id: EventcategorySite_idRelationInput
+  type: String
+  icon_path: String
+  created_by: EventcategoryCreated_byRelationInput
+  category_name_unset: Boolean
+  created_by_unset: Boolean
+  workspace_id: EventcategoryWorkspace_idRelationInput
+  category_name: String
+  created_at_unset: Boolean
+  color_code: String
+  deleted_unset: Boolean
+  site_id_unset: Boolean
+  deleted: Boolean
+  parant_category_id_unset: Boolean
+  _id_unset: Boolean
+  updated_at: DateTime
+  color_code_unset: Boolean
+  icon_path_unset: Boolean
+  deleted_at_unset: Boolean
+  accessible: Boolean
+  accessible_unset: Boolean
+  deleted_at: DateTime
+}
+
+input BusinessinfoQueryInput {
+  timeFormat_gte: Int
+  address_ids_exists: Boolean
+  time_zone_in: [String]
+  updated_at_nin: [DateTime]
+  _id_gte: ObjectId
+  date_format_in: [String]
+  site_id_exists: Boolean
+  created_at_in: [DateTime]
+  _id_ne: ObjectId
+  created_at_gte: DateTime
+  tax_no_in: [String]
+  tax_no_ne: String
+  active_exists: Boolean
+  bookingLinks_lte: String
+  date_format_nin: [String]
+  timeFormat_ne: Int
+  business_category: [BusinesscategoryQueryInput]
+  first_day_lte: Int
+  _id_gt: ObjectId
+  created_at_nin: [DateTime]
+  site_id: SiteQueryInput
+  deleted_at_gt: DateTime
+  created_at_exists: Boolean
+  business_hour_end_ne: Int
+  deleted_at: DateTime
+  bookingLinks: String
+  business_hour_start_lt: Int
+  restrictedDays_in: [DateTime]
+  address_ids: [AddressQueryInput]
+  updated_at_ne: DateTime
+  AND: [BusinessinfoQueryInput!]
+  _id_nin: [ObjectId]
+  bookingLinks_in: [String]
+  updated_at_exists: Boolean
+  workspace_id_exists: Boolean
+  policy: BusinessinfoPolicyQueryInput
+  created_at_lt: DateTime
+  policy_exists: Boolean
+  business_hour_start_ne: Int
+  workspace_id_in: [WorkspaceQueryInput]
+  workspace_id: [WorkspaceQueryInput]
+  business_category_in: [BusinesscategoryQueryInput]
+  deleted_at_nin: [DateTime]
+  is_tax: Boolean
+  tax_percentage_gte: Int
+  created_at: DateTime
+  timeFormat_lt: Int
+  timeFormat_nin: [Int]
+  _id_lt: ObjectId
+  tax_percentage_gt: Int
+  business_hour_end_exists: Boolean
+  time_zone_ne: String
+  timing_ids_in: [ObjectId]
+  updated_at: DateTime
+  created_at_lte: DateTime
+  timing_ids_nin: [ObjectId]
+  time_zone_lt: String
+  delete: Boolean
+  deleted_at_gte: DateTime
+  tax_no_gte: String
+  bookingLinks_exists: Boolean
+  updated_at_gt: DateTime
+  tax_no_gt: String
+  business_hour_start_nin: [Int]
+  tax_no_lte: String
+  _id_in: [ObjectId]
+  first_day_exists: Boolean
+  business_hour_start_gte: Int
+  deleted_at_lt: DateTime
+  business_hour_start_exists: Boolean
+  created_by_exists: Boolean
+  first_day: Int
+  tax_percentage_in: [Int]
+  timing_ids_exists: Boolean
+  is_tax_ne: Boolean
+  date_format_lt: String
+  restrictedDays_exists: Boolean
+  updated_at_lt: DateTime
+  tax_no: String
+  bookingLinks_gte: String
+  time_zone_gte: String
+  created_at_ne: DateTime
+  first_day_ne: Int
+  business_hour_start_gt: Int
+  updated_at_lte: DateTime
+  created_by: StaffQueryInput
+  business_hour_start_lte: Int
+  business_hour_start_in: [Int]
+  address_ids_nin: [AddressQueryInput]
+  timeFormat_lte: Int
+  accessible_exists: Boolean
+  first_day_gt: Int
+  business_hour_end_gte: Int
+  business_hour_end_gt: Int
+  date_format_gte: String
+  _id_lte: ObjectId
+  bookingLinks_lt: String
+  time_zone_gt: String
+  is_tax_exists: Boolean
+  business_hour_end_in: [Int]
+  bookingLinks_gt: String
+  accessible: Boolean
+  bookingLinks_ne: String
+  time_zone: String
+  time_zone_lte: String
+  first_day_in: [Int]
+  date_format_gt: String
+  date_format_exists: Boolean
+  deleted_at_in: [DateTime]
+  tax_percentage_ne: Int
+  active_ne: Boolean
+  timeFormat_in: [Int]
+  deleted_at_exists: Boolean
+  tax_no_nin: [String]
+  OR: [BusinessinfoQueryInput!]
+  tax_percentage_lte: Int
+  tax_percentage: Int
+  address_ids_in: [AddressQueryInput]
+  delete_ne: Boolean
+  tax_percentage_exists: Boolean
+  bookingLinks_nin: [String]
+  restrictedDays_nin: [DateTime]
+  time_zone_exists: Boolean
+  business_hour_start: Int
+  tax_no_lt: String
+  timeFormat: Int
+  business_hour_end_lte: Int
+  date_format_ne: String
+  date_format: String
+  first_day_nin: [Int]
+  restrictedDays: [DateTime]
+  active: Boolean
+  _id_exists: Boolean
+  updated_at_gte: DateTime
+  business_hour_end_nin: [Int]
+  date_format_lte: String
+  created_at_gt: DateTime
+  business_category_nin: [BusinesscategoryQueryInput]
+  timing_ids: [ObjectId]
+  business_hour_end_lt: Int
+  business_category_exists: Boolean
+  time_zone_nin: [String]
+  deleted_at_ne: DateTime
+  delete_exists: Boolean
+  updated_at_in: [DateTime]
+  business_hour_end: Int
+  first_day_lt: Int
+  timeFormat_gt: Int
+  timeFormat_exists: Boolean
+  accessible_ne: Boolean
+  tax_percentage_lt: Int
+  first_day_gte: Int
+  workspace_id_nin: [WorkspaceQueryInput]
+  deleted_at_lte: DateTime
+  tax_percentage_nin: [Int]
+  tax_no_exists: Boolean
+  _id: ObjectId
+}
+
+type Events_satff_mapping {
+  _id: ObjectId
+  created_at: DateTime
+  created_by: Staff
+  deleted_at: DateTime
+  event_id: Event
+  site_id: Site
+  staff_id: Staff
+  updated_at: DateTime
+  workspace_ids: [Workspace]
+}
+
+input EventWorkspace_idRelationInput {
+  create: WorkspaceInsertInput
+  link: ObjectId
+}
+
+input StaffSocial_networkQueryInput {
+  network_in: [String]
+  link_in: [String]
+  link_lt: String
+  network_nin: [String]
+  link_ne: String
+  link_gt: String
+  network_ne: String
+  network_gt: String
+  network_lte: String
+  link_lte: String
+  AND: [StaffSocial_networkQueryInput!]
+  link_gte: String
+  network_gte: String
+  link: String
+  network_lt: String
+  OR: [StaffSocial_networkQueryInput!]
+  link_exists: Boolean
+  network: String
+  network_exists: Boolean
+  link_nin: [String]
+}
+
+type Advancepricing {
+  _id: ObjectId
+  buffer_after_min: Int
+  buffer_before_min: Int
+  created_at: DateTime
+  created_by: Staff
+  currency: String
+  deleted_at: DateTime
+  duration_hours: Int
+  duration_minutes: Int
+  name: String
+  nonDiscountedPrice: Float
+  priceType: String
+  price_type: String
+  retailPrice: Float
+  servicePricingByStaff: Boolean
+  site_id: Site
+  special_price: Float
+  staff_id: Staff
+  updated_at: DateTime
+  workspace_id: Workspace
+}
+
+type Businesscategory {
+  _id: ObjectId
+  accessible: Boolean
+  active: Boolean
+  category_name: String
+  created_at: DateTime
+  created_by: Staff
+  deleted: Boolean
+  deleted_at: DateTime
+  parant_category_id: Businesscategory
+  site_id: ObjectId
+  type: String
+  updated_at: DateTime
+}
+
+input EventAdvance_pricing_idsRelationInput {
+  create: [AdvancepricingInsertInput]
+  link: [ObjectId]
+}
+
+input RoleQueryInput {
+  name: String
+  permission_ids: [PermissionQueryInput]
+  system_name_gt: String
+  system_name_nin: [String]
+  name_exists: Boolean
+  createdOn_utc_exists: Boolean
+  createdOn_utc_gte: DateTime
+  createdOn_utc_gt: DateTime
+  OR: [RoleQueryInput!]
+  createdOn_utc_ne: DateTime
+  name_lt: String
+  delete: Boolean
+  name_nin: [String]
+  system_name: String
+  permission_ids_in: [PermissionQueryInput]
+  permission_ids_nin: [PermissionQueryInput]
+  active_exists: Boolean
+  createdOn_utc_lt: DateTime
+  active_ne: Boolean
+  is_system_role: Boolean
+  _id_nin: [ObjectId]
+  system_name_lte: String
+  createdOn_utc: DateTime
+  name_lte: String
+  system_name_in: [String]
+  active: Boolean
+  _id_in: [ObjectId]
+  is_system_role_exists: Boolean
+  _id_gte: ObjectId
+  name_ne: String
+  createdOn_utc_nin: [DateTime]
+  _id_exists: Boolean
+  delete_ne: Boolean
+  workspace_id_exists: Boolean
+  _id_lte: ObjectId
+  permission_ids_exists: Boolean
+  workspace_id: WorkspaceQueryInput
+  createdOn_utc_in: [DateTime]
+  site_id: SiteQueryInput
+  delete_exists: Boolean
+  system_name_exists: Boolean
+  is_system_role_ne: Boolean
+  system_name_gte: String
+  _id_lt: ObjectId
+  AND: [RoleQueryInput!]
+  _id: ObjectId
+  _id_gt: ObjectId
+  site_id_exists: Boolean
+  system_name_ne: String
+  name_gt: String
+  createdOn_utc_lte: DateTime
+  name_gte: String
+  system_name_lt: String
+  name_in: [String]
+  _id_ne: ObjectId
+}
+
+type BusinessinfoPolicy {
+  appointment: String
+  cancellation: String
+  terms_and_condition: String
+}
+
+enum UserSortByInput {
+  PACCESS_DESC
+  SITE_ID_ASC
+  SITE_ID_DESC
+  _ID_ASC
+  _ID_DESC
+  PACCESS_ASC
+}
+
+input LocationsettingWorkspace_idRelationInput {
+  create: WorkspaceInsertInput
+  link: ObjectId
+}
+
+input LocationsettingOncallInsertInput {
+  client_will_call: Boolean
+  staff_will_call: Boolean
+}
+
+input WorkspaceUpdateInput {
+  display_order: Int
+  is_owner_unset: Boolean
+  display_name_unset: Boolean
+  time_zone_unset: Boolean
+  deleted_at_unset: Boolean
+  name_unset: Boolean
+  site_id_unset: Boolean
+  is_owner: Boolean
+  accessible: Boolean
+  delete_unset: Boolean
+  _id_unset: Boolean
+  created_at: DateTime
+  created_by_unset: Boolean
+  created_at_unset: Boolean
+  site_id: WorkspaceSite_idRelationInput
+  new_business_unset: Boolean
+  updated_at: DateTime
+  color_code: String
+  created_by: ObjectId
+  type: String
+  _id: ObjectId
+  color_code_unset: Boolean
+  display_order_inc: Int
+  accessible_unset: Boolean
+  updated_at_unset: Boolean
+  display_name: String
+  time_zone: String
+  active_unset: Boolean
+  default_language_unset: Boolean
+  display_order_unset: Boolean
+  delete: Boolean
+  default_language: String
+  name: String
+  active: Boolean
+  type_unset: Boolean
+  deleted_at: DateTime
+  new_business: Boolean
+}
+
+input LocationsettingOncallQueryInput {
+  staff_will_call: Boolean
+  staff_will_call_ne: Boolean
+  staff_will_call_exists: Boolean
+  AND: [LocationsettingOncallQueryInput!]
+  OR: [LocationsettingOncallQueryInput!]
+  client_will_call: Boolean
+  client_will_call_ne: Boolean
+  client_will_call_exists: Boolean
+}
+
+type Address {
+  _id: ObjectId
+  accessible: Boolean
+  account_status: String
+  active: Boolean
+  address1: String
+  address2: String
+  business_branch: Boolean
+  business_head_office: Boolean
+  city: String
+  country: String
+  created_at: DateTime
+  created_by: Staff
+  default_address: Boolean
+  delete: Boolean
+  deleted_at: DateTime
+  email: String
+  latitude: String
+  longitude: String
+  phone: [AddressPhone]
+  site_id: Site
+  state: String
+  type: String
+  updated_at: DateTime
+  workspace_id: [Workspace]
+  zipCode: String
+}
+
+input StaffdetailAddress_idsRelationInput {
+  create: [AddressInsertInput]
+  link: [ObjectId]
+}
+
+input AdvancepricingUpdateInput {
+  retailPrice: Float
+  buffer_after_min_unset: Boolean
+  duration_hours_inc: Int
+  duration_minutes_inc: Int
+  price_type_unset: Boolean
+  retailPrice_unset: Boolean
+  retailPrice_inc: Float
+  currency: String
+  servicePricingByStaff_unset: Boolean
+  created_at_unset: Boolean
+  currency_unset: Boolean
+  created_by: AdvancepricingCreated_byRelationInput
+  priceType_unset: Boolean
+  buffer_before_min: Int
+  site_id_unset: Boolean
+  created_by_unset: Boolean
+  buffer_before_min_unset: Boolean
+  special_price_inc: Float
+  servicePricingByStaff: Boolean
+  duration_minutes: Int
+  special_price: Float
+  created_at: DateTime
+  special_price_unset: Boolean
+  name_unset: Boolean
+  buffer_after_min_inc: Int
+  staff_id_unset: Boolean
+  nonDiscountedPrice_unset: Boolean
+  updated_at: DateTime
+  site_id: AdvancepricingSite_idRelationInput
+  buffer_before_min_inc: Int
+  nonDiscountedPrice: Float
+  workspace_id_unset: Boolean
+  staff_id: AdvancepricingStaff_idRelationInput
+  priceType: String
+  deleted_at_unset: Boolean
+  buffer_after_min: Int
+  duration_hours: Int
+  price_type: String
+  _id: ObjectId
+  name: String
+  duration_minutes_unset: Boolean
+  nonDiscountedPrice_inc: Float
+  updated_at_unset: Boolean
+  deleted_at: DateTime
+  duration_hours_unset: Boolean
+  _id_unset: Boolean
+  workspace_id: AdvancepricingWorkspace_idRelationInput
+}
+
+input LocationsettingUpdateInput {
+  _id: ObjectId
+  created_at_unset: Boolean
+  inperson: LocationsettingInpersonUpdateInput
+  created_by_unset: Boolean
+  video: LocationsettingVideoUpdateInput
+  created_by: LocationsettingCreated_byRelationInput
+  deleted: Boolean
+  inperson_unset: Boolean
+  updated_at_unset: Boolean
+  site_id: LocationsettingSite_idRelationInput
+  deleted_at: DateTime
+  workspace_id: LocationsettingWorkspace_idRelationInput
+  video_unset: Boolean
+  oncall: LocationsettingOncallUpdateInput
+  active: Boolean
+  location_id: LocationsettingLocation_idRelationInput
+  oncall_unset: Boolean
+  deleted_unset: Boolean
+  workspace_id_unset: Boolean
+  site_id_unset: Boolean
+  active_unset: Boolean
+  location_id_unset: Boolean
+  created_at: DateTime
+  _id_unset: Boolean
+  deleted_at_unset: Boolean
+  updated_at: DateTime
+}
+
+input WorkspaceQueryInput {
+  created_by_lte: ObjectId
+  created_by_exists: Boolean
+  _id: ObjectId
+  color_code_exists: Boolean
+  active: Boolean
+  display_order_lte: Int
+  time_zone_lte: String
+  default_language_lt: String
+  new_business: Boolean
+  created_at_exists: Boolean
+  _id_lt: ObjectId
+  name_ne: String
+  created_at_ne: DateTime
+  created_at_gte: DateTime
+  name_lte: String
+  type: String
+  created_by_nin: [ObjectId]
+  created_by_in: [ObjectId]
+  time_zone_lt: String
+  time_zone_in: [String]
+  created_by_ne: ObjectId
+  color_code_in: [String]
+  _id_gte: ObjectId
+  default_language_ne: String
+  display_order_lt: Int
+  _id_ne: ObjectId
+  default_language_nin: [String]
+  default_language: String
+  default_language_exists: Boolean
+  created_by_gt: ObjectId
+  display_order_exists: Boolean
+  deleted_at_exists: Boolean
+  time_zone_nin: [String]
+  display_name_nin: [String]
+  deleted_at_lte: DateTime
+  is_owner_ne: Boolean
+  created_by_lt: ObjectId
+  created_by_gte: ObjectId
+  delete_ne: Boolean
+  _id_nin: [ObjectId]
+  name_gt: String
+  created_at_lt: DateTime
+  name: String
+  color_code: String
+  color_code_gt: String
+  OR: [WorkspaceQueryInput!]
+  default_language_gt: String
+  updated_at_nin: [DateTime]
+  updated_at_lt: DateTime
+  is_owner_exists: Boolean
+  default_language_lte: String
+  updated_at_gte: DateTime
+  updated_at_lte: DateTime
+  accessible_ne: Boolean
+  updated_at_in: [DateTime]
+  name_in: [String]
+  time_zone_exists: Boolean
+  updated_at: DateTime
+  default_language_in: [String]
+  delete: Boolean
+  name_lt: String
+  created_at: DateTime
+  color_code_lte: String
+  _id_lte: ObjectId
+  time_zone_ne: String
+  deleted_at_gte: DateTime
+  type_lt: String
+  _id_gt: ObjectId
+  updated_at_gt: DateTime
+  new_business_exists: Boolean
+  name_nin: [String]
+  type_gt: String
+  _id_exists: Boolean
+  created_by: ObjectId
+  display_order: Int
+  deleted_at_gt: DateTime
+  display_order_gt: Int
+  new_business_ne: Boolean
+  display_name: String
+  color_code_ne: String
+  type_exists: Boolean
+  color_code_nin: [String]
+  deleted_at_lt: DateTime
+  display_name_lte: String
+  type_gte: String
+  accessible_exists: Boolean
+  type_ne: String
+  deleted_at: DateTime
+  created_at_gt: DateTime
+  time_zone: String
+  is_owner: Boolean
+  accessible: Boolean
+  site_id_exists: Boolean
+  display_name_ne: String
+  created_at_lte: DateTime
+  deleted_at_in: [DateTime]
+  site_id: SiteQueryInput
+  display_name_lt: String
+  display_order_ne: Int
+  display_name_gt: String
+  display_name_in: [String]
+  color_code_gte: String
+  type_nin: [String]
+  display_order_gte: Int
+  name_exists: Boolean
+  deleted_at_nin: [DateTime]
+  color_code_lt: String
+  active_ne: Boolean
+  created_at_nin: [DateTime]
+  display_name_exists: Boolean
+  delete_exists: Boolean
+  time_zone_gte: String
+  type_in: [String]
+  updated_at_exists: Boolean
+  active_exists: Boolean
+  name_gte: String
+  default_language_gte: String
+  deleted_at_ne: DateTime
+  display_name_gte: String
+  display_order_nin: [Int]
+  display_order_in: [Int]
+  time_zone_gt: String
+  updated_at_ne: DateTime
+  _id_in: [ObjectId]
+  AND: [WorkspaceQueryInput!]
+  type_lte: String
+  created_at_in: [DateTime]
+}
+
+input StaffPhoneQueryInput {
+  type: String
+  type_lte: String
+  no_lte: String
+  no_gte: String
+  type_lt: String
+  name: String
+  type_ne: String
+  country_code: String
+  country_code_gte: String
+  no_lt: String
+  type_gte: String
+  no_exists: Boolean
+  country_code_nin: [String]
+  is_verified_ne: Boolean
+  name_exists: Boolean
+  country_code_in: [String]
+  is_verified: Boolean
+  name_lt: String
+  name_gt: String
+  name_ne: String
+  type_nin: [String]
+  country_code_lte: String
+  no_gt: String
+  type_gt: String
+  no_ne: String
+  type_in: [String]
+  is_verified_exists: Boolean
+  name_nin: [String]
+  type_exists: Boolean
+  country_code_lt: String
+  no_in: [String]
+  no_nin: [String]
+  AND: [StaffPhoneQueryInput!]
+  country_code_ne: String
+  name_lte: String
+  name_gte: String
+  country_code_gt: String
+  country_code_exists: Boolean
+  no: String
+  name_in: [String]
+  OR: [StaffPhoneQueryInput!]
+}
+
+type EventAvailability_range {
+  Indefinitely: Boolean
+  advance: EventAvailability_rangeAdvance
+  date_range: EventAvailability_rangeDate_range
+}
+
+type Workspace {
+  _id: ObjectId
+  accessible: Boolean
+  active: Boolean
+  color_code: String
+  created_at: DateTime
+  created_by: ObjectId
+  default_language: String
+  delete: Boolean
+  deleted_at: DateTime
+  display_name: String
+  display_order: Int
+  is_owner: Boolean
+  name: String
+  new_business: Boolean
+  site_id: Site
+  time_zone: String
+  type: String
+  updated_at: DateTime
+}
+
+input WorkspaceSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input PermissionInsertInput {
+  category: String
+  name: String
+  site_id: PermissionSite_idRelationInput
+  system_name: String
+  workspace_id: PermissionWorkspace_idRelationInput
+  _id: ObjectId
+}
+
+input EventUpdateInput {
+  scheduling_notice: EventScheduling_noticeUpdateInput
+  site_id_unset: Boolean
+  avatar_or_icon: String
+  _id_unset: Boolean
+  multiple_pricing_enabled_unset: Boolean
+  workspace_id: EventWorkspace_idRelationInput
+  tax_percentage: Float
+  active_unset: Boolean
+  event_staff_mapping_ids_unset: Boolean
+  event_one_on_one: Boolean
+  add_on_ids: EventAdd_on_idsRelationInput
+  color_code: String
+  avatar_or_icon_path_unset: Boolean
+  retailPrice_inc: Float
+  servicePricing_by_staff_enabled_unset: Boolean
+  roomRequired: Boolean
+  prefered_gender_unset: Boolean
+  retailPrice_unset: Boolean
+  buffer_after_min_unset: Boolean
+  excluded_unset: Boolean
+  tax_percentage_inc: Float
+  hide_duration_on_booking_page_unset: Boolean
+  enable_accept_payments: Boolean
+  latest_appointment_unset: Boolean
+  workspace_id_unset: Boolean
+  _id: ObjectId
+  multiple_duration_unset: Boolean
+  taxable_unset: Boolean
+  booking_limit_unset: Boolean
+  payment_show_in_booking_page_unset: Boolean
+  staff_conformation_unset: Boolean
+  rosource_id_unset: Boolean
+  type: String
+  voucher_enabled_unset: Boolean
+  name_unset: Boolean
+  enable_appointment_at_fixed_time_unset: Boolean
+  prefered_gender: String
+  staff_commission_percentage: Float
+  minDurationInSeconds_inc: Int
+  voucher_id_unset: Boolean
+  maxDurationInSeconds: Int
+  updated_at_unset: Boolean
+  location_setting_ids: EventLocation_setting_idsRelationInput
+  description: String
+  currency: String
+  color_code_unset: Boolean
+  included_unset: Boolean
+  time_zone: String
+  special_price_inc: Float
+  advance_pricing_ids_unset: Boolean
+  special_price: Float
+  occupancy_inc: Int
+  delete: Boolean
+  is_recurring: Boolean
+  display_name_unset: Boolean
+  taxable: Boolean
+  timing_ids: EventTiming_idsRelationInput
+  booking_limit: Int
+  booking_url_unset: Boolean
+  limit_booking_unset: Boolean
+  availability_range_unset: Boolean
+  duration_hours: Int
+  display_order: Int
+  display_booking_page_unset: Boolean
+  duration_minutes: Int
+  payment_type: String
+  included: [EventIncludedUpdateInput]
+  servicePricing_by_staff_enabled: Boolean
+  deleted_at: DateTime
+  created_by_unset: Boolean
+  allow_multiple_appointment: Boolean
+  event_collective: Boolean
+  display_order_inc: Int
+  voucherEnabled: Boolean
+  require_payment_for_events: Boolean
+  occupancy_unset: Boolean
+  resourceRequired: Boolean
+  created_at: DateTime
+  no_of_multiple_appointment_unset: Boolean
+  maxDurationInSeconds_inc: Int
+  display_name: String
+  duration_hours_inc: Int
+  advanced_appointment: Int
+  maxDurationInSeconds_unset: Boolean
+  staff_commission: Boolean
+  date_range_enable: Boolean
+  no_of_multiple_appointment: Int
+  extra_time_type: String
+  description_unset: Boolean
+  voucher_id: ObjectId
+  rosource_id: ObjectId
+  occupancy: Int
+  event_category_id_unset: Boolean
+  active: Boolean
+  extra_time_in_seconds_unset: Boolean
+  staff_commission_percentage_unset: Boolean
+  priceType_unset: Boolean
+  advance_pricing_ids: EventAdvance_pricing_idsRelationInput
+  event_one_on_one_unset: Boolean
+  name: String
+  deposit_inc: Float
+  staff_conformation: Boolean
+  duration_hours_unset: Boolean
+  advanced_appointment_inc: Int
+  currency_unset: Boolean
+  enable_appointment_at_fixed_time: Boolean
+  add_on_ids_unset: Boolean
+  delete_unset: Boolean
+  require_payment_for_events_unset: Boolean
+  priceType: String
+  advanced_pricing: Boolean
+  multiple_pricing_enabled: Boolean
+  roomRequired_unset: Boolean
+  accept_deposits: Boolean
+  site_id: EventSite_idRelationInput
+  event_round_robin_unset: Boolean
+  staff_unset: Boolean
+  booking_limit_inc: Int
+  allow_waitlist_unset: Boolean
+  advanced_pricing_unset: Boolean
+  display_booking_page: Boolean
+  voucherExpirationPeriod_unset: Boolean
+  availability_range: EventAvailability_rangeUpdateInput
+  scheduling_notice_unset: Boolean
+  staff_commission_unset: Boolean
+  voucherExpirationPeriod: String
+  limit_booking: Boolean
+  accept_deposits_unset: Boolean
+  running_status: Boolean
+  minDurationInSeconds: Int
+  buffer_before_min_inc: Int
+  enable_accept_payments_unset: Boolean
+  duration_minutes_inc: Int
+  advanced_appointment_unset: Boolean
+  voucher_enabled: Boolean
+  event_collective_unset: Boolean
+  payment_type_unset: Boolean
+  buffer_before_min_unset: Boolean
+  allow_multiple_appointment_unset: Boolean
+  type_unset: Boolean
+  display_order_unset: Boolean
+  event_round_robin: Boolean
+  staff: EventStaffRelationInput
+  buffer_after_min: Int
+  resourceRequired_unset: Boolean
+  buffer_after_min_inc: Int
+  minDurationInSeconds_unset: Boolean
+  buffer_before_min: Int
+  business_id_unset: Boolean
+  sortingId_unset: Boolean
+  tax_percentage_unset: Boolean
+  updated_at: DateTime
+  excluded: [EventExcludedUpdateInput]
+  business_timings: Boolean
+  allow_waitlist: Boolean
+  event_staff_mapping_ids: EventEvent_staff_mapping_idsRelationInput
+  extra_time_in_seconds_inc: Int
+  voucherEnabled_unset: Boolean
+  event_group: Boolean
+  extra_time_type_unset: Boolean
+  deposit_unset: Boolean
+  time_zone_unset: Boolean
+  duration_minutes_unset: Boolean
+  latest_appointment_inc: Int
+  latest_appointment: Int
+  avatar_or_icon_unset: Boolean
+  event_group_unset: Boolean
+  created_by: EventCreated_byRelationInput
+  location_setting_ids_unset: Boolean
+  avatar_or_icon_path: String
+  commissionEnabled: Boolean
+  commissionEnabled_unset: Boolean
+  running_status_unset: Boolean
+  deposit: Float
+  deleted_at_unset: Boolean
+  business_timings_unset: Boolean
+  payment_show_in_booking_page: Boolean
+  special_price_unset: Boolean
+  roomId: ObjectId
+  sortingId: Int
+  timing_ids_unset: Boolean
+  booking_url: String
+  is_recurring_unset: Boolean
+  sortingId_inc: Int
+  business_id: [ObjectId]
+  multiple_duration: Boolean
+  roomId_unset: Boolean
+  no_of_multiple_appointment_inc: Int
+  extra_time_in_seconds: Int
+  retailPrice: Float
+  date_range_enable_unset: Boolean
+  event_category_id: EventEvent_category_idRelationInput
+  staff_commission_percentage_inc: Float
+  hide_duration_on_booking_page: Boolean
+  created_at_unset: Boolean
+}
+
+type BusinessSocial_network {
+  link: String
+  network: String
+}
+
+enum PermissionSortByInput {
+  _ID_DESC
+  CATEGORY_ASC
+  CATEGORY_DESC
+  NAME_ASC
+  SITE_ID_ASC
+  SYSTEM_NAME_ASC
+  SYSTEM_NAME_DESC
+  _ID_ASC
+  NAME_DESC
+  SITE_ID_DESC
+  WORKSPACE_ID_ASC
+  WORKSPACE_ID_DESC
+}
+
+input BusinessinfoWorkspace_idRelationInput {
+  create: [WorkspaceInsertInput]
+  link: [ObjectId]
+}
+
+input StaffStaff_detail_idRelationInput {
+  create: [StaffdetailInsertInput]
+  link: [ObjectId]
+}
+
+input BusinessinfoPolicyUpdateInput {
+  terms_and_condition_unset: Boolean
+  appointment: String
+  appointment_unset: Boolean
+  cancellation: String
+  cancellation_unset: Boolean
+  terms_and_condition: String
+}
+
+input EventAvailability_rangeQueryInput {
+  advance_exists: Boolean
+  date_range: EventAvailability_rangeDate_rangeQueryInput
+  Indefinitely_exists: Boolean
+  AND: [EventAvailability_rangeQueryInput!]
+  OR: [EventAvailability_rangeQueryInput!]
+  Indefinitely_ne: Boolean
+  advance: EventAvailability_rangeAdvanceQueryInput
+  date_range_exists: Boolean
+  Indefinitely: Boolean
+}
+
+type Eventcategory {
+  _id: ObjectId
+  accessible: Boolean
+  active: Boolean
+  category_name: String
+  color_code: String
+  created_at: DateTime
+  created_by: Staff
+  deleted: Boolean
+  deleted_at: DateTime
+  icon: String
+  icon_path: String
+  parant_category_id: ObjectId
+  site_id: Site
+  type: String
+  updated_at: DateTime
+  workspace_id: Workspace
+}
+
+input AddonInsertInput {
+  variant: [AddonVariantInsertInput]
+  once_per_order: Boolean
+  price: Float
+  _id: ObjectId
+  delete: Boolean
+  name: String
+  show_multiple_time: Boolean
+  event_ids: AddonEvent_idsRelationInput
+  site_id: AddonSite_idRelationInput
+  workspace_ids: AddonWorkspace_idsRelationInput
+  active: Boolean
+}
+
+input StaffPhoneUpdateInput {
+  country_code_unset: Boolean
+  is_verified_unset: Boolean
+  name_unset: Boolean
+  no: String
+  no_unset: Boolean
+  type_unset: Boolean
+  country_code: String
+  is_verified: Boolean
+  type: String
+  name: String
+}
+
+input EventAvailability_rangeDate_rangeQueryInput {
+  from_exists: Boolean
+  to: DateTime
+  from_lt: DateTime
+  from_in: [DateTime]
+  from_gte: DateTime
+  to_nin: [DateTime]
+  from_gt: DateTime
+  to_exists: Boolean
+  to_lt: DateTime
+  from_ne: DateTime
+  from_lte: DateTime
+  to_in: [DateTime]
+  to_ne: DateTime
+  from_nin: [DateTime]
+  to_gte: DateTime
+  AND: [EventAvailability_rangeDate_rangeQueryInput!]
+  from: DateTime
+  to_gt: DateTime
+  OR: [EventAvailability_rangeDate_rangeQueryInput!]
+  to_lte: DateTime
+}
+
+enum AdvancepricingSortByInput {
+  BUFFER_BEFORE_MIN_DESC
+  CREATED_BY_DESC
+  NAME_DESC
+  PRICE_TYPE_DESC
+  SITE_ID_ASC
+  BUFFER_AFTER_MIN_ASC
+  NAME_ASC
+  CREATED_AT_ASC
+  CURRENCY_ASC
+  CURRENCY_DESC
+  RETAIL_PRICE_ASC
+  RETAIL_PRICE_DESC
+  SPECIAL_PRICE_DESC
+  _ID_DESC
+  BUFFER_BEFORE_MIN_ASC
+  SITE_ID_DESC
+  CREATED_BY_ASC
+  DURATION_HOURS_ASC
+  SPECIAL_PRICE_ASC
+  UPDATED_AT_DESC
+  BUFFER_AFTER_MIN_DESC
+  DURATION_MINUTES_DESC
+  NON_DISCOUNTED_PRICE_ASC
+  PRICE_TYPE_ASC
+  WORKSPACE_ID_DESC
+  DELETED_AT_ASC
+  DELETED_AT_DESC
+  DURATION_HOURS_DESC
+  DURATION_MINUTES_ASC
+  NON_DISCOUNTED_PRICE_DESC
+  STAFF_ID_ASC
+  STAFF_ID_DESC
+  UPDATED_AT_ASC
+  _ID_ASC
+  CREATED_AT_DESC
+  WORKSPACE_ID_ASC
+}
+
+input UserRole_idsRelationInput {
+  create: [RoleInsertInput]
+  link: [ObjectId]
+}
+
+input Events_satff_mappingQueryInput {
+  _id_exists: Boolean
+  updated_at_lte: DateTime
+  created_at_lt: DateTime
+  AND: [Events_satff_mappingQueryInput!]
+  _id_gte: ObjectId
+  created_at_nin: [DateTime]
+  deleted_at_gte: DateTime
+  event_id_exists: Boolean
+  _id_in: [ObjectId]
+  _id_lt: ObjectId
+  _id: ObjectId
+  deleted_at_exists: Boolean
+  event_id: EventQueryInput
+  deleted_at_ne: DateTime
+  workspace_ids_exists: Boolean
+  deleted_at: DateTime
+  updated_at_in: [DateTime]
+  _id_gt: ObjectId
+  updated_at_gte: DateTime
+  updated_at_exists: Boolean
+  _id_ne: ObjectId
+  updated_at_nin: [DateTime]
+  deleted_at_gt: DateTime
+  created_at_ne: DateTime
+  _id_nin: [ObjectId]
+  updated_at_lt: DateTime
+  updated_at_gt: DateTime
+  updated_at_ne: DateTime
+  created_by: StaffQueryInput
+  deleted_at_in: [DateTime]
+  created_at_lte: DateTime
+  staff_id_exists: Boolean
+  workspace_ids: [WorkspaceQueryInput]
+  workspace_ids_in: [WorkspaceQueryInput]
+  created_at_gt: DateTime
+  deleted_at_lt: DateTime
+  created_at_exists: Boolean
+  created_by_exists: Boolean
+  created_at_in: [DateTime]
+  created_at_gte: DateTime
+  workspace_ids_nin: [WorkspaceQueryInput]
+  updated_at: DateTime
+  deleted_at_nin: [DateTime]
+  site_id_exists: Boolean
+  _id_lte: ObjectId
+  deleted_at_lte: DateTime
+  staff_id: StaffQueryInput
+  site_id: SiteQueryInput
+  OR: [Events_satff_mappingQueryInput!]
+  created_at: DateTime
+}
+
+input StaffCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input BusinessinfoCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input LocationsettingCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input LocationsettingVideoInsertInput {
+  type: String
+  integration_id: String
+}
+
+type Role {
+  _id: ObjectId
+  active: Boolean
+  createdOn_utc: DateTime
+  delete: Boolean
+  is_system_role: Boolean
+  name: String
+  permission_ids: [Permission]
+  site_id: Site
+  system_name: String
+  workspace_id: Workspace
+}
+
+enum AddressSortByInput {
+  STATE_ASC
+  ADDRESS2_ASC
+  CREATED_BY_DESC
+  DELETED_AT_ASC
+  SITE_ID_DESC
+  DELETED_AT_DESC
+  _ID_DESC
+  ACCOUNT_STATUS_ASC
+  COUNTRY_ASC
+  CREATED_BY_ASC
+  ACCOUNT_STATUS_DESC
+  LATITUDE_ASC
+  LATITUDE_DESC
+  CITY_ASC
+  LONGITUDE_ASC
+  CREATED_AT_ASC
+  EMAIL_ASC
+  UPDATED_AT_ASC
+  SITE_ID_ASC
+  STATE_DESC
+  UPDATED_AT_DESC
+  ZIPCODE_DESC
+  CITY_DESC
+  COUNTRY_DESC
+  EMAIL_DESC
+  LONGITUDE_DESC
+  ADDRESS1_DESC
+  CREATED_AT_DESC
+  TYPE_ASC
+  TYPE_DESC
+  _ID_ASC
+  ADDRESS1_ASC
+  ADDRESS2_DESC
+  ZIPCODE_ASC
+}
+
+input EventIncludedInsertInput {
+  name: String
+  price: Float
+  type: String
+  extra_price: Boolean
+}
+
+input EventAvailability_rangeDate_rangeInsertInput {
+  from: DateTime
+  to: DateTime
+}
+
+input TimingQueryInput {
+  work_day_name_gt: String
+  name_ne: String
+  work_day_name_nin: [String]
+  custom_hour: Boolean
+  service_ids_exists: Boolean
+  _id: ObjectId
+  time_zone_nin: [String]
+  work_day_name_ne: String
+  end_time_exists: Boolean
+  created_at_gt: DateTime
+  timing_order: Int
+  work_day_id_gt: Int
+  work_day_duration_ne: Int
+  deleted_at_gte: DateTime
+  start_time_gt: String
+  updated_at_nin: [DateTime]
+  _id_exists: Boolean
+  start_time_lt: String
+  include_weekends_exists: Boolean
+  work_day_id_gte: Int
+  start_time_ne: String
+  work_day_name_lt: String
+  updated_at: DateTime
+  name_gte: String
+  deleted_at_lt: DateTime
+  name_in: [String]
+  work_day_name_lte: String
+  breaktime_exists: Boolean
+  service_ids_in: [ObjectId]
+  location_setting_ids: [LocationsettingQueryInput]
+  work_day_duration_lt: Int
+  _id_gte: ObjectId
+  created_at_gte: DateTime
+  breaktime: [TimingBreaktimeQueryInput]
+  start_time_exists: Boolean
+  updated_at_gte: DateTime
+  name: String
+  updated_at_in: [DateTime]
+  name_lte: String
+  recurringRule_exists: Boolean
+  deleted_at_gt: DateTime
+  start_time_gte: String
+  workspace_ids_in: [WorkspaceQueryInput]
+  workspace_ids_exists: Boolean
+  is_override_block_exists: Boolean
+  workspace_ids_nin: [WorkspaceQueryInput]
+  updated_at_gt: DateTime
+  work_day_id_exists: Boolean
+  site_id: SiteQueryInput
+  start_time_in: [String]
+  created_at_lte: DateTime
+  include_weekends: Boolean
+  time_zone_gte: String
+  AND: [TimingQueryInput!]
+  OR: [TimingQueryInput!]
+  end_time_gt: String
+  timing_order_exists: Boolean
+  custom_hour_exists: Boolean
+  name_nin: [String]
+  timing_order_lte: Int
+  timing_order_gt: Int
+  work_day_duration_lte: Int
+  breaktime_nin: [TimingBreaktimeQueryInput]
+  deleted_at_ne: DateTime
+  work_day_id_nin: [Int]
+  location_setting_ids_in: [LocationsettingQueryInput]
+  work_day_id: Int
+  time_zone_gt: String
+  work_day_name_gte: String
+  work_day_id_lt: Int
+  created_at_in: [DateTime]
+  timing_order_lt: Int
+  timing_order_gte: Int
+  type_gt: String
+  business_hour_exists: Boolean
+  work_day_duration_in: [Int]
+  timing_order_in: [Int]
+  breaktime_in: [TimingBreaktimeQueryInput]
+  end_time_ne: String
+  deleted_at_in: [DateTime]
+  work_day_name_in: [String]
+  is_override_block: Boolean
+  created_by_exists: Boolean
+  start_time: String
+  _id_lte: ObjectId
+  work_day_duration_gt: Int
+  time_zone_ne: String
+  type_in: [String]
+  business_hour: Boolean
+  created_at_exists: Boolean
+  service_ids_nin: [ObjectId]
+  location_setting_ids_exists: Boolean
+  work_day_name: String
+  service_ids: [ObjectId]
+  deleted_at_nin: [DateTime]
+  location_setting_ids_nin: [LocationsettingQueryInput]
+  _id_nin: [ObjectId]
+  updated_at_lt: DateTime
+  work_day_id_in: [Int]
+  created_at_ne: DateTime
+  type_nin: [String]
+  deleted_at_exists: Boolean
+  time_zone_in: [String]
+  name_gt: String
+  end_time_gte: String
+  workspace_ids: [WorkspaceQueryInput]
+  name_exists: Boolean
+  work_day_duration_gte: Int
+  type_ne: String
+  created_by: StaffQueryInput
+  is_override_block_ne: Boolean
+  time_zone_lt: String
+  work_day_id_ne: Int
+  work_day_id_lte: Int
+  _id_gt: ObjectId
+  type_lte: String
+  work_day_duration: Int
+  type_exists: Boolean
+  updated_at_lte: DateTime
+  end_time_in: [String]
+  deleted_at_lte: DateTime
+  work_day_duration_exists: Boolean
+  end_time_lte: String
+  created_at_nin: [DateTime]
+  start_time_nin: [String]
+  start_time_lte: String
+  created_at_lt: DateTime
+  created_at: DateTime
+  updated_at_ne: DateTime
+  type: String
+  timing_order_nin: [Int]
+  site_id_exists: Boolean
+  end_time_nin: [String]
+  time_zone_exists: Boolean
+  name_lt: String
+  type_gte: String
+  _id_ne: ObjectId
+  _id_lt: ObjectId
+  deleted_at: DateTime
+  end_time: String
+  time_zone: String
+  end_time_lt: String
+  type_lt: String
+  business_hour_ne: Boolean
+  recurringRule: TimingRecurringRuleQueryInput
+  timing_order_ne: Int
+  work_day_duration_nin: [Int]
+  updated_at_exists: Boolean
+  work_day_name_exists: Boolean
+  include_weekends_ne: Boolean
+  time_zone_lte: String
+  _id_in: [ObjectId]
+  custom_hour_ne: Boolean
+}
+
+input AcpwinfoQueryInput {
+  password_ne: String
+  created_at_lte: DateTime
+  created_from_in: [String]
+  created_at_lt: DateTime
+  password_format_id_nin: [Float]
+  password_salt_lt: String
+  created_from_lte: String
+  default: Boolean
+  password_expire_dateUtc: DateTime
+  created_from_lt: String
+  _id_gte: ObjectId
+  password_format_id_gt: Float
+  password_salt_lte: String
+  password_format_id_lte: Float
+  created_from_gte: String
+  updated_at_lte: DateTime
+  password_salt_nin: [String]
+  password_gt: String
+  _id_in: [ObjectId]
+  updated_at_gte: DateTime
+  password_expire_dateUtc_in: [DateTime]
+  password_format_id: Float
+  password_salt_ne: String
+  password_salt_exists: Boolean
+  password_expired_exists: Boolean
+  password_format_id_in: [Float]
+  updated_at_exists: Boolean
+  _id_nin: [ObjectId]
+  created_at_exists: Boolean
+  password_format_id_gte: Float
+  created_from_gt: String
+  _id: ObjectId
+  _id_lte: ObjectId
+  _id_exists: Boolean
+  created_at_ne: DateTime
+  password_expired: Boolean
+  password_change_dateUtc: DateTime
+  password_salt_gt: String
+  password_format_id_exists: Boolean
+  updated_at_nin: [DateTime]
+  _id_gt: ObjectId
+  password_change_dateUtc_lte: DateTime
+  password: String
+  password_expire_dateUtc_nin: [DateTime]
+  password_lte: String
+  password_format_id_lt: Float
+  created_at_gte: DateTime
+  updated_at_ne: DateTime
+  password_expire_dateUtc_gt: DateTime
+  updated_at: DateTime
+  default_ne: Boolean
+  updated_at_gt: DateTime
+  created_at_gt: DateTime
+  created_from_exists: Boolean
+  password_change_dateUtc_lt: DateTime
+  password_expire_dateUtc_exists: Boolean
+  OR: [AcpwinfoQueryInput!]
+  password_change_dateUtc_in: [DateTime]
+  password_nin: [String]
+  password_salt_gte: String
+  password_salt_in: [String]
+  password_gte: String
+  created_from_ne: String
+  password_change_dateUtc_ne: DateTime
+  created_at: DateTime
+  AND: [AcpwinfoQueryInput!]
+  _id_lt: ObjectId
+  password_change_dateUtc_gte: DateTime
+  password_exists: Boolean
+  password_expired_ne: Boolean
+  password_change_dateUtc_nin: [DateTime]
+  created_at_in: [DateTime]
+  created_from: String
+  updated_at_lt: DateTime
+  created_from_nin: [String]
+  password_change_dateUtc_gt: DateTime
+  password_lt: String
+  created_at_nin: [DateTime]
+  password_format_id_ne: Float
+  password_expire_dateUtc_ne: DateTime
+  _id_ne: ObjectId
+  password_change_dateUtc_exists: Boolean
+  password_expire_dateUtc_lte: DateTime
+  password_expire_dateUtc_gte: DateTime
+  password_salt: String
+  default_exists: Boolean
+  password_expire_dateUtc_lt: DateTime
+  updated_at_in: [DateTime]
+  password_in: [String]
+}
+
+input EventAvailability_rangeInsertInput {
+  Indefinitely: Boolean
+  advance: EventAvailability_rangeAdvanceInsertInput
+  date_range: EventAvailability_rangeDate_rangeInsertInput
+}
+
+input Events_satff_mappingCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input EventAvailability_rangeAdvanceInsertInput {
+  type: String
+  no: Int
+}
+
+input AcpwinfoUpdateInput {
+  password: String
+  _id_unset: Boolean
+  created_at: DateTime
+  password_expired_unset: Boolean
+  password_format_id: Float
+  default: Boolean
+  updated_at: DateTime
+  password_salt: String
+  password_salt_unset: Boolean
+  updated_at_unset: Boolean
+  password_change_dateUtc_unset: Boolean
+  password_format_id_unset: Boolean
+  password_format_id_inc: Float
+  password_unset: Boolean
+  password_expire_dateUtc_unset: Boolean
+  password_expired: Boolean
+  default_unset: Boolean
+  password_expire_dateUtc: DateTime
+  _id: ObjectId
+  password_change_dateUtc: DateTime
+  created_from_unset: Boolean
+  created_at_unset: Boolean
+  created_from: String
+}
+
+input StaffdetailSyncQueryInput {
+  type_gt: String
+  key_lte: String
+  key_ne: String
+  key_nin: [String]
+  type_ne: String
+  key_in: [String]
+  type_lt: String
+  AND: [StaffdetailSyncQueryInput!]
+  type_gte: String
+  type_lte: String
+  type: String
+  key_gte: String
+  type_nin: [String]
+  key_lt: String
+  key: String
+  type_in: [String]
+  key_exists: Boolean
+  OR: [StaffdetailSyncQueryInput!]
+  type_exists: Boolean
+  key_gt: String
+}
+
+input BusinessCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input Events_satff_mappingInsertInput {
+  updated_at: DateTime
+  deleted_at: DateTime
+  created_at: DateTime
+  staff_id: Events_satff_mappingStaff_idRelationInput
+  site_id: Events_satff_mappingSite_idRelationInput
+  workspace_ids: Events_satff_mappingWorkspace_idsRelationInput
+  _id: ObjectId
+  event_id: Events_satff_mappingEvent_idRelationInput
+  created_by: Events_satff_mappingCreated_byRelationInput
+}
+
+input EventAvailability_rangeUpdateInput {
+  advance: EventAvailability_rangeAdvanceUpdateInput
+  advance_unset: Boolean
+  date_range: EventAvailability_rangeDate_rangeUpdateInput
+  date_range_unset: Boolean
+  Indefinitely: Boolean
+  Indefinitely_unset: Boolean
+}
+
+input TimingRecurringRuleUpdateInput {
+  repeatEvery_unset: Boolean
+  repeatEvery_inc: Int
+  until: DateTime
+  until_unset: Boolean
+  freq: String
+  freq_unset: Boolean
+  repeatEvery: Int
+}
+
+input AddressWorkspace_idRelationInput {
+  create: [WorkspaceInsertInput]
+  link: [ObjectId]
+}
+
+input StaffSocial_networkInsertInput {
+  network: String
+  link: String
+}
+
+input EventSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input EventAdd_on_idsRelationInput {
+  link: [ObjectId]
+  create: [AddonInsertInput]
+}
+
+input AddonSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input AdvancepricingStaff_idRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input StaffUpdateInput {
+  created_by_unset: Boolean
+  staff_detail_id: StaffStaff_detail_idRelationInput
+  created_at_unset: Boolean
+  is_email_verified: Boolean
+  user_id: StaffUser_idRelationInput
+  title: String
+  created_by: StaffCreated_byRelationInput
+  name: String
+  sortingId_inc: Int
+  color_code: String
+  deleted_at: DateTime
+  workspace_ids_unset: Boolean
+  _id_unset: Boolean
+  site_id: StaffSite_idRelationInput
+  first_name: String
+  updated_at: DateTime
+  employement_to_unset: Boolean
+  email_verified_date_time_unset: Boolean
+  last_name_unset: Boolean
+  employement_to: DateTime
+  site_owener: Boolean
+  is_email_verified_unset: Boolean
+  gender_unset: Boolean
+  name_unset: Boolean
+  description_unset: Boolean
+  _id: ObjectId
+  first_name_unset: Boolean
+  social_network: [StaffSocial_networkUpdateInput]
+  avatar_or_icon: String
+  last_name: String
+  employement_from_unset: Boolean
+  gender: String
+  experience_year_unset: Boolean
+  sortingId_unset: Boolean
+  updated_at_unset: Boolean
+  email_unset: Boolean
+  showSocialShare: Boolean
+  staff_detail_id_unset: Boolean
+  avatar_or_icon_path_unset: Boolean
+  slug_unset: Boolean
+  workspace_ids: StaffWorkspace_idsRelationInput
+  experience_month: Int
+  sortingId: Int
+  color_code_unset: Boolean
+  display_name_unset: Boolean
+  avatar_or_icon_unset: Boolean
+  user_id_unset: Boolean
+  phone: [StaffPhoneUpdateInput]
+  email_verified_date_time: DateTime
+  site_owener_unset: Boolean
+  employement_from: DateTime
+  site_id_unset: Boolean
+  event_staff_mapping_ids: StaffEvent_staff_mapping_idsRelationInput
+  experience_month_unset: Boolean
+  deleted_at_unset: Boolean
+  experience_year_inc: Int
+  created_at: DateTime
+  experience_month_inc: Int
+  experience_year: Int
+  title_unset: Boolean
+  display_name: String
+  phone_unset: Boolean
+  event_staff_mapping_ids_unset: Boolean
+  avatar_or_icon_path: String
+  showSocialShare_unset: Boolean
+  slug: String
+  social_network_unset: Boolean
+  email: String
+  description: String
+}
+
+type Location {
+  _id: ObjectId
+  active: Boolean
+  app_integration_need: Boolean
+  created_at: DateTime
+  deleted: Boolean
+  deleted_at: DateTime
+  name: String
+  type: String
+  type_param: Boolean
+  updated_at: DateTime
+}
+
+enum RoleSortByInput {
+  _ID_DESC
+  CREATEDON_UTC_ASC
+  CREATEDON_UTC_DESC
+  NAME_DESC
+  WORKSPACE_ID_DESC
+  WORKSPACE_ID_ASC
+  _ID_ASC
+  NAME_ASC
+  SITE_ID_ASC
+  SITE_ID_DESC
+  SYSTEM_NAME_ASC
+  SYSTEM_NAME_DESC
+}
+
+input LocationsettingInsertInput {
+  site_id: LocationsettingSite_idRelationInput
+  workspace_id: LocationsettingWorkspace_idRelationInput
+  created_at: DateTime
+  deleted_at: DateTime
+  inperson: LocationsettingInpersonInsertInput
+  location_id: LocationsettingLocation_idRelationInput
+  active: Boolean
+  created_by: LocationsettingCreated_byRelationInput
+  _id: ObjectId
+  deleted: Boolean
+  video: LocationsettingVideoInsertInput
+  oncall: LocationsettingOncallInsertInput
+  updated_at: DateTime
+}
+
+input BusinessInsertInput {
+  updated_at: DateTime
+  created_at: DateTime
+  business_info_ids: BusinessBusiness_info_idsRelationInput
+  color_code: String
+  social_network: [BusinessSocial_networkInsertInput]
+  workspace_id: BusinessWorkspace_idRelationInput
+  type: String
+  created_by: BusinessCreated_byRelationInput
+  staff_size: Int
+  business_branch: String
+  accessible: Boolean
+  web_url: String
+  description: String
+  delete: Boolean
+  active: Boolean
+  avatar_or_icon: String
+  _id: ObjectId
+  deleted_at: DateTime
+  name: String
+  avatar_or_icon_path: String
+  display_name: String
+  email_signature: String
+  showSocialShare: Boolean
+  site_id: BusinessSite_idRelationInput
+}
+
+input EventcategoryInsertInput {
+  accessible: Boolean
+  site_id: EventcategorySite_idRelationInput
+  workspace_id: EventcategoryWorkspace_idRelationInput
+  created_at: DateTime
+  parant_category_id: ObjectId
+  icon_path: String
+  category_name: String
+  created_by: EventcategoryCreated_byRelationInput
+  icon: String
+  _id: ObjectId
+  type: String
+  updated_at: DateTime
+  color_code: String
+  deleted: Boolean
+  active: Boolean
+  deleted_at: DateTime
+}
+
+input LocationInsertInput {
+  app_integration_need: Boolean
+  name: String
+  type_param: Boolean
+  _id: ObjectId
+  deleted: Boolean
+  active: Boolean
+  created_at: DateTime
+  deleted_at: DateTime
+  type: String
+  updated_at: DateTime
+}
+
+enum BusinessinfoSortByInput {
+  BOOKING_LINKS_ASC
+  BUSINESS_HOUR_START_ASC
+  BUSINESS_HOUR_START_DESC
+  TIMEFORMAT_ASC
+  TIMEFORMAT_DESC
+  CREATED_AT_ASC
+  DATE_FORMAT_DESC
+  FIRST_DAY_DESC
+  SITE_ID_DESC
+  TAX_NO_ASC
+  TAX_NO_DESC
+  _ID_DESC
+  BUSINESS_HOUR_END_ASC
+  CREATED_AT_DESC
+  CREATED_BY_DESC
+  DATE_FORMAT_ASC
+  TIME_ZONE_ASC
+  TAX_PERCENTAGE_DESC
+  _ID_ASC
+  FIRST_DAY_ASC
+  BUSINESS_HOUR_END_DESC
+  DELETED_AT_DESC
+  SITE_ID_ASC
+  TIME_ZONE_DESC
+  UPDATED_AT_ASC
+  BOOKING_LINKS_DESC
+  CREATED_BY_ASC
+  DELETED_AT_ASC
+  UPDATED_AT_DESC
+  TAX_PERCENTAGE_ASC
+}
+
+input StaffInsertInput {
+  experience_month: Int
+  avatar_or_icon: String
+  social_network: [StaffSocial_networkInsertInput]
+  employement_from: DateTime
+  first_name: String
+  gender: String
+  site_id: StaffSite_idRelationInput
+  sortingId: Int
+  name: String
+  event_staff_mapping_ids: StaffEvent_staff_mapping_idsRelationInput
+  description: String
+  avatar_or_icon_path: String
+  phone: [StaffPhoneInsertInput]
+  display_name: String
+  showSocialShare: Boolean
+  user_id: StaffUser_idRelationInput
+  last_name: String
+  created_by: StaffCreated_byRelationInput
+  workspace_ids: StaffWorkspace_idsRelationInput
+  _id: ObjectId
+  staff_detail_id: StaffStaff_detail_idRelationInput
+  updated_at: DateTime
+  email: String
+  is_email_verified: Boolean
+  color_code: String
+  employement_to: DateTime
+  created_at: DateTime
+  email_verified_date_time: DateTime
+  deleted_at: DateTime
+  site_owener: Boolean
+  experience_year: Int
+  slug: String
+  title: String
+}
+
+input AddonVariantQueryInput {
+  name_gt: String
+  price_lte: Float
+  name_in: [String]
+  price_gt: Float
+  price_nin: [Float]
+  price_gte: Float
+  AND: [AddonVariantQueryInput!]
+  name_lt: String
+  name_exists: Boolean
+  price_ne: Float
+  price_lt: Float
+  name: String
+  name_gte: String
+  price: Float
+  name_lte: String
+  price_in: [Float]
+  OR: [AddonVariantQueryInput!]
+  price_exists: Boolean
+  name_ne: String
+  name_nin: [String]
+}
+
+input StaffdetailQueryInput {
+  business_timings: Boolean
+  _id_gte: ObjectId
+  sortingId: Int
+  sorting_id_gte: Int
+  timing_ids_in: [TimingQueryInput]
+  invitationStatus_nin: [String]
+  updated_at_ne: DateTime
+  site_id: SiteQueryInput
+  deafult_calendar_view_ne: String
+  sortingId_nin: [Int]
+  workspace_id_exists: Boolean
+  invitationStatus_in: [String]
+  business_id_exists: Boolean
+  sortingId_gt: Int
+  deleted_at_lt: DateTime
+  sortingId_lt: Int
+  sorting_id_lte: Int
+  sorting_id_ne: Int
+  location_setting_ids_nin: [LocationsettingQueryInput]
+  _id_ne: ObjectId
+  events_ids_exists: Boolean
+  sync: [StaffdetailSyncQueryInput]
+  booking_url_in: [String]
+  is_service_provider_exists: Boolean
+  is_sync_enabled: Boolean
+  deleted_at_exists: Boolean
+  invitation_status_accept_exists: Boolean
+  delete: Boolean
+  deafult_calendar_view_gt: String
+  created_by_exists: Boolean
+  timing_ids: [TimingQueryInput]
+  created_at_in: [DateTime]
+  created_at_gt: DateTime
+  updated_at_gt: DateTime
+  timings: [ObjectId]
+  booking_url_lte: String
+  deafult_calendar_view_exists: Boolean
+  booking_url_lt: String
+  deleted_at_nin: [DateTime]
+  invitationStatus_gte: String
+  deafult_calendar_view_in: [String]
+  updated_at_lte: DateTime
+  address_ids_exists: Boolean
+  deafult_calendar_view_nin: [String]
+  staff_commission_exists: Boolean
+  sorting_id_in: [Int]
+  _id_exists: Boolean
+  is_service_provider: Boolean
+  invitationStatus_gt: String
+  active_exists: Boolean
+  is_login_ne: Boolean
+  workspace_id_nin: [WorkspaceQueryInput]
+  business_id: [BusinessQueryInput]
+  booking_url_gte: String
+  _id_lt: ObjectId
+  location_setting_ids_exists: Boolean
+  deleted_at_gt: DateTime
+  invitationStatus_ne: String
+  business_id_nin: [BusinessQueryInput]
+  delete_exists: Boolean
+  booking_url_nin: [String]
+  is_login_exists: Boolean
+  booking_url_ne: String
+  events_ids_nin: [EventQueryInput]
+  events_ids_in: [EventQueryInput]
+  workspace_id_in: [WorkspaceQueryInput]
+  location_setting_ids_in: [LocationsettingQueryInput]
+  created_at_gte: DateTime
+  invitationStatus: String
+  timings_nin: [ObjectId]
+  _id_gt: ObjectId
+  sorting_id_gt: Int
+  site_id_exists: Boolean
+  business_timings_exists: Boolean
+  is_sync_enabled_exists: Boolean
+  address_ids_nin: [AddressQueryInput]
+  deleted_at_ne: DateTime
+  sorting_id_lt: Int
+  business_timings_ne: Boolean
+  deleted_at_lte: DateTime
+  created_at_lte: DateTime
+  deleted_at_in: [DateTime]
+  sortingId_lte: Int
+  address_ids_in: [AddressQueryInput]
+  _id_nin: [ObjectId]
+  paid_plan_commission: Boolean
+  staff_commission_ne: Boolean
+  deleted_at: DateTime
+  _id: ObjectId
+  created_at_nin: [DateTime]
+  timing_ids_exists: Boolean
+  _id_lte: ObjectId
+  booking_url: String
+  staff_commission: Boolean
+  business_id_in: [BusinessQueryInput]
+  is_sync_enabled_ne: Boolean
+  sorting_id: Int
+  OR: [StaffdetailQueryInput!]
+  updated_at_nin: [DateTime]
+  created_at_exists: Boolean
+  timings_in: [ObjectId]
+  sync_exists: Boolean
+  deleted_at_gte: DateTime
+  created_at_lt: DateTime
+  booking_url_gt: String
+  created_at: DateTime
+  updated_at_exists: Boolean
+  sorting_id_exists: Boolean
+  invitationStatus_lt: String
+  sortingId_ne: Int
+  address_ids: [AddressQueryInput]
+  paid_plan_commission_ne: Boolean
+  delete_ne: Boolean
+  sortingId_exists: Boolean
+  updated_at: DateTime
+  invitationStatus_lte: String
+  location_setting_ids: [LocationsettingQueryInput]
+  AND: [StaffdetailQueryInput!]
+  sync_in: [StaffdetailSyncQueryInput]
+  timings_exists: Boolean
+  invitation_status_accept_ne: Boolean
+  invitationStatus_exists: Boolean
+  is_login: Boolean
+  deafult_calendar_view_lte: String
+  booking_url_exists: Boolean
+  sortingId_gte: Int
+  updated_at_gte: DateTime
+  updated_at_in: [DateTime]
+  paid_plan_commission_exists: Boolean
+  deafult_calendar_view: String
+  sync_nin: [StaffdetailSyncQueryInput]
+  sortingId_in: [Int]
+  created_at_ne: DateTime
+  workspace_id: [WorkspaceQueryInput]
+  active_ne: Boolean
+  timing_ids_nin: [TimingQueryInput]
+  invitation_status_accept: Boolean
+  active: Boolean
+  is_service_provider_ne: Boolean
+  updated_at_lt: DateTime
+  sorting_id_nin: [Int]
+  events_ids: [EventQueryInput]
+  deafult_calendar_view_gte: String
+  created_by: StaffQueryInput
+  deafult_calendar_view_lt: String
+  _id_in: [ObjectId]
+}
+
+enum EventSortByInput {
+  OCCUPANCY_DESC
+  PREFERED_GENDER_ASC
+  DESCRIPTION_DESC
+  EVENT_CATEGORY_ID_DESC
+  LATEST_APPOINTMENT_DESC
+  NAME_ASC
+  UPDATED_AT_DESC
+  AVATAR_OR_ICON_PATH_DESC
+  LATEST_APPOINTMENT_ASC
+  PRICE_TYPE_ASC
+  UPDATED_AT_ASC
+  NO_OF_MULTIPLE_APPOINTMENT_ASC
+  ROOM_ID_DESC
+  ROSOURCE_ID_ASC
+  AVATAR_OR_ICON_DESC
+  COLOR_CODE_DESC
+  EVENT_CATEGORY_ID_ASC
+  EXTRA_TIME_TYPE_ASC
+  RETAIL_PRICE_ASC
+  TYPE_DESC
+  WORKSPACE_ID_ASC
+  DEPOSIT_DESC
+  DISPLAY_NAME_DESC
+  MAX_DURATION_IN_SECONDS_ASC
+  NAME_DESC
+  MAX_DURATION_IN_SECONDS_DESC
+  PREFERED_GENDER_DESC
+  COLOR_CODE_ASC
+  DISPLAY_ORDER_ASC
+  DISPLAY_ORDER_DESC
+  DURATION_HOURS_DESC
+  EXTRA_TIME_IN_SECONDS_DESC
+  SPECIAL_PRICE_ASC
+  STAFF_COMMISSION_PERCENTAGE_DESC
+  TIME_ZONE_DESC
+  _ID_ASC
+  CREATED_AT_ASC
+  DESCRIPTION_ASC
+  EXTRA_TIME_IN_SECONDS_ASC
+  TYPE_ASC
+  TAX_PERCENTAGE_DESC
+  VOUCHER_ID_DESC
+  AVATAR_OR_ICON_PATH_ASC
+  BOOKING_URL_DESC
+  PAYMENT_TYPE_ASC
+  SORTING_ID_ASC
+  _ID_DESC
+  BUFFER_AFTER_MIN_DESC
+  RETAIL_PRICE_DESC
+  ADVANCED_APPOINTMENT_ASC
+  EXTRA_TIME_TYPE_DESC
+  TAX_PERCENTAGE_ASC
+  TIME_ZONE_ASC
+  BOOKING_LIMIT_DESC
+  OCCUPANCY_ASC
+  PRICE_TYPE_DESC
+  ROSOURCE_ID_DESC
+  BUFFER_AFTER_MIN_ASC
+  WORKSPACE_ID_DESC
+  NO_OF_MULTIPLE_APPOINTMENT_DESC
+  PAYMENT_TYPE_DESC
+  ROOM_ID_ASC
+  SITE_ID_ASC
+  ADVANCED_APPOINTMENT_DESC
+  CREATED_BY_DESC
+  DELETED_AT_ASC
+  DURATION_HOURS_ASC
+  VOUCHER_ID_ASC
+  CURRENCY_DESC
+  DEPOSIT_ASC
+  DURATION_MINUTES_DESC
+  MIN_DURATION_IN_SECONDS_DESC
+  SORTING_ID_DESC
+  AVATAR_OR_ICON_ASC
+  BUFFER_BEFORE_MIN_DESC
+  CURRENCY_ASC
+  DISPLAY_NAME_ASC
+  VOUCHER_EXPIRATION_PERIOD_ASC
+  VOUCHER_EXPIRATION_PERIOD_DESC
+  BOOKING_LIMIT_ASC
+  BOOKING_URL_ASC
+  DELETED_AT_DESC
+  SPECIAL_PRICE_DESC
+  MIN_DURATION_IN_SECONDS_ASC
+  SITE_ID_DESC
+  STAFF_COMMISSION_PERCENTAGE_ASC
+  BUFFER_BEFORE_MIN_ASC
+  CREATED_AT_DESC
+  CREATED_BY_ASC
+  DURATION_MINUTES_ASC
+}
+
+type LocationsettingOncall {
+  client_will_call: Boolean
+  staff_will_call: Boolean
+}
+
+input AdvancepricingWorkspace_idRelationInput {
+  link: ObjectId
+  create: WorkspaceInsertInput
+}
+
+input EventIncludedUpdateInput {
+  type: String
+  type_unset: Boolean
+  price_unset: Boolean
+  extra_price: Boolean
+  extra_price_unset: Boolean
+  name_unset: Boolean
+  name: String
+  price: Float
+  price_inc: Float
+}
+
+enum TimingSortByInput {
+  _ID_ASC
+  TYPE_ASC
+  WORK_DAY_DURATION_ASC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  NAME_DESC
+  DELETED_AT_ASC
+  NAME_ASC
+  SITE_ID_ASC
+  WORK_DAY_DURATION_DESC
+  END_TIME_ASC
+  SITE_ID_DESC
+  START_TIME_DESC
+  TIME_ZONE_ASC
+  UPDATED_AT_DESC
+  WORK_DAY_ID_DESC
+  _ID_DESC
+  CREATED_BY_ASC
+  DELETED_AT_DESC
+  END_TIME_DESC
+  WORK_DAY_NAME_DESC
+  CREATED_BY_DESC
+  TIME_ZONE_DESC
+  TIMING_ORDER_ASC
+  TIMING_ORDER_DESC
+  START_TIME_ASC
+  UPDATED_AT_ASC
+  TYPE_DESC
+  WORK_DAY_ID_ASC
+  WORK_DAY_NAME_ASC
+}
+
+input EventEvent_category_idRelationInput {
+  create: EventcategoryInsertInput
+  link: ObjectId
+}
+
+enum WorkspaceSortByInput {
+  NAME_DESC
+  SITE_ID_DESC
+  TIME_ZONE_ASC
+  TYPE_DESC
+  CREATED_AT_DESC
+  CREATED_BY_ASC
+  CREATED_BY_DESC
+  DEFAULT_LANGUAGE_DESC
+  DISPLAY_ORDER_ASC
+  DISPLAY_ORDER_DESC
+  TYPE_ASC
+  UPDATED_AT_ASC
+  _ID_ASC
+  DELETED_AT_ASC
+  DELETED_AT_DESC
+  DISPLAY_NAME_ASC
+  DISPLAY_NAME_DESC
+  SITE_ID_ASC
+  TIME_ZONE_DESC
+  UPDATED_AT_DESC
+  _ID_DESC
+  COLOR_CODE_ASC
+  COLOR_CODE_DESC
+  CREATED_AT_ASC
+  DEFAULT_LANGUAGE_ASC
+  NAME_ASC
+}
+
+type UpdateManyPayload {
+  matchedCount: Int!
+  modifiedCount: Int!
+}
+
+input BusinessSocial_networkUpdateInput {
+  link: String
+  link_unset: Boolean
+  network: String
+  network_unset: Boolean
+}
+
+input TimingUpdateInput {
+  location_setting_ids: TimingLocation_setting_idsRelationInput
+  work_day_name_unset: Boolean
+  location_setting_ids_unset: Boolean
+  start_time: String
+  created_by: TimingCreated_byRelationInput
+  type: String
+  work_day_duration: Int
+  business_hour_unset: Boolean
+  start_time_unset: Boolean
+  workspace_ids_unset: Boolean
+  timing_order: Int
+  created_at_unset: Boolean
+  workspace_ids: TimingWorkspace_idsRelationInput
+  work_day_id_inc: Int
+  include_weekends_unset: Boolean
+  deleted_at_unset: Boolean
+  name: String
+  _id: ObjectId
+  recurringRule_unset: Boolean
+  updated_at: DateTime
+  created_by_unset: Boolean
+  work_day_duration_unset: Boolean
+  _id_unset: Boolean
+  breaktime_unset: Boolean
+  end_time_unset: Boolean
+  custom_hour: Boolean
+  name_unset: Boolean
+  site_id_unset: Boolean
+  work_day_duration_inc: Int
+  timing_order_unset: Boolean
+  timing_order_inc: Int
+  work_day_name: String
+  is_override_block_unset: Boolean
+  updated_at_unset: Boolean
+  include_weekends: Boolean
+  service_ids_unset: Boolean
+  breaktime: [TimingBreaktimeUpdateInput]
+  deleted_at: DateTime
+  service_ids: [ObjectId]
+  time_zone: String
+  custom_hour_unset: Boolean
+  is_override_block: Boolean
+  recurringRule: TimingRecurringRuleUpdateInput
+  work_day_id: Int
+  time_zone_unset: Boolean
+  work_day_id_unset: Boolean
+  created_at: DateTime
+  site_id: TimingSite_idRelationInput
+  end_time: String
+  business_hour: Boolean
+  type_unset: Boolean
+}
+
+input SiteQueryInput {
+  googleAnalyticsCode: String
+  name_nin: [String]
+  updated_at_gt: DateTime
+  active_exists: Boolean
+  deleted_at_lt: DateTime
+  name_lte: String
+  deleted_at_lte: DateTime
+  default_language_exists: Boolean
+  created_by_lt: ObjectId
+  payment_status_lt: String
+  default_language_lt: String
+  payment_status: String
+  googleAnalyticsCode_gt: String
+  _id_gte: ObjectId
+  default_language_gt: String
+  updated_at: DateTime
+  name_ne: String
+  name: String
+  payment_status_id_nin: [String]
+  googleAnalyticsCode_nin: [String]
+  payment_status_id_in: [String]
+  updated_at_nin: [DateTime]
+  account_status_lte: String
+  payment_status_exists: Boolean
+  default_language_ne: String
+  accessible_ne: Boolean
+  created_at_lte: DateTime
+  suspended: Boolean
+  deleted_at_gt: DateTime
+  updated_at_in: [DateTime]
+  subcription_id_nin: [ObjectId]
+  suspended_exists: Boolean
+  googleAnalyticsCode_exists: Boolean
+  account_status: String
+  account_status_gt: String
+  active_ne: Boolean
+  subcription_id_ne: ObjectId
+  default_language_lte: String
+  created_at: DateTime
+  deleted_at_nin: [DateTime]
+  deleted_at: DateTime
+  updated_at_ne: DateTime
+  payment_status_gte: String
+  updated_at_lte: DateTime
+  created_by_exists: Boolean
+  _id_ne: ObjectId
+  default_language_gte: String
+  default_language_nin: [String]
+  googleAnalyticsCode_gte: String
+  created_at_in: [DateTime]
+  created_at_ne: DateTime
+  updated_at_lt: DateTime
+  name_lt: String
+  deleted_at_ne: DateTime
+  name_in: [String]
+  account_status_nin: [String]
+  created_by: ObjectId
+  accessible: Boolean
+  created_by_in: [ObjectId]
+  created_at_gt: DateTime
+  created_by_gte: ObjectId
+  name_gt: String
+  subcription_id_lte: ObjectId
+  name_gte: String
+  accessible_exists: Boolean
+  updated_at_exists: Boolean
+  account_status_lt: String
+  created_by_lte: ObjectId
+  googleAnalyticsCode_lt: String
+  _id_lt: ObjectId
+  OR: [SiteQueryInput!]
+  account_status_in: [String]
+  _id_lte: ObjectId
+  subcription_id: ObjectId
+  account_status_gte: String
+  updated_at_gte: DateTime
+  payment_status_id_lte: String
+  payment_status_ne: String
+  _id_nin: [ObjectId]
+  _id_in: [ObjectId]
+  created_at_exists: Boolean
+  name_exists: Boolean
+  payment_status_id_exists: Boolean
+  delete_ne: Boolean
+  subcription_id_lt: ObjectId
+  subcription_id_gte: ObjectId
+  payment_status_id_gt: String
+  created_at_nin: [DateTime]
+  _id: ObjectId
+  payment_status_id: String
+  _id_exists: Boolean
+  created_by_ne: ObjectId
+  account_status_exists: Boolean
+  delete: Boolean
+  default_language: String
+  subcription_id_gt: ObjectId
+  payment_status_nin: [String]
+  payment_status_gt: String
+  AND: [SiteQueryInput!]
+  payment_status_id_gte: String
+  _id_gt: ObjectId
+  googleAnalyticsCode_lte: String
+  deleted_at_in: [DateTime]
+  googleAnalyticsCode_ne: String
+  googleAnalyticsCode_in: [String]
+  created_at_lt: DateTime
+  payment_status_lte: String
+  deleted_at_exists: Boolean
+  payment_status_in: [String]
+  subcription_id_in: [ObjectId]
+  suspended_ne: Boolean
+  account_status_ne: String
+  active: Boolean
+  created_at_gte: DateTime
+  default_language_in: [String]
+  payment_status_id_lt: String
+  deleted_at_gte: DateTime
+  delete_exists: Boolean
+  subcription_id_exists: Boolean
+  created_by_nin: [ObjectId]
+  created_by_gt: ObjectId
+  payment_status_id_ne: String
+}
+
+input BusinessinfoPolicyQueryInput {
+  OR: [BusinessinfoPolicyQueryInput!]
+  terms_and_condition_nin: [String]
+  cancellation_nin: [String]
+  terms_and_condition_in: [String]
+  cancellation_gte: String
+  appointment_lt: String
+  terms_and_condition: String
+  terms_and_condition_exists: Boolean
+  cancellation_in: [String]
+  terms_and_condition_gt: String
+  cancellation_lte: String
+  cancellation_ne: String
+  terms_and_condition_gte: String
+  appointment_gte: String
+  appointment_in: [String]
+  terms_and_condition_lt: String
+  AND: [BusinessinfoPolicyQueryInput!]
+  cancellation: String
+  terms_and_condition_ne: String
+  appointment_lte: String
+  appointment_ne: String
+  appointment_gt: String
+  terms_and_condition_lte: String
+  appointment: String
+  cancellation_gt: String
+  cancellation_exists: Boolean
+  appointment_exists: Boolean
+  appointment_nin: [String]
+  cancellation_lt: String
+}
+
+type Locationsetting {
+  _id: ObjectId
+  active: Boolean
+  created_at: DateTime
+  created_by: Staff
+  deleted: Boolean
+  deleted_at: DateTime
+  inperson: LocationsettingInperson
+  location_id: Location
+  oncall: LocationsettingOncall
+  site_id: Site
+  updated_at: DateTime
+  video: LocationsettingVideo
+  workspace_id: Workspace
+}
+
+input LocationsettingOncallUpdateInput {
+  staff_will_call: Boolean
+  staff_will_call_unset: Boolean
+  client_will_call: Boolean
+  client_will_call_unset: Boolean
+}
+
+input AddressQueryInput {
+  _id_nin: [ObjectId]
+  updated_at_ne: DateTime
+  address1_nin: [String]
+  site_id: SiteQueryInput
+  address1_gte: String
+  default_address_ne: Boolean
+  city_gte: String
+  account_status: String
+  address1_lt: String
+  created_at_ne: DateTime
+  latitude_lt: String
+  address2_nin: [String]
+  account_status_exists: Boolean
+  workspace_id: [WorkspaceQueryInput]
+  created_at_exists: Boolean
+  type_nin: [String]
+  city_nin: [String]
+  workspace_id_exists: Boolean
+  created_at_lte: DateTime
+  address1_lte: String
+  email_ne: String
+  city_lt: String
+  address2_lte: String
+  state_gt: String
+  deleted_at_lt: DateTime
+  zipCode_gt: String
+  account_status_in: [String]
+  country_nin: [String]
+  deleted_at: DateTime
+  address2_gt: String
+  workspace_id_in: [WorkspaceQueryInput]
+  type_lt: String
+  created_at: DateTime
+  default_address_exists: Boolean
+  state_lt: String
+  updated_at_lte: DateTime
+  country_in: [String]
+  state_in: [String]
+  zipCode_lt: String
+  address2_in: [String]
+  updated_at_in: [DateTime]
+  created_by_exists: Boolean
+  business_branch_exists: Boolean
+  created_at_in: [DateTime]
+  latitude_in: [String]
+  address2_lt: String
+  deleted_at_nin: [DateTime]
+  _id_lte: ObjectId
+  business_head_office_ne: Boolean
+  state_lte: String
+  zipCode_ne: String
+  address1_ne: String
+  updated_at_lt: DateTime
+  created_at_gte: DateTime
+  deleted_at_in: [DateTime]
+  latitude_gt: String
+  zipCode: String
+  state_nin: [String]
+  email: String
+  address2: String
+  type_ne: String
+  updated_at_nin: [DateTime]
+  created_by: StaffQueryInput
+  _id_in: [ObjectId]
+  _id_exists: Boolean
+  state_gte: String
+  longitude_in: [String]
+  _id_gte: ObjectId
+  city: String
+  phone_exists: Boolean
+  business_branch: Boolean
+  deleted_at_lte: DateTime
+  latitude_exists: Boolean
+  created_at_lt: DateTime
+  created_at_nin: [DateTime]
+  delete_ne: Boolean
+  active_ne: Boolean
+  deleted_at_gt: DateTime
+  updated_at: DateTime
+  business_head_office: Boolean
+  delete: Boolean
+  country_ne: String
+  longitude_exists: Boolean
+  type_in: [String]
+  address2_ne: String
+  longitude_lte: String
+  active_exists: Boolean
+  latitude: String
+  state: String
+  phone_in: [AddressPhoneQueryInput]
+  _id_ne: ObjectId
+  account_status_gte: String
+  updated_at_gt: DateTime
+  email_gte: String
+  address2_exists: Boolean
+  site_id_exists: Boolean
+  city_lte: String
+  latitude_lte: String
+  accessible_ne: Boolean
+  zipCode_exists: Boolean
+  deleted_at_exists: Boolean
+  account_status_ne: String
+  email_gt: String
+  address1_in: [String]
+  type_exists: Boolean
+  latitude_ne: String
+  country_gte: String
+  active: Boolean
+  address1_exists: Boolean
+  address1_gt: String
+  business_head_office_exists: Boolean
+  country_gt: String
+  country_lt: String
+  email_in: [String]
+  zipCode_nin: [String]
+  account_status_nin: [String]
+  phone: [AddressPhoneQueryInput]
+  state_exists: Boolean
+  type_gt: String
+  address1: String
+  accessible: Boolean
+  workspace_id_nin: [WorkspaceQueryInput]
+  longitude_lt: String
+  zipCode_lte: String
+  address2_gte: String
+  account_status_lte: String
+  _id: ObjectId
+  zipCode_in: [String]
+  account_status_gt: String
+  accessible_exists: Boolean
+  deleted_at_ne: DateTime
+  email_lte: String
+  OR: [AddressQueryInput!]
+  longitude_gt: String
+  updated_at_gte: DateTime
+  email_nin: [String]
+  _id_gt: ObjectId
+  longitude: String
+  delete_exists: Boolean
+  latitude_gte: String
+  city_exists: Boolean
+  city_in: [String]
+  city_gt: String
+  email_lt: String
+  default_address: Boolean
+  type_gte: String
+  deleted_at_gte: DateTime
+  country_exists: Boolean
+  email_exists: Boolean
+  type: String
+  created_at_gt: DateTime
+  country: String
+  AND: [AddressQueryInput!]
+  zipCode_gte: String
+  account_status_lt: String
+  longitude_gte: String
+  _id_lt: ObjectId
+  business_branch_ne: Boolean
+  type_lte: String
+  longitude_ne: String
+  latitude_nin: [String]
+  city_ne: String
+  state_ne: String
+  updated_at_exists: Boolean
+  longitude_nin: [String]
+  country_lte: String
+  phone_nin: [AddressPhoneQueryInput]
+}
+
+type StaffdetailSync {
+  key: String
+  type: String
+}
+
+input TimingSite_idRelationInput {
+  link: ObjectId
+  create: SiteInsertInput
+}
+
+input PermissionUpdateInput {
+  _id_unset: Boolean
+  workspace_id: PermissionWorkspace_idRelationInput
+  category: String
+  system_name: String
+  system_name_unset: Boolean
+  name: String
+  name_unset: Boolean
+  site_id: PermissionSite_idRelationInput
+  _id: ObjectId
+  category_unset: Boolean
+  site_id_unset: Boolean
+  workspace_id_unset: Boolean
+}
+
+input PermissionQueryInput {
+  category_ne: String
+  category_lt: String
+  _id_gt: ObjectId
+  category_in: [String]
+  name_lte: String
+  system_name_gte: String
+  category_lte: String
+  _id_nin: [ObjectId]
+  workspace_id_exists: Boolean
+  _id_exists: Boolean
+  category_exists: Boolean
+  category_gt: String
+  name_in: [String]
+  category: String
+  _id_in: [ObjectId]
+  name_exists: Boolean
+  category_gte: String
+  name_lt: String
+  system_name: String
+  site_id: SiteQueryInput
+  system_name_lte: String
+  _id_lte: ObjectId
+  name: String
+  system_name_gt: String
+  name_gt: String
+  _id: ObjectId
+  AND: [PermissionQueryInput!]
+  name_ne: String
+  system_name_exists: Boolean
+  _id_ne: ObjectId
+  system_name_nin: [String]
+  _id_gte: ObjectId
+  OR: [PermissionQueryInput!]
+  system_name_lt: String
+  system_name_in: [String]
+  category_nin: [String]
+  _id_lt: ObjectId
+  site_id_exists: Boolean
+  name_gte: String
+  workspace_id: WorkspaceQueryInput
+  name_nin: [String]
+  system_name_ne: String
+}
+
+type TimingRecurringRule {
+  freq: String
+  repeatEvery: Int
+  until: DateTime
+}
+
+input LocationsettingLocation_idRelationInput {
+  create: LocationInsertInput
+  link: ObjectId
+}
+
+input LocationsettingInpersonUpdateInput {
+  client_address_unset: Boolean
+  buinsess_address: Boolean
+  buinsess_address_unset: Boolean
+  buinsess_id: LocationsettingInpersonBuinsess_idRelationInput
+  buinsess_id_unset: Boolean
+  client_address: Boolean
+}
+
+input EventQueryInput {
+  roomId_gt: ObjectId
+  buffer_after_min: Int
+  latest_appointment_gte: Int
+  special_price_lt: Float
+  currency_nin: [String]
+  no_of_multiple_appointment_ne: Int
+  prefered_gender_gte: String
+  staff_exists: Boolean
+  no_of_multiple_appointment_in: [Int]
+  extra_time_type_lt: String
+  running_status_exists: Boolean
+  workspace_id_exists: Boolean
+  booking_url_lte: String
+  minDurationInSeconds_nin: [Int]
+  name_gte: String
+  advance_pricing_ids_nin: [AdvancepricingQueryInput]
+  type_ne: String
+  maxDurationInSeconds_gt: Int
+  tax_percentage_gte: Float
+  staff_conformation_ne: Boolean
+  allow_multiple_appointment_exists: Boolean
+  display_booking_page_ne: Boolean
+  booking_limit_in: [Int]
+  color_code_in: [String]
+  buffer_after_min_exists: Boolean
+  location_setting_ids_in: [LocationsettingQueryInput]
+  advanced_appointment_lte: Int
+  active_ne: Boolean
+  enable_appointment_at_fixed_time: Boolean
+  buffer_before_min_ne: Int
+  tax_percentage_gt: Float
+  occupancy_lt: Int
+  type_gte: String
+  currency_in: [String]
+  payment_show_in_booking_page_exists: Boolean
+  is_recurring_ne: Boolean
+  voucher_id_lt: ObjectId
+  _id_ne: ObjectId
+  avatar_or_icon_in: [String]
+  occupancy_nin: [Int]
+  buffer_before_min: Int
+  duration_hours_lt: Int
+  no_of_multiple_appointment: Int
+  type_in: [String]
+  type_nin: [String]
+  extra_time_type_exists: Boolean
+  enable_accept_payments_exists: Boolean
+  tax_percentage_lte: Float
+  accept_deposits_exists: Boolean
+  roomRequired_ne: Boolean
+  voucherExpirationPeriod_lte: String
+  buffer_after_min_in: [Int]
+  event_category_id_exists: Boolean
+  multiple_pricing_enabled_ne: Boolean
+  staff_commission_ne: Boolean
+  event_collective_exists: Boolean
+  limit_booking_exists: Boolean
+  rosource_id_in: [ObjectId]
+  display_name_gt: String
+  duration_hours_in: [Int]
+  latest_appointment: Int
+  booking_limit_gte: Int
+  duration_hours_nin: [Int]
+  payment_show_in_booking_page_ne: Boolean
+  no_of_multiple_appointment_lte: Int
+  description_exists: Boolean
+  extra_time_type_gt: String
+  staff_commission_percentage_gte: Float
+  name_exists: Boolean
+  special_price: Float
+  deposit_gte: Float
+  priceType_gt: String
+  voucherExpirationPeriod_nin: [String]
+  avatar_or_icon_path_in: [String]
+  maxDurationInSeconds_lte: Int
+  add_on_ids_in: [AddonQueryInput]
+  avatar_or_icon_lt: String
+  type: String
+  updated_at_in: [DateTime]
+  advanced_appointment_nin: [Int]
+  rosource_id_lte: ObjectId
+  advanced_appointment_in: [Int]
+  latest_appointment_in: [Int]
+  event_collective_ne: Boolean
+  no_of_multiple_appointment_nin: [Int]
+  special_price_ne: Float
+  buffer_before_min_lt: Int
+  created_at_lt: DateTime
+  deposit_nin: [Float]
+  description_nin: [String]
+  type_lt: String
+  extra_time_in_seconds_gte: Int
+  extra_time_type_gte: String
+  advance_pricing_ids_in: [AdvancepricingQueryInput]
+  excluded_nin: [EventExcludedQueryInput]
+  latest_appointment_lte: Int
+  staff_commission_percentage_exists: Boolean
+  created_by_exists: Boolean
+  special_price_lte: Float
+  maxDurationInSeconds_exists: Boolean
+  color_code_nin: [String]
+  accept_deposits: Boolean
+  commissionEnabled_ne: Boolean
+  allow_multiple_appointment: Boolean
+  event_group: Boolean
+  limit_booking: Boolean
+  scheduling_notice_exists: Boolean
+  is_recurring_exists: Boolean
+  duration_minutes_gt: Int
+  event_category_id: EventcategoryQueryInput
+  minDurationInSeconds_in: [Int]
+  created_at_gte: DateTime
+  display_name_gte: String
+  payment_type_nin: [String]
+  duration_hours_gte: Int
+  display_name_nin: [String]
+  currency_gte: String
+  require_payment_for_events_exists: Boolean
+  active: Boolean
+  business_id_exists: Boolean
+  business_timings_exists: Boolean
+  avatar_or_icon_lte: String
+  payment_type_gte: String
+  included: [EventIncludedQueryInput]
+  created_at_lte: DateTime
+  rosource_id_gte: ObjectId
+  hide_duration_on_booking_page_exists: Boolean
+  priceType_ne: String
+  buffer_after_min_gt: Int
+  voucher_id: ObjectId
+  priceType_exists: Boolean
+  hide_duration_on_booking_page: Boolean
+  extra_time_in_seconds_gt: Int
+  retailPrice_ne: Float
+  description_gte: String
+  voucherExpirationPeriod_gte: String
+  color_code_lt: String
+  name_lte: String
+  prefered_gender: String
+  tax_percentage_nin: [Float]
+  advanced_appointment_lt: Int
+  latest_appointment_gt: Int
+  voucherExpirationPeriod_lt: String
+  event_round_robin: Boolean
+  buffer_before_min_in: [Int]
+  payment_type_lt: String
+  advanced_appointment_gt: Int
+  roomRequired_exists: Boolean
+  advance_pricing_ids_exists: Boolean
+  maxDurationInSeconds_ne: Int
+  deposit: Float
+  buffer_before_min_gte: Int
+  avatar_or_icon_path_exists: Boolean
+  booking_url_exists: Boolean
+  event_staff_mapping_ids_in: [Events_satff_mappingQueryInput]
+  display_name_in: [String]
+  avatar_or_icon_nin: [String]
+  event_one_on_one_exists: Boolean
+  site_id_exists: Boolean
+  business_id_nin: [ObjectId]
+  staff_in: [StaffQueryInput]
+  occupancy_gte: Int
+  created_at_gt: DateTime
+  advanced_appointment_exists: Boolean
+  prefered_gender_gt: String
+  add_on_ids: [AddonQueryInput]
+  time_zone_nin: [String]
+  location_setting_ids: [LocationsettingQueryInput]
+  location_setting_ids_exists: Boolean
+  description_in: [String]
+  OR: [EventQueryInput!]
+  avatar_or_icon_gte: String
+  _id_lt: ObjectId
+  tax_percentage_exists: Boolean
+  occupancy_exists: Boolean
+  minDurationInSeconds: Int
+  special_price_in: [Float]
+  created_at: DateTime
+  avatar_or_icon_path_ne: String
+  created_by: StaffQueryInput
+  display_order_nin: [Int]
+  voucher_id_nin: [ObjectId]
+  payment_type_in: [String]
+  retailPrice_lt: Float
+  retailPrice_lte: Float
+  created_at_exists: Boolean
+  event_one_on_one: Boolean
+  time_zone_in: [String]
+  tax_percentage_lt: Float
+  time_zone: String
+  duration_hours: Int
+  name: String
+  delete_ne: Boolean
+  minDurationInSeconds_gte: Int
+  _id: ObjectId
+  booking_limit_exists: Boolean
+  name_nin: [String]
+  multiple_duration_ne: Boolean
+  extra_time_type_nin: [String]
+  booking_url_gte: String
+  require_payment_for_events: Boolean
+  running_status: Boolean
+  currency_ne: String
+  voucherExpirationPeriod_ne: String
+  enable_appointment_at_fixed_time_exists: Boolean
+  site_id: SiteQueryInput
+  sortingId_ne: Int
+  advanced_appointment_gte: Int
+  maxDurationInSeconds_lt: Int
+  tax_percentage_in: [Float]
+  deposit_in: [Float]
+  currency_gt: String
+  avatar_or_icon_exists: Boolean
+  extra_time_type_lte: String
+  display_order_lt: Int
+  prefered_gender_nin: [String]
+  extra_time_in_seconds_in: [Int]
+  commissionEnabled: Boolean
+  special_price_exists: Boolean
+  excluded_in: [EventExcludedQueryInput]
+  buffer_before_min_lte: Int
+  business_id_in: [ObjectId]
+  deposit_exists: Boolean
+  booking_limit_ne: Int
+  roomId_lte: ObjectId
+  staff_nin: [StaffQueryInput]
+  name_gt: String
+  occupancy_ne: Int
+  deleted_at_nin: [DateTime]
+  no_of_multiple_appointment_lt: Int
+  resourceRequired_exists: Boolean
+  prefered_gender_lt: String
+  occupancy_lte: Int
+  buffer_after_min_nin: [Int]
+  priceType: String
+  is_recurring: Boolean
+  type_lte: String
+  duration_minutes_exists: Boolean
+  special_price_gte: Float
+  voucherExpirationPeriod: String
+  name_ne: String
+  booking_url_nin: [String]
+  updated_at_ne: DateTime
+  deleted_at_lte: DateTime
+  payment_type_ne: String
+  event_one_on_one_ne: Boolean
+  display_name_ne: String
+  retailPrice_gt: Float
+  voucher_id_gt: ObjectId
+  advance_pricing_ids: [AdvancepricingQueryInput]
+  deposit_lt: Float
+  availability_range: EventAvailability_rangeQueryInput
+  active_exists: Boolean
+  event_staff_mapping_ids_exists: Boolean
+  staff_commission: Boolean
+  enable_accept_payments: Boolean
+  event_collective: Boolean
+  duration_minutes_nin: [Int]
+  sortingId_lt: Int
+  roomId_nin: [ObjectId]
+  business_timings_ne: Boolean
+  add_on_ids_nin: [AddonQueryInput]
+  scheduling_notice: EventScheduling_noticeQueryInput
+  booking_url_in: [String]
+  staff_commission_percentage_gt: Float
+  included_nin: [EventIncludedQueryInput]
+  description_ne: String
+  sortingId_in: [Int]
+  resourceRequired_ne: Boolean
+  extra_time_in_seconds_exists: Boolean
+  payment_type_lte: String
+  no_of_multiple_appointment_gt: Int
+  prefered_gender_in: [String]
+  roomId_in: [ObjectId]
+  advanced_pricing_ne: Boolean
+  time_zone_lte: String
+  color_code_exists: Boolean
+  display_name: String
+  taxable_exists: Boolean
+  running_status_ne: Boolean
+  display_order_lte: Int
+  avatar_or_icon_gt: String
+  created_at_ne: DateTime
+  color_code_gte: String
+  buffer_before_min_exists: Boolean
+  sortingId_nin: [Int]
+  _id_gte: ObjectId
+  display_order_gt: Int
+  currency_lte: String
+  deleted_at_in: [DateTime]
+  _id_nin: [ObjectId]
+  deleted_at: DateTime
+  occupancy_gt: Int
+  event_staff_mapping_ids: [Events_satff_mappingQueryInput]
+  updated_at_lt: DateTime
+  event_staff_mapping_ids_nin: [Events_satff_mappingQueryInput]
+  rosource_id_lt: ObjectId
+  require_payment_for_events_ne: Boolean
+  booking_url_ne: String
+  advanced_pricing_exists: Boolean
+  avatar_or_icon_path_gte: String
+  _id_in: [ObjectId]
+  excluded_exists: Boolean
+  voucherEnabled_ne: Boolean
+  delete_exists: Boolean
+  buffer_before_min_nin: [Int]
+  avatar_or_icon_path_lte: String
+  buffer_after_min_gte: Int
+  excluded: [EventExcludedQueryInput]
+  allow_waitlist_ne: Boolean
+  priceType_lt: String
+  voucher_enabled_ne: Boolean
+  type_exists: Boolean
+  booking_limit_lte: Int
+  priceType_gte: String
+  roomId_exists: Boolean
+  voucherExpirationPeriod_gt: String
+  maxDurationInSeconds_nin: [Int]
+  deposit_lte: Float
+  extra_time_in_seconds_nin: [Int]
+  staff_commission_percentage_in: [Float]
+  display_order_ne: Int
+  voucherExpirationPeriod_in: [String]
+  duration_hours_gt: Int
+  special_price_nin: [Float]
+  display_name_lt: String
+  enable_accept_payments_ne: Boolean
+  color_code: String
+  updated_at_exists: Boolean
+  rosource_id: ObjectId
+  advanced_pricing: Boolean
+  event_group_ne: Boolean
+  display_order_exists: Boolean
+  display_booking_page: Boolean
+  deposit_gt: Float
+  avatar_or_icon_path: String
+  sortingId_gte: Int
+  multiple_duration_exists: Boolean
+  taxable: Boolean
+  event_round_robin_exists: Boolean
+  multiple_pricing_enabled: Boolean
+  duration_minutes_gte: Int
+  sortingId_exists: Boolean
+  staff_conformation_exists: Boolean
+  special_price_gt: Float
+  extra_time_in_seconds_lt: Int
+  time_zone_gte: String
+  deleted_at_gte: DateTime
+  minDurationInSeconds_lt: Int
+  retailPrice: Float
+  staff_conformation: Boolean
+  staff_commission_percentage_lte: Float
+  avatar_or_icon_path_gt: String
+  business_id: [ObjectId]
+  description_gt: String
+  staff: [StaffQueryInput]
+  included_exists: Boolean
+  retailPrice_gte: Float
+  booking_limit_gt: Int
+  servicePricing_by_staff_enabled_ne: Boolean
+  roomId_gte: ObjectId
+  avatar_or_icon_path_nin: [String]
+  updated_at: DateTime
+  event_group_exists: Boolean
+  allow_waitlist_exists: Boolean
+  resourceRequired: Boolean
+  roomRequired: Boolean
+  event_round_robin_ne: Boolean
+  location_setting_ids_nin: [LocationsettingQueryInput]
+  duration_hours_ne: Int
+  minDurationInSeconds_ne: Int
+  commissionEnabled_exists: Boolean
+  hide_duration_on_booking_page_ne: Boolean
+  extra_time_type_ne: String
+  created_at_in: [DateTime]
+  display_name_lte: String
+  description_lte: String
+  AND: [EventQueryInput!]
+  payment_type: String
+  servicePricing_by_staff_enabled_exists: Boolean
+  advanced_appointment: Int
+  no_of_multiple_appointment_gte: Int
+  extra_time_in_seconds_ne: Int
+  display_order_gte: Int
+  minDurationInSeconds_lte: Int
+  extra_time_in_seconds_lte: Int
+  color_code_lte: String
+  _id_lte: ObjectId
+  business_timings: Boolean
+  limit_booking_ne: Boolean
+  updated_at_lte: DateTime
+  roomId_ne: ObjectId
+  duration_minutes_lte: Int
+  extra_time_type: String
+  duration_minutes: Int
+  buffer_after_min_lte: Int
+  maxDurationInSeconds_in: [Int]
+  display_name_exists: Boolean
+  tax_percentage_ne: Float
+  minDurationInSeconds_exists: Boolean
+  allow_waitlist: Boolean
+  maxDurationInSeconds_gte: Int
+  staff_commission_exists: Boolean
+  tax_percentage: Float
+  voucherEnabled: Boolean
+  retailPrice_in: [Float]
+  prefered_gender_ne: String
+  priceType_nin: [String]
+  rosource_id_nin: [ObjectId]
+  booking_limit_lt: Int
+  latest_appointment_lt: Int
+  time_zone_exists: Boolean
+  voucher_id_exists: Boolean
+  staff_commission_percentage_nin: [Float]
+  add_on_ids_exists: Boolean
+  display_booking_page_exists: Boolean
+  duration_hours_lte: Int
+  _id_exists: Boolean
+  rosource_id_gt: ObjectId
+  retailPrice_nin: [Float]
+  currency: String
+  sortingId_lte: Int
+  avatar_or_icon_ne: String
+  servicePricing_by_staff_enabled: Boolean
+  multiple_pricing_enabled_exists: Boolean
+  updated_at_gt: DateTime
+  currency_exists: Boolean
+  rosource_id_exists: Boolean
+  advanced_appointment_ne: Int
+  voucher_id_ne: ObjectId
+  enable_appointment_at_fixed_time_ne: Boolean
+  time_zone_lt: String
+  latest_appointment_nin: [Int]
+  name_in: [String]
+  description_lt: String
+  extra_time_type_in: [String]
+  date_range_enable_exists: Boolean
+  voucher_enabled_exists: Boolean
+  roomId_lt: ObjectId
+  display_order_in: [Int]
+  accept_deposits_ne: Boolean
+  no_of_multiple_appointment_exists: Boolean
+  staff_commission_percentage_ne: Float
+  timing_ids: [TimingQueryInput]
+  sortingId_gt: Int
+  maxDurationInSeconds: Int
+  duration_minutes_in: [Int]
+  extra_time_in_seconds: Int
+  _id_gt: ObjectId
+  duration_minutes_ne: Int
+  color_code_gt: String
+  buffer_after_min_lt: Int
+  voucher_enabled: Boolean
+  booking_url_gt: String
+  display_order: Int
+  timing_ids_nin: [TimingQueryInput]
+  description: String
+  time_zone_ne: String
+  sortingId: Int
+  date_range_enable: Boolean
+  staff_commission_percentage_lt: Float
+  type_gt: String
+  roomId: ObjectId
+  duration_minutes_lt: Int
+  deleted_at_lt: DateTime
+  payment_type_exists: Boolean
+  multiple_duration: Boolean
+  buffer_before_min_gt: Int
+  deleted_at_exists: Boolean
+  taxable_ne: Boolean
+  deleted_at_ne: DateTime
+  voucher_id_lte: ObjectId
+  booking_url_lt: String
+  latest_appointment_exists: Boolean
+  timing_ids_in: [TimingQueryInput]
+  booking_url: String
+  time_zone_gt: String
+  delete: Boolean
+  created_at_nin: [DateTime]
+  staff_commission_percentage: Float
+  prefered_gender_exists: Boolean
+  updated_at_gte: DateTime
+  priceType_lte: String
+  retailPrice_exists: Boolean
+  deposit_ne: Float
+  prefered_gender_lte: String
+  avatar_or_icon: String
+  currency_lt: String
+  booking_limit_nin: [Int]
+  duration_hours_exists: Boolean
+  buffer_after_min_ne: Int
+  voucher_id_in: [ObjectId]
+  payment_show_in_booking_page: Boolean
+  availability_range_exists: Boolean
+  deleted_at_gt: DateTime
+  voucher_id_gte: ObjectId
+  avatar_or_icon_path_lt: String
+  voucherExpirationPeriod_exists: Boolean
+  color_code_ne: String
+  included_in: [EventIncludedQueryInput]
+  voucherEnabled_exists: Boolean
+  name_lt: String
+  updated_at_nin: [DateTime]
+  allow_multiple_appointment_ne: Boolean
+  latest_appointment_ne: Int
+  minDurationInSeconds_gt: Int
+  payment_type_gt: String
+  occupancy_in: [Int]
+  occupancy: Int
+  timing_ids_exists: Boolean
+  date_range_enable_ne: Boolean
+  priceType_in: [String]
+  booking_limit: Int
+  workspace_id: WorkspaceQueryInput
+  rosource_id_ne: ObjectId
+}
+
+input TimingRecurringRuleInsertInput {
+  freq: String
+  repeatEvery: Int
+  until: DateTime
+}
+
+input BusinessUpdateInput {
+  description_unset: Boolean
+  deleted_at_unset: Boolean
+  web_url_unset: Boolean
+  site_id_unset: Boolean
+  type_unset: Boolean
+  showSocialShare: Boolean
+  staff_size_unset: Boolean
+  created_at_unset: Boolean
+  social_network: [BusinessSocial_networkUpdateInput]
+  color_code: String
+  workspace_id_unset: Boolean
+  email_signature: String
+  business_info_ids_unset: Boolean
+  social_network_unset: Boolean
+  type: String
+  _id: ObjectId
+  name: String
+  web_url: String
+  name_unset: Boolean
+  staff_size: Int
+  updated_at: DateTime
+  accessible: Boolean
+  business_branch: String
+  display_name: String
+  created_by: BusinessCreated_byRelationInput
+  description: String
+  avatar_or_icon_path_unset: Boolean
+  created_at: DateTime
+  delete: Boolean
+  avatar_or_icon_path: String
+  created_by_unset: Boolean
+  workspace_id: BusinessWorkspace_idRelationInput
+  display_name_unset: Boolean
+  business_info_ids: BusinessBusiness_info_idsRelationInput
+  avatar_or_icon: String
+  avatar_or_icon_unset: Boolean
+  delete_unset: Boolean
+  active_unset: Boolean
+  deleted_at: DateTime
+  _id_unset: Boolean
+  staff_size_inc: Int
+  email_signature_unset: Boolean
+  active: Boolean
+  business_branch_unset: Boolean
+  site_id: BusinessSite_idRelationInput
+  updated_at_unset: Boolean
+  accessible_unset: Boolean
+  showSocialShare_unset: Boolean
+  color_code_unset: Boolean
+}
+
+input StaffSocial_networkUpdateInput {
+  network: String
+  network_unset: Boolean
+  link: String
+  link_unset: Boolean
+}
+
+type Event {
+  _id: ObjectId
+  accept_deposits: Boolean
+  active: Boolean
+  add_on_ids: [Addon]
+  advance_pricing_ids: [Advancepricing]
+  advanced_appointment: Int
+  advanced_pricing: Boolean
+  allow_multiple_appointment: Boolean
+  allow_waitlist: Boolean
+  availability_range: EventAvailability_range
+  avatar_or_icon: String
+  avatar_or_icon_path: String
+  booking_limit: Int
+  booking_url: String
+  buffer_after_min: Int
+  buffer_before_min: Int
+  business_id: [ObjectId]
+  business_timings: Boolean
+  color_code: String
+  commissionEnabled: Boolean
+  created_at: DateTime
+  created_by: Staff
+  currency: String
+  date_range_enable: Boolean
+  delete: Boolean
+  deleted_at: DateTime
+  deposit: Float
+  description: String
+  display_booking_page: Boolean
+  display_name: String
+  display_order: Int
+  duration_hours: Int
+  duration_minutes: Int
+  enable_accept_payments: Boolean
+  enable_appointment_at_fixed_time: Boolean
+  event_category_id: Eventcategory
+  event_collective: Boolean
+  event_group: Boolean
+  event_one_on_one: Boolean
+  event_round_robin: Boolean
+  event_staff_mapping_ids: [Events_satff_mapping]
+  excluded: [EventExcluded]
+  extra_time_in_seconds: Int
+  extra_time_type: String
+  hide_duration_on_booking_page: Boolean
+  included: [EventIncluded]
+  is_recurring: Boolean
+  latest_appointment: Int
+  limit_booking: Boolean
+  location_setting_ids: [Locationsetting]
+  maxDurationInSeconds: Int
+  minDurationInSeconds: Int
+  multiple_duration: Boolean
+  multiple_pricing_enabled: Boolean
+  name: String
+  no_of_multiple_appointment: Int
+  occupancy: Int
+  payment_show_in_booking_page: Boolean
+  payment_type: String
+  prefered_gender: String
+  priceType: String
+  require_payment_for_events: Boolean
+  resourceRequired: Boolean
+  retailPrice: Float
+  roomId: ObjectId
+  roomRequired: Boolean
+  rosource_id: ObjectId
+  running_status: Boolean
+  scheduling_notice: EventScheduling_notice
+  servicePricing_by_staff_enabled: Boolean
+  site_id: Site
+  sortingId: Int
+  special_price: Float
+  staff: [Staff]
+  staff_commission: Boolean
+  staff_commission_percentage: Float
+  staff_conformation: Boolean
+  tax_percentage: Float
+  taxable: Boolean
+  time_zone: String
+  timing_ids: [Timing]
+  type: String
+  updated_at: DateTime
+  voucherEnabled: Boolean
+  voucherExpirationPeriod: String
+  voucher_enabled: Boolean
+  voucher_id: ObjectId
+  workspace_id: Workspace
+}
+
+input EventcategoryWorkspace_idRelationInput {
+  create: WorkspaceInsertInput
+  link: ObjectId
+}
+
+input StaffdetailTiming_idsRelationInput {
+  create: [TimingInsertInput]
+  link: [ObjectId]
+}
+
+type Timeformat {
+  _id: ObjectId
+  business_hour_end: Int
+  business_hour_start: Int
+  date_format: String
+  first_day: Int
+  site_id: ObjectId
+  timeFormat: Int
+  time_zone: String
+  workspace_id: ObjectId
+}
+
+input StaffWorkspace_idsRelationInput {
+  create: [WorkspaceInsertInput]
+  link: [ObjectId]
+}
+
+input BusinessinfoSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+scalar ObjectId
+
+type Permission {
+  _id: ObjectId
+  category: String
+  name: String
+  site_id: Site
+  system_name: String
+  workspace_id: Workspace
+}
+
+type Addon {
+  _id: ObjectId
+  active: Boolean
+  delete: Boolean
+  event_ids: [Event]
+  name: String
+  once_per_order: Boolean
+  price: Float
+  show_multiple_time: Boolean
+  site_id: Site
+  variant: [AddonVariant]
+  workspace_ids: [Workspace]
+}
+
+type EventScheduling_notice {
+  limit: Int
+  type: String
+}
+
+enum LocationSortByInput {
+  DELETED_AT_ASC
+  NAME_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  _ID_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  TYPE_ASC
+  TYPE_DESC
+  _ID_ASC
+  DELETED_AT_DESC
+  NAME_ASC
+}
+
+input EventLocation_setting_idsRelationInput {
+  create: [LocationsettingInsertInput]
+  link: [ObjectId]
+}
+
+input BusinessSocial_networkQueryInput {
+  network_gt: String
+  network_gte: String
+  network_exists: Boolean
+  link_gte: String
+  link_lte: String
+  link: String
+  AND: [BusinessSocial_networkQueryInput!]
+  network_lte: String
+  network: String
+  link_in: [String]
+  link_exists: Boolean
+  network_nin: [String]
+  link_nin: [String]
+  link_lt: String
+  network_lt: String
+  network_ne: String
+  network_in: [String]
+  link_gt: String
+  OR: [BusinessSocial_networkQueryInput!]
+  link_ne: String
+}
+
+input BusinesscategoryQueryInput {
+  _id: ObjectId
+  site_id_gt: ObjectId
+  category_name_gt: String
+  deleted_at_lte: DateTime
+  deleted_at_ne: DateTime
+  created_at_gt: DateTime
+  category_name_exists: Boolean
+  created_at_ne: DateTime
+  site_id_exists: Boolean
+  parant_category_id_exists: Boolean
+  updated_at_gte: DateTime
+  deleted: Boolean
+  created_by: StaffQueryInput
+  created_at: DateTime
+  created_at_in: [DateTime]
+  type_ne: String
+  deleted_at_nin: [DateTime]
+  type: String
+  deleted_at: DateTime
+  created_at_gte: DateTime
+  type_lt: String
+  updated_at_ne: DateTime
+  accessible_exists: Boolean
+  category_name_lt: String
+  updated_at_nin: [DateTime]
+  AND: [BusinesscategoryQueryInput!]
+  _id_gte: ObjectId
+  _id_lt: ObjectId
+  site_id_in: [ObjectId]
+  category_name: String
+  site_id_lte: ObjectId
+  _id_lte: ObjectId
+  updated_at_lte: DateTime
+  active: Boolean
+  site_id: ObjectId
+  created_at_lte: DateTime
+  site_id_nin: [ObjectId]
+  _id_gt: ObjectId
+  _id_exists: Boolean
+  category_name_nin: [String]
+  active_ne: Boolean
+  type_gte: String
+  deleted_at_in: [DateTime]
+  type_in: [String]
+  type_exists: Boolean
+  deleted_at_lt: DateTime
+  _id_ne: ObjectId
+  type_nin: [String]
+  created_by_exists: Boolean
+  deleted_ne: Boolean
+  category_name_lte: String
+  type_lte: String
+  created_at_nin: [DateTime]
+  category_name_ne: String
+  updated_at_in: [DateTime]
+  updated_at_gt: DateTime
+  OR: [BusinesscategoryQueryInput!]
+  parant_category_id: BusinesscategoryQueryInput
+  deleted_at_gte: DateTime
+  updated_at_lt: DateTime
+  created_at_lt: DateTime
+  site_id_ne: ObjectId
+  updated_at_exists: Boolean
+  active_exists: Boolean
+  accessible_ne: Boolean
+  _id_in: [ObjectId]
+  _id_nin: [ObjectId]
+  accessible: Boolean
+  category_name_gte: String
+  deleted_at_exists: Boolean
+  deleted_at_gt: DateTime
+  site_id_lt: ObjectId
+  type_gt: String
+  category_name_in: [String]
+  created_at_exists: Boolean
+  site_id_gte: ObjectId
+  updated_at: DateTime
+  deleted_exists: Boolean
+}
+
+input AddressSite_idRelationInput {
+  link: ObjectId
+  create: SiteInsertInput
+}
+
+input BusinessBusiness_info_idsRelationInput {
+  create: [BusinessinfoInsertInput]
+  link: [ObjectId]
+}
+
+input AddonEvent_idsRelationInput {
+  create: [EventInsertInput]
+  link: [ObjectId]
+}
+
+input AddressCreated_byRelationInput {
+  link: ObjectId
+  create: StaffInsertInput
+}
+
+input BusinessinfoUpdateInput {
+  bookingLinks: String
+  tax_no_unset: Boolean
+  policy: BusinessinfoPolicyUpdateInput
+  business_hour_start_unset: Boolean
+  tax_percentage: Int
+  created_by: BusinessinfoCreated_byRelationInput
+  business_hour_start: Int
+  business_category_unset: Boolean
+  delete_unset: Boolean
+  tax_no: String
+  updated_at: DateTime
+  tax_percentage_unset: Boolean
+  timeFormat_unset: Boolean
+  deleted_at: DateTime
+  address_ids: BusinessinfoAddress_idsRelationInput
+  tax_percentage_inc: Int
+  time_zone: String
+  policy_unset: Boolean
+  _id_unset: Boolean
+  accessible_unset: Boolean
+  restrictedDays_unset: Boolean
+  time_zone_unset: Boolean
+  created_at_unset: Boolean
+  accessible: Boolean
+  timing_ids: [ObjectId]
+  business_hour_end: Int
+  site_id_unset: Boolean
+  is_tax: Boolean
+  created_at: DateTime
+  active_unset: Boolean
+  first_day: Int
+  address_ids_unset: Boolean
+  workspace_id: BusinessinfoWorkspace_idRelationInput
+  site_id: BusinessinfoSite_idRelationInput
+  business_category: BusinessinfoBusiness_categoryRelationInput
+  business_hour_end_unset: Boolean
+  timing_ids_unset: Boolean
+  active: Boolean
+  workspace_id_unset: Boolean
+  updated_at_unset: Boolean
+  created_by_unset: Boolean
+  date_format: String
+  restrictedDays: [DateTime]
+  deleted_at_unset: Boolean
+  _id: ObjectId
+  bookingLinks_unset: Boolean
+  delete: Boolean
+  first_day_unset: Boolean
+  timeFormat: Int
+  date_format_unset: Boolean
+  business_hour_start_inc: Int
+  is_tax_unset: Boolean
+  business_hour_end_inc: Int
+  timeFormat_inc: Int
+  first_day_inc: Int
+}
+
+enum BusinesscategorySortByInput {
+  CREATED_AT_DESC
+  CREATED_BY_DESC
+  SITE_ID_ASC
+  CATEGORY_NAME_DESC
+  DELETED_AT_ASC
+  DELETED_AT_DESC
+  _ID_ASC
+  PARANT_CATEGORY_ID_DESC
+  TYPE_DESC
+  PARANT_CATEGORY_ID_ASC
+  SITE_ID_DESC
+  TYPE_ASC
+  UPDATED_AT_ASC
+  _ID_DESC
+  CATEGORY_NAME_ASC
+  CREATED_AT_ASC
+  CREATED_BY_ASC
+  UPDATED_AT_DESC
+}
+
+input TimingLocation_setting_idsRelationInput {
+  create: [LocationsettingInsertInput]
+  link: [ObjectId]
+}
+
+input EventcategoryCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input LocationQueryInput {
+  updated_at_lte: DateTime
+  type_param: Boolean
+  name_lte: String
+  created_at_lte: DateTime
+  active: Boolean
+  name_ne: String
+  AND: [LocationQueryInput!]
+  updated_at_gte: DateTime
+  deleted_at_ne: DateTime
+  app_integration_need_exists: Boolean
+  created_at_gte: DateTime
+  type_in: [String]
+  name_exists: Boolean
+  name_in: [String]
+  deleted_at_nin: [DateTime]
+  created_at_in: [DateTime]
+  _id_nin: [ObjectId]
+  type_param_ne: Boolean
+  active_ne: Boolean
+  deleted_at_exists: Boolean
+  type_lte: String
+  _id_lte: ObjectId
+  deleted_at_lte: DateTime
+  deleted_at_lt: DateTime
+  deleted: Boolean
+  active_exists: Boolean
+  type_nin: [String]
+  _id_gte: ObjectId
+  _id: ObjectId
+  _id_in: [ObjectId]
+  name_gte: String
+  deleted_at_in: [DateTime]
+  name_gt: String
+  name_lt: String
+  type_ne: String
+  app_integration_need: Boolean
+  created_at_gt: DateTime
+  OR: [LocationQueryInput!]
+  created_at: DateTime
+  created_at_lt: DateTime
+  _id_exists: Boolean
+  type_param_exists: Boolean
+  deleted_at_gt: DateTime
+  type_gte: String
+  deleted_at_gte: DateTime
+  _id_gt: ObjectId
+  name: String
+  name_nin: [String]
+  type_gt: String
+  deleted_exists: Boolean
+  deleted_ne: Boolean
+  updated_at_gt: DateTime
+  deleted_at: DateTime
+  type: String
+  created_at_exists: Boolean
+  type_lt: String
+  _id_ne: ObjectId
+  _id_lt: ObjectId
+  updated_at_nin: [DateTime]
+  type_exists: Boolean
+  updated_at_exists: Boolean
+  created_at_nin: [DateTime]
+  updated_at: DateTime
+  updated_at_ne: DateTime
+  app_integration_need_ne: Boolean
+  created_at_ne: DateTime
+  updated_at_lt: DateTime
+  updated_at_in: [DateTime]
+}
+
+type Business {
+  _id: ObjectId
+  accessible: Boolean
+  active: Boolean
+  avatar_or_icon: String
+  avatar_or_icon_path: String
+  business_branch: String
+  business_info_ids: [Businessinfo]
+  color_code: String
+  created_at: DateTime
+  created_by: Staff
+  delete: Boolean
+  deleted_at: DateTime
+  description: String
+  display_name: String
+  email_signature: String
+  name: String
+  showSocialShare: Boolean
+  site_id: Site
+  social_network: [BusinessSocial_network]
+  staff_size: Int
+  type: String
+  updated_at: DateTime
+  web_url: String
+  workspace_id: [Workspace]
+}
+
+input EventAvailability_rangeDate_rangeUpdateInput {
+  to: DateTime
+  to_unset: Boolean
+  from: DateTime
+  from_unset: Boolean
+}
+
+type EventAvailability_rangeDate_range {
+  from: DateTime
+  to: DateTime
+}
+
+input EventStaffRelationInput {
+  link: [ObjectId]
+  create: [StaffInsertInput]
+}
+
+input AddressPhoneInsertInput {
+  name: String
+  no: String
+  type: String
+  Ext: String
+  country_code: String
+}
+
+input StaffPhoneInsertInput {
+  country_code: String
+  is_verified: Boolean
+  name: String
+  no: String
+  type: String
+}
+
+input EventScheduling_noticeUpdateInput {
+  limit: Int
+  limit_inc: Int
+  limit_unset: Boolean
+  type: String
+  type_unset: Boolean
+}
+
+input AcpwinfoInsertInput {
+  created_at: DateTime
+  created_from: String
+  password_expire_dateUtc: DateTime
+  password_salt: String
+  updated_at: DateTime
+  _id: ObjectId
+  default: Boolean
+  password_expired: Boolean
+  password_change_dateUtc: DateTime
+  password_format_id: Float
+  password: String
+}
+
+type LocationsettingVideo {
+  integration_id: String
+  type: String
+}
+
+input Events_satff_mappingEvent_idRelationInput {
+  create: EventInsertInput
+  link: ObjectId
+}
+
+input AddressPhoneUpdateInput {
+  no: String
+  type: String
+  type_unset: Boolean
+  Ext_unset: Boolean
+  country_code_unset: Boolean
+  name: String
+  no_unset: Boolean
+  Ext: String
+  name_unset: Boolean
+  country_code: String
+}
+
+input LocationsettingQueryInput {
+  _id_lt: ObjectId
+  oncall: LocationsettingOncallQueryInput
+  updated_at_in: [DateTime]
+  _id_in: [ObjectId]
+  created_at_in: [DateTime]
+  updated_at_exists: Boolean
+  oncall_exists: Boolean
+  created_at_lt: DateTime
+  deleted_at_gt: DateTime
+  AND: [LocationsettingQueryInput!]
+  _id_nin: [ObjectId]
+  OR: [LocationsettingQueryInput!]
+  updated_at_lte: DateTime
+  deleted_at_lte: DateTime
+  created_at_lte: DateTime
+  created_by_exists: Boolean
+  updated_at_gt: DateTime
+  location_id: LocationQueryInput
+  inperson: LocationsettingInpersonQueryInput
+  deleted_at_gte: DateTime
+  created_at_gte: DateTime
+  _id: ObjectId
+  workspace_id: WorkspaceQueryInput
+  created_at_exists: Boolean
+  _id_ne: ObjectId
+  updated_at_ne: DateTime
+  created_at_nin: [DateTime]
+  active_exists: Boolean
+  created_at_ne: DateTime
+  _id_gte: ObjectId
+  inperson_exists: Boolean
+  site_id_exists: Boolean
+  updated_at_gte: DateTime
+  _id_exists: Boolean
+  video: LocationsettingVideoQueryInput
+  active: Boolean
+  _id_gt: ObjectId
+  deleted_at_in: [DateTime]
+  workspace_id_exists: Boolean
+  deleted_at_exists: Boolean
+  deleted_at_ne: DateTime
+  created_at: DateTime
+  updated_at_lt: DateTime
+  deleted_at_lt: DateTime
+  _id_lte: ObjectId
+  created_at_gt: DateTime
+  deleted_ne: Boolean
+  location_id_exists: Boolean
+  updated_at_nin: [DateTime]
+  video_exists: Boolean
+  deleted_at_nin: [DateTime]
+  updated_at: DateTime
+  created_by: StaffQueryInput
+  site_id: SiteQueryInput
+  deleted_at: DateTime
+  deleted: Boolean
+  active_ne: Boolean
+  deleted_exists: Boolean
+}
+
+input BusinessQueryInput {
+  created_at_in: [DateTime]
+  deleted_at_lt: DateTime
+  name_gte: String
+  email_signature_lte: String
+  staff_size_exists: Boolean
+  business_branch_in: [String]
+  showSocialShare_ne: Boolean
+  display_name_lt: String
+  display_name_gt: String
+  created_at_exists: Boolean
+  avatar_or_icon_gte: String
+  deleted_at: DateTime
+  name_exists: Boolean
+  type: String
+  display_name: String
+  color_code_lt: String
+  type_gt: String
+  avatar_or_icon_lte: String
+  created_at_nin: [DateTime]
+  delete: Boolean
+  description_ne: String
+  site_id_exists: Boolean
+  staff_size: Int
+  description_nin: [String]
+  created_at_lt: DateTime
+  business_branch_nin: [String]
+  updated_at_ne: DateTime
+  business_info_ids: [BusinessinfoQueryInput]
+  deleted_at_gte: DateTime
+  created_by: StaffQueryInput
+  avatar_or_icon_exists: Boolean
+  showSocialShare_exists: Boolean
+  business_info_ids_nin: [BusinessinfoQueryInput]
+  created_at_ne: DateTime
+  email_signature_ne: String
+  delete_exists: Boolean
+  updated_at_nin: [DateTime]
+  email_signature_gte: String
+  avatar_or_icon_path: String
+  description_gt: String
+  workspace_id: [WorkspaceQueryInput]
+  name_lte: String
+  name: String
+  avatar_or_icon_ne: String
+  created_at_lte: DateTime
+  color_code_in: [String]
+  _id_gte: ObjectId
+  avatar_or_icon_in: [String]
+  display_name_gte: String
+  deleted_at_exists: Boolean
+  staff_size_gt: Int
+  email_signature_in: [String]
+  updated_at_in: [DateTime]
+  avatar_or_icon_nin: [String]
+  deleted_at_gt: DateTime
+  business_branch_ne: String
+  staff_size_in: [Int]
+  social_network: [BusinessSocial_networkQueryInput]
+  color_code: String
+  active_exists: Boolean
+  avatar_or_icon_path_lt: String
+  created_at_gt: DateTime
+  deleted_at_nin: [DateTime]
+  type_lte: String
+  updated_at_gte: DateTime
+  email_signature_nin: [String]
+  web_url_gt: String
+  OR: [BusinessQueryInput!]
+  type_nin: [String]
+  type_in: [String]
+  web_url_nin: [String]
+  business_branch_gt: String
+  email_signature: String
+  social_network_in: [BusinessSocial_networkQueryInput]
+  email_signature_exists: Boolean
+  _id_gt: ObjectId
+  type_exists: Boolean
+  business_branch_lt: String
+  display_name_nin: [String]
+  _id_nin: [ObjectId]
+  accessible: Boolean
+  business_branch: String
+  deleted_at_ne: DateTime
+  updated_at_exists: Boolean
+  email_signature_lt: String
+  name_ne: String
+  display_name_lte: String
+  avatar_or_icon_path_gt: String
+  avatar_or_icon: String
+  accessible_exists: Boolean
+  web_url_gte: String
+  name_gt: String
+  description_lte: String
+  _id: ObjectId
+  showSocialShare: Boolean
+  web_url_lte: String
+  avatar_or_icon_gt: String
+  accessible_ne: Boolean
+  avatar_or_icon_path_exists: Boolean
+  description_gte: String
+  type_ne: String
+  web_url_ne: String
+  description: String
+  description_exists: Boolean
+  deleted_at_in: [DateTime]
+  _id_in: [ObjectId]
+  active_ne: Boolean
+  staff_size_lt: Int
+  color_code_nin: [String]
+  avatar_or_icon_path_gte: String
+  type_lt: String
+  workspace_id_in: [WorkspaceQueryInput]
+  display_name_in: [String]
+  active: Boolean
+  staff_size_nin: [Int]
+  avatar_or_icon_path_in: [String]
+  business_branch_exists: Boolean
+  name_nin: [String]
+  email_signature_gt: String
+  name_lt: String
+  display_name_exists: Boolean
+  social_network_exists: Boolean
+  deleted_at_lte: DateTime
+  business_info_ids_in: [BusinessinfoQueryInput]
+  workspace_id_nin: [WorkspaceQueryInput]
+  web_url_lt: String
+  description_in: [String]
+  description_lt: String
+  color_code_exists: Boolean
+  business_branch_gte: String
+  _id_lt: ObjectId
+  social_network_nin: [BusinessSocial_networkQueryInput]
+  name_in: [String]
+  _id_exists: Boolean
+  business_branch_lte: String
+  color_code_ne: String
+  color_code_gt: String
+  created_at_gte: DateTime
+  _id_ne: ObjectId
+  updated_at_gt: DateTime
+  _id_lte: ObjectId
+  avatar_or_icon_path_ne: String
+  avatar_or_icon_path_lte: String
+  display_name_ne: String
+  web_url_exists: Boolean
+  staff_size_lte: Int
+  web_url: String
+  updated_at_lte: DateTime
+  created_at: DateTime
+  site_id: SiteQueryInput
+  AND: [BusinessQueryInput!]
+  type_gte: String
+  staff_size_ne: Int
+  updated_at_lt: DateTime
+  created_by_exists: Boolean
+  business_info_ids_exists: Boolean
+  staff_size_gte: Int
+  workspace_id_exists: Boolean
+  avatar_or_icon_lt: String
+  web_url_in: [String]
+  delete_ne: Boolean
+  color_code_lte: String
+  color_code_gte: String
+  updated_at: DateTime
+  avatar_or_icon_path_nin: [String]
+}
+
+type Businessinfo {
+  _id: ObjectId
+  accessible: Boolean
+  active: Boolean
+  address_ids: [Address]
+  bookingLinks: String
+  business_category: [Businesscategory]
+  business_hour_end: Int
+  business_hour_start: Int
+  created_at: DateTime
+  created_by: Staff
+  date_format: String
+  delete: Boolean
+  deleted_at: DateTime
+  first_day: Int
+  is_tax: Boolean
+  policy: BusinessinfoPolicy
+  restrictedDays: [DateTime]
+  site_id: Site
+  tax_no: String
+  tax_percentage: Int
+  timeFormat: Int
+  time_zone: String
+  timing_ids: [ObjectId]
+  updated_at: DateTime
+  workspace_id: [Workspace]
+}
+
+enum SiteSortByInput {
+  ACCOUNT_STATUS_ASC
+  PAYMENT_STATUS_ID_ASC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  _ID_ASC
+  CREATED_BY_DESC
+  DEFAULT_LANGUAGE_DESC
+  DELETED_AT_DESC
+  NAME_DESC
+  PAYMENT_STATUS_DESC
+  SUBCRIPTION_ID_DESC
+  _ID_DESC
+  ACCOUNT_STATUS_DESC
+  CREATED_AT_DESC
+  CREATED_BY_ASC
+  DEFAULT_LANGUAGE_ASC
+  GOOGLEANALYTICSCODE_DESC
+  PAYMENT_STATUS_ASC
+  CREATED_AT_ASC
+  DELETED_AT_ASC
+  GOOGLEANALYTICSCODE_ASC
+  NAME_ASC
+  PAYMENT_STATUS_ID_DESC
+  SUBCRIPTION_ID_ASC
+}
+
+input TimingBreaktimeQueryInput {
+  start_time_ne: String
+  start_time_gt: String
+  end_time_exists: Boolean
+  end_time_lt: String
+  end_time_ne: String
+  end_time_gt: String
+  end_time_gte: String
+  end_time: String
+  start_time: String
+  start_time_gte: String
+  start_time_exists: Boolean
+  end_time_in: [String]
+  end_time_lte: String
+  start_time_nin: [String]
+  OR: [TimingBreaktimeQueryInput!]
+  start_time_lt: String
+  start_time_in: [String]
+  AND: [TimingBreaktimeQueryInput!]
+  end_time_nin: [String]
+  start_time_lte: String
+}
+
+input EventAvailability_rangeAdvanceQueryInput {
+  no_nin: [Int]
+  type_nin: [String]
+  type_lte: String
+  type_in: [String]
+  no_lte: Int
+  no_gte: Int
+  no_exists: Boolean
+  no: Int
+  type_exists: Boolean
+  type_gt: String
+  OR: [EventAvailability_rangeAdvanceQueryInput!]
+  type_ne: String
+  no_ne: Int
+  type: String
+  AND: [EventAvailability_rangeAdvanceQueryInput!]
+  type_gte: String
+  no_gt: Int
+  no_lt: Int
+  no_in: [Int]
+  type_lt: String
+}
+
+input EventScheduling_noticeQueryInput {
+  limit_nin: [Int]
+  limit_exists: Boolean
+  type_nin: [String]
+  limit_lte: Int
+  type_lt: String
+  type_gte: String
+  limit_gt: Int
+  limit: Int
+  limit_gte: Int
+  type_gt: String
+  limit_in: [Int]
+  limit_lt: Int
+  type_exists: Boolean
+  type_lte: String
+  AND: [EventScheduling_noticeQueryInput!]
+  type: String
+  type_in: [String]
+  OR: [EventScheduling_noticeQueryInput!]
+  type_ne: String
+  limit_ne: Int
+}
+
+input AddonWorkspace_idsRelationInput {
+  link: [ObjectId]
+  create: [WorkspaceInsertInput]
+}
+
+input StaffSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input AdvancepricingQueryInput {
+  _id_exists: Boolean
+  created_at_gte: DateTime
+  special_price_ne: Float
+  price_type_gt: String
+  deleted_at_in: [DateTime]
+  priceType_ne: String
+  updated_at_nin: [DateTime]
+  duration_minutes_lte: Int
+  name_ne: String
+  price_type: String
+  created_at_nin: [DateTime]
+  duration_minutes: Int
+  retailPrice_gte: Float
+  nonDiscountedPrice_lte: Float
+  duration_hours_lt: Int
+  name_lt: String
+  buffer_after_min_nin: [Int]
+  created_by_exists: Boolean
+  buffer_after_min_gt: Int
+  _id_in: [ObjectId]
+  buffer_before_min_gte: Int
+  created_at_exists: Boolean
+  staff_id_exists: Boolean
+  updated_at_lte: DateTime
+  buffer_after_min_lte: Int
+  buffer_before_min_gt: Int
+  staff_id: StaffQueryInput
+  updated_at_lt: DateTime
+  buffer_after_min_lt: Int
+  _id_lt: ObjectId
+  special_price_in: [Float]
+  created_at_gt: DateTime
+  created_at_lte: DateTime
+  retailPrice_ne: Float
+  duration_minutes_nin: [Int]
+  buffer_after_min_ne: Int
+  duration_hours: Int
+  priceType_lt: String
+  retailPrice_lt: Float
+  servicePricingByStaff_exists: Boolean
+  created_at_lt: DateTime
+  duration_minutes_lt: Int
+  _id: ObjectId
+  deleted_at: DateTime
+  priceType_lte: String
+  price_type_gte: String
+  duration_hours_gt: Int
+  duration_hours_gte: Int
+  special_price: Float
+  duration_minutes_gt: Int
+  deleted_at_nin: [DateTime]
+  retailPrice_in: [Float]
+  duration_hours_nin: [Int]
+  nonDiscountedPrice_exists: Boolean
+  buffer_after_min: Int
+  nonDiscountedPrice_in: [Float]
+  special_price_exists: Boolean
+  buffer_before_min: Int
+  updated_at_ne: DateTime
+  _id_nin: [ObjectId]
+  name_nin: [String]
+  _id_gte: ObjectId
+  updated_at_gt: DateTime
+  site_id: SiteQueryInput
+  retailPrice_exists: Boolean
+  price_type_ne: String
+  buffer_before_min_lt: Int
+  duration_minutes_ne: Int
+  currency: String
+  price_type_lte: String
+  deleted_at_lte: DateTime
+  nonDiscountedPrice_ne: Float
+  currency_ne: String
+  currency_exists: Boolean
+  priceType_in: [String]
+  retailPrice_nin: [Float]
+  servicePricingByStaff: Boolean
+  currency_nin: [String]
+  deleted_at_gt: DateTime
+  name_exists: Boolean
+  buffer_before_min_ne: Int
+  price_type_in: [String]
+  nonDiscountedPrice_nin: [Float]
+  priceType_nin: [String]
+  updated_at_in: [DateTime]
+  buffer_before_min_lte: Int
+  duration_hours_ne: Int
+  name_in: [String]
+  special_price_gte: Float
+  workspace_id_exists: Boolean
+  servicePricingByStaff_ne: Boolean
+  _id_ne: ObjectId
+  price_type_exists: Boolean
+  retailPrice_lte: Float
+  duration_hours_exists: Boolean
+  created_at_in: [DateTime]
+  deleted_at_exists: Boolean
+  updated_at_gte: DateTime
+  buffer_after_min_gte: Int
+  buffer_after_min_in: [Int]
+  retailPrice_gt: Float
+  AND: [AdvancepricingQueryInput!]
+  priceType_gte: String
+  duration_hours_lte: Int
+  updated_at_exists: Boolean
+  name: String
+  price_type_lt: String
+  priceType_exists: Boolean
+  deleted_at_lt: DateTime
+  site_id_exists: Boolean
+  deleted_at_ne: DateTime
+  nonDiscountedPrice_gte: Float
+  OR: [AdvancepricingQueryInput!]
+  currency_gt: String
+  currency_lt: String
+  buffer_before_min_nin: [Int]
+  duration_hours_in: [Int]
+  special_price_lt: Float
+  duration_minutes_exists: Boolean
+  nonDiscountedPrice: Float
+  duration_minutes_gte: Int
+  currency_lte: String
+  priceType_gt: String
+  currency_gte: String
+  buffer_after_min_exists: Boolean
+  special_price_lte: Float
+  nonDiscountedPrice_gt: Float
+  priceType: String
+  special_price_gt: Float
+  updated_at: DateTime
+  name_lte: String
+  price_type_nin: [String]
+  name_gt: String
+  created_at_ne: DateTime
+  duration_minutes_in: [Int]
+  workspace_id: WorkspaceQueryInput
+  _id_lte: ObjectId
+  buffer_before_min_in: [Int]
+  created_at: DateTime
+  deleted_at_gte: DateTime
+  name_gte: String
+  created_by: StaffQueryInput
+  nonDiscountedPrice_lt: Float
+  currency_in: [String]
+  buffer_before_min_exists: Boolean
+  retailPrice: Float
+  _id_gt: ObjectId
+  special_price_nin: [Float]
+}
+
+input AddonQueryInput {
+  site_id: SiteQueryInput
+  name_nin: [String]
+  AND: [AddonQueryInput!]
+  price_in: [Float]
+  name_ne: String
+  variant_nin: [AddonVariantQueryInput]
+  active: Boolean
+  name: String
+  _id_nin: [ObjectId]
+  show_multiple_time_exists: Boolean
+  price_nin: [Float]
+  name_lt: String
+  once_per_order_exists: Boolean
+  name_in: [String]
+  name_exists: Boolean
+  name_gt: String
+  delete_ne: Boolean
+  workspace_ids: [WorkspaceQueryInput]
+  price_exists: Boolean
+  workspace_ids_in: [WorkspaceQueryInput]
+  OR: [AddonQueryInput!]
+  event_ids: [EventQueryInput]
+  workspace_ids_nin: [WorkspaceQueryInput]
+  price_lte: Float
+  _id_ne: ObjectId
+  workspace_ids_exists: Boolean
+  once_per_order_ne: Boolean
+  name_gte: String
+  show_multiple_time_ne: Boolean
+  active_ne: Boolean
+  delete_exists: Boolean
+  variant_in: [AddonVariantQueryInput]
+  event_ids_in: [EventQueryInput]
+  event_ids_nin: [EventQueryInput]
+  site_id_exists: Boolean
+  price_gt: Float
+  _id_in: [ObjectId]
+  show_multiple_time: Boolean
+  _id: ObjectId
+  price_ne: Float
+  once_per_order: Boolean
+  delete: Boolean
+  _id_lte: ObjectId
+  active_exists: Boolean
+  name_lte: String
+  _id_lt: ObjectId
+  _id_gt: ObjectId
+  price_gte: Float
+  _id_exists: Boolean
+  price: Float
+  variant_exists: Boolean
+  event_ids_exists: Boolean
+  _id_gte: ObjectId
+  price_lt: Float
+  variant: [AddonVariantQueryInput]
+}
+
+input EventEvent_staff_mapping_idsRelationInput {
+  create: [Events_satff_mappingInsertInput]
+  link: [ObjectId]
+}
+
+type Site {
+  _id: ObjectId
+  accessible: Boolean
+  account_status: String
+  active: Boolean
+  created_at: DateTime
+  created_by: ObjectId
+  default_language: String
+  delete: Boolean
+  deleted_at: DateTime
+  googleAnalyticsCode: String
+  name: String
+  payment_status: String
+  payment_status_id: String
+  subcription_id: ObjectId
+  suspended: Boolean
+  updated_at: DateTime
+}
+
+type StaffSocial_network {
+  link: String
+  network: String
+}
+
+input TimeformatInsertInput {
+  _id: ObjectId
+  business_hour_end: Int
+  site_id: ObjectId
+  workspace_id: ObjectId
+  timeFormat: Int
+  time_zone: String
+  business_hour_start: Int
+  date_format: String
+  first_day: Int
+}
+
+input StaffQueryInput {
+  experience_month_exists: Boolean
+  deleted_at_ne: DateTime
+  name_gt: String
+  sortingId_nin: [Int]
+  avatar_or_icon_path_nin: [String]
+  staff_detail_id_in: [StaffdetailQueryInput]
+  title_ne: String
+  event_staff_mapping_ids_exists: Boolean
+  experience_month_lte: Int
+  avatar_or_icon_path: String
+  employement_to_ne: DateTime
+  deleted_at_gt: DateTime
+  description_ne: String
+  site_id: SiteQueryInput
+  last_name_ne: String
+  display_name_nin: [String]
+  email_verified_date_time_ne: DateTime
+  experience_year_exists: Boolean
+  display_name_ne: String
+  experience_year_lt: Int
+  employement_from_in: [DateTime]
+  is_email_verified_ne: Boolean
+  color_code_gte: String
+  experience_year_nin: [Int]
+  workspace_ids_nin: [WorkspaceQueryInput]
+  avatar_or_icon_path_ne: String
+  OR: [StaffQueryInput!]
+  showSocialShare_exists: Boolean
+  description_lt: String
+  color_code_nin: [String]
+  avatar_or_icon_lte: String
+  email_verified_date_time_gte: DateTime
+  name_lte: String
+  experience_year_in: [Int]
+  description_gte: String
+  email_lt: String
+  _id_nin: [ObjectId]
+  avatar_or_icon_path_in: [String]
+  name_nin: [String]
+  staff_detail_id_nin: [StaffdetailQueryInput]
+  email_exists: Boolean
+  updated_at_gt: DateTime
+  gender_lte: String
+  employement_to_exists: Boolean
+  slug_gte: String
+  workspace_ids_exists: Boolean
+  updated_at_lte: DateTime
+  description: String
+  gender_lt: String
+  display_name_gte: String
+  employement_from: DateTime
+  employement_to: DateTime
+  experience_month_gte: Int
+  title_nin: [String]
+  social_network_exists: Boolean
+  experience_year_gte: Int
+  experience_month_nin: [Int]
+  last_name_nin: [String]
+  created_at_nin: [DateTime]
+  showSocialShare_ne: Boolean
+  gender_nin: [String]
+  experience_month: Int
+  sortingId_gt: Int
+  updated_at_ne: DateTime
+  employement_to_gt: DateTime
+  last_name_lt: String
+  _id_gte: ObjectId
+  social_network_nin: [StaffSocial_networkQueryInput]
+  avatar_or_icon: String
+  employement_to_in: [DateTime]
+  showSocialShare: Boolean
+  AND: [StaffQueryInput!]
+  email_verified_date_time_gt: DateTime
+  created_at_exists: Boolean
+  description_lte: String
+  experience_month_gt: Int
+  experience_year_lte: Int
+  sortingId_ne: Int
+  employement_to_nin: [DateTime]
+  title_exists: Boolean
+  _id_gt: ObjectId
+  site_owener_ne: Boolean
+  last_name_gte: String
+  employement_to_lte: DateTime
+  display_name: String
+  employement_from_lte: DateTime
+  color_code_exists: Boolean
+  display_name_lt: String
+  phone_exists: Boolean
+  email_nin: [String]
+  updated_at_nin: [DateTime]
+  color_code_ne: String
+  created_at: DateTime
+  is_email_verified_exists: Boolean
+  deleted_at_in: [DateTime]
+  avatar_or_icon_path_lt: String
+  sortingId_gte: Int
+  first_name_lt: String
+  gender_in: [String]
+  avatar_or_icon_in: [String]
+  workspace_ids: [WorkspaceQueryInput]
+  email_verified_date_time_lte: DateTime
+  avatar_or_icon_path_gt: String
+  email_verified_date_time_in: [DateTime]
+  sortingId_lt: Int
+  created_by: StaffQueryInput
+  _id_in: [ObjectId]
+  color_code_lt: String
+  _id_lt: ObjectId
+  event_staff_mapping_ids_nin: [Events_satff_mappingQueryInput]
+  color_code_gt: String
+  phone_nin: [StaffPhoneQueryInput]
+  email_in: [String]
+  last_name_lte: String
+  title_gte: String
+  avatar_or_icon_path_gte: String
+  email: String
+  site_owener: Boolean
+  is_email_verified: Boolean
+  avatar_or_icon_exists: Boolean
+  email_verified_date_time_exists: Boolean
+  deleted_at_exists: Boolean
+  deleted_at_nin: [DateTime]
+  email_ne: String
+  last_name_gt: String
+  last_name_exists: Boolean
+  employement_from_gte: DateTime
+  sortingId_exists: Boolean
+  title_in: [String]
+  created_at_gt: DateTime
+  experience_month_in: [Int]
+  email_verified_date_time_nin: [DateTime]
+  social_network_in: [StaffSocial_networkQueryInput]
+  title: String
+  slug_gt: String
+  employement_to_lt: DateTime
+  slug_lt: String
+  description_in: [String]
+  name_gte: String
+  slug: String
+  updated_at_exists: Boolean
+  deleted_at_lt: DateTime
+  staff_detail_id: [StaffdetailQueryInput]
+  email_verified_date_time_lt: DateTime
+  experience_month_lt: Int
+  gender_gte: String
+  site_owener_exists: Boolean
+  deleted_at_gte: DateTime
+  employement_from_exists: Boolean
+  deleted_at: DateTime
+  user_id_exists: Boolean
+  _id: ObjectId
+  employement_from_lt: DateTime
+  workspace_ids_in: [WorkspaceQueryInput]
+  event_staff_mapping_ids_in: [Events_satff_mappingQueryInput]
+  experience_year_ne: Int
+  created_at_gte: DateTime
+  email_gte: String
+  color_code_lte: String
+  first_name_in: [String]
+  staff_detail_id_exists: Boolean
+  description_nin: [String]
+  name_exists: Boolean
+  color_code: String
+  phone: [StaffPhoneQueryInput]
+  social_network: [StaffSocial_networkQueryInput]
+  description_gt: String
+  last_name_in: [String]
+  gender_gt: String
+  site_id_exists: Boolean
+  first_name_exists: Boolean
+  slug_in: [String]
+  deleted_at_lte: DateTime
+  first_name_nin: [String]
+  slug_exists: Boolean
+  email_verified_date_time: DateTime
+  phone_in: [StaffPhoneQueryInput]
+  slug_lte: String
+  color_code_in: [String]
+  first_name: String
+  gender_exists: Boolean
+  display_name_gt: String
+  employement_from_ne: DateTime
+  first_name_gt: String
+  created_at_ne: DateTime
+  title_lt: String
+  updated_at_gte: DateTime
+  experience_month_ne: Int
+  event_staff_mapping_ids: [Events_satff_mappingQueryInput]
+  sortingId: Int
+  name_in: [String]
+  user_id: UserQueryInput
+  sortingId_in: [Int]
+  experience_year: Int
+  gender_ne: String
+  avatar_or_icon_path_exists: Boolean
+  employement_from_gt: DateTime
+  first_name_lte: String
+  display_name_exists: Boolean
+  updated_at: DateTime
+  employement_from_nin: [DateTime]
+  updated_at_lt: DateTime
+  avatar_or_icon_nin: [String]
+  slug_nin: [String]
+  avatar_or_icon_path_lte: String
+  created_at_lt: DateTime
+  title_gt: String
+  last_name: String
+  slug_ne: String
+  title_lte: String
+  employement_to_gte: DateTime
+  first_name_gte: String
+  description_exists: Boolean
+  gender: String
+  first_name_ne: String
+  _id_lte: ObjectId
+  name_ne: String
+  avatar_or_icon_gte: String
+  created_at_in: [DateTime]
+  name_lt: String
+  avatar_or_icon_ne: String
+  email_gt: String
+  name: String
+  display_name_in: [String]
+  _id_ne: ObjectId
+  experience_year_gt: Int
+  created_at_lte: DateTime
+  _id_exists: Boolean
+  avatar_or_icon_lt: String
+  display_name_lte: String
+  avatar_or_icon_gt: String
+  email_lte: String
+  created_by_exists: Boolean
+  updated_at_in: [DateTime]
+  sortingId_lte: Int
+}
+
+input LocationsettingVideoQueryInput {
+  integration_id_ne: String
+  type: String
+  type_ne: String
+  OR: [LocationsettingVideoQueryInput!]
+  integration_id_gt: String
+  type_exists: Boolean
+  integration_id_lt: String
+  integration_id_gte: String
+  type_gte: String
+  type_lt: String
+  type_lte: String
+  type_in: [String]
+  integration_id_exists: Boolean
+  integration_id_lte: String
+  AND: [LocationsettingVideoQueryInput!]
+  integration_id_nin: [String]
+  integration_id: String
+  integration_id_in: [String]
+  type_gt: String
+  type_nin: [String]
+}
+
+input StaffdetailEvents_idsRelationInput {
+  create: [EventInsertInput]
+  link: [ObjectId]
+}
+
+input BusinessSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+type EventIncluded {
+  extra_price: Boolean
+  name: String
+  price: Float
+  type: String
+}
+
+input BusinessWorkspace_idRelationInput {
+  create: [WorkspaceInsertInput]
+  link: [ObjectId]
+}
+
+input WorkspaceInsertInput {
+  deleted_at: DateTime
+  site_id: WorkspaceSite_idRelationInput
+  display_order: Int
+  updated_at: DateTime
+  accessible: Boolean
+  created_at: DateTime
+  new_business: Boolean
+  delete: Boolean
+  display_name: String
+  time_zone: String
+  created_by: ObjectId
+  type: String
+  active: Boolean
+  is_owner: Boolean
+  _id: ObjectId
+  name: String
+  default_language: String
+  color_code: String
+}
+
+input EventScheduling_noticeInsertInput {
+  limit: Int
+  type: String
+}
+
+input AddressInsertInput {
+  email: String
+  workspace_id: AddressWorkspace_idRelationInput
+  accessible: Boolean
+  active: Boolean
+  delete: Boolean
+  address1: String
+  business_branch: Boolean
+  latitude: String
+  country: String
+  phone: [AddressPhoneInsertInput]
+  city: String
+  _id: ObjectId
+  created_by: AddressCreated_byRelationInput
+  default_address: Boolean
+  deleted_at: DateTime
+  longitude: String
+  zipCode: String
+  address2: String
+  business_head_office: Boolean
+  account_status: String
+  type: String
+  created_at: DateTime
+  state: String
+  updated_at: DateTime
+  site_id: AddressSite_idRelationInput
+}
+
+input LocationsettingVideoUpdateInput {
+  type_unset: Boolean
+  integration_id: String
+  integration_id_unset: Boolean
+  type: String
+}
+
+type Query {
+  acpwinfo(query: AcpwinfoQueryInput): Acpwinfo
+  acpwinfos(sortBy: AcpwinfoSortByInput, query: AcpwinfoQueryInput, limit: Int = 100): [Acpwinfo]!
+  addon(query: AddonQueryInput): Addon
+  addons(query: AddonQueryInput, limit: Int = 100, sortBy: AddonSortByInput): [Addon]!
+  address(query: AddressQueryInput): Address
+  addresses(query: AddressQueryInput, limit: Int = 100, sortBy: AddressSortByInput): [Address]!
+  advancepricing(query: AdvancepricingQueryInput): Advancepricing
+  advancepricings(sortBy: AdvancepricingSortByInput, query: AdvancepricingQueryInput, limit: Int = 100): [Advancepricing]!
+  business(query: BusinessQueryInput): Business
+  businesscategories(query: BusinesscategoryQueryInput, limit: Int = 100, sortBy: BusinesscategorySortByInput): [Businesscategory]!
+  businesscategory(query: BusinesscategoryQueryInput): Businesscategory
+  businesses(query: BusinessQueryInput, limit: Int = 100, sortBy: BusinessSortByInput): [Business]!
+  businessinfo(query: BusinessinfoQueryInput): Businessinfo
+  businessinfos(query: BusinessinfoQueryInput, limit: Int = 100, sortBy: BusinessinfoSortByInput): [Businessinfo]!
+  event(query: EventQueryInput): Event
+  eventcategories(query: EventcategoryQueryInput, limit: Int = 100, sortBy: EventcategorySortByInput): [Eventcategory]!
+  eventcategory(query: EventcategoryQueryInput): Eventcategory
+  events(limit: Int = 100, sortBy: EventSortByInput, query: EventQueryInput): [Event]!
+  events_satff_mapping(query: Events_satff_mappingQueryInput): Events_satff_mapping
+  events_satff_mappings(query: Events_satff_mappingQueryInput, limit: Int = 100, sortBy: Events_satff_mappingSortByInput): [Events_satff_mapping]!
+  location(query: LocationQueryInput): Location
+  locations(limit: Int = 100, sortBy: LocationSortByInput, query: LocationQueryInput): [Location]!
+  locationsetting(query: LocationsettingQueryInput): Locationsetting
+  locationsettings(query: LocationsettingQueryInput, limit: Int = 100, sortBy: LocationsettingSortByInput): [Locationsetting]!
+  permission(query: PermissionQueryInput): Permission
+  permissions(query: PermissionQueryInput, limit: Int = 100, sortBy: PermissionSortByInput): [Permission]!
+  role(query: RoleQueryInput): Role
+  roles(query: RoleQueryInput, limit: Int = 100, sortBy: RoleSortByInput): [Role]!
+  site(query: SiteQueryInput): Site
+  sites(limit: Int = 100, sortBy: SiteSortByInput, query: SiteQueryInput): [Site]!
+  staff(query: StaffQueryInput): Staff
+  staffdetail(query: StaffdetailQueryInput): Staffdetail
+  staffdetails(query: StaffdetailQueryInput, limit: Int = 100, sortBy: StaffdetailSortByInput): [Staffdetail]!
+  staffs(limit: Int = 100, sortBy: StaffSortByInput, query: StaffQueryInput): [Staff]!
+  timeformat(query: TimeformatQueryInput): Timeformat
+  timeformats(query: TimeformatQueryInput, limit: Int = 100, sortBy: TimeformatSortByInput): [Timeformat]!
+  timing(query: TimingQueryInput): Timing
+  timings(sortBy: TimingSortByInput, query: TimingQueryInput, limit: Int = 100): [Timing]!
+  user(query: UserQueryInput): User
+  users(query: UserQueryInput, limit: Int = 100, sortBy: UserSortByInput): [User]!
+  workspace(query: WorkspaceQueryInput): Workspace
+  workspaces(query: WorkspaceQueryInput, limit: Int = 100, sortBy: WorkspaceSortByInput): [Workspace]!
+}
+
+type User {
+  _id: ObjectId
+  active: Boolean
+  delete: Boolean
+  is_owener: Boolean
+  paccess: ObjectId
+  role_ids: [Role]
+  site_id: Site
+  workspace_ids: [Workspace]
+}
+
+input EventcategorySite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input EventIncludedQueryInput {
+  price_gt: Float
+  price_lte: Float
+  price_gte: Float
+  type_nin: [String]
+  name_ne: String
+  name_in: [String]
+  price: Float
+  price_nin: [Float]
+  name_gt: String
+  extra_price_ne: Boolean
+  price_lt: Float
+  name_lte: String
+  name_gte: String
+  type_gte: String
+  type: String
+  extra_price_exists: Boolean
+  type_in: [String]
+  price_ne: Float
+  type_lt: String
+  name_lt: String
+  name_nin: [String]
+  extra_price: Boolean
+  type_ne: String
+  type_lte: String
+  type_exists: Boolean
+  OR: [EventIncludedQueryInput!]
+  price_in: [Float]
+  type_gt: String
+  name_exists: Boolean
+  price_exists: Boolean
+  name: String
+  AND: [EventIncludedQueryInput!]
+}
+
+input AddressUpdateInput {
+  workspace_id_unset: Boolean
+  address2: String
+  state_unset: Boolean
+  address1: String
+  longitude_unset: Boolean
+  country_unset: Boolean
+  business_branch: Boolean
+  phone_unset: Boolean
+  zipCode_unset: Boolean
+  account_status: String
+  business_head_office: Boolean
+  city: String
+  created_at_unset: Boolean
+  deleted_at_unset: Boolean
+  created_at: DateTime
+  type_unset: Boolean
+  updated_at_unset: Boolean
+  default_address: Boolean
+  deleted_at: DateTime
+  active_unset: Boolean
+  latitude_unset: Boolean
+  accessible_unset: Boolean
+  address1_unset: Boolean
+  phone: [AddressPhoneUpdateInput]
+  business_branch_unset: Boolean
+  created_by: AddressCreated_byRelationInput
+  created_by_unset: Boolean
+  _id_unset: Boolean
+  _id: ObjectId
+  active: Boolean
+  updated_at: DateTime
+  workspace_id: AddressWorkspace_idRelationInput
+  business_head_office_unset: Boolean
+  longitude: String
+  state: String
+  accessible: Boolean
+  email: String
+  country: String
+  address2_unset: Boolean
+  default_address_unset: Boolean
+  zipCode: String
+  city_unset: Boolean
+  type: String
+  delete: Boolean
+  latitude: String
+  site_id: AddressSite_idRelationInput
+  delete_unset: Boolean
+  account_status_unset: Boolean
+  site_id_unset: Boolean
+  email_unset: Boolean
+}
+
+input RoleUpdateInput {
+  permission_ids: RolePermission_idsRelationInput
+  is_system_role_unset: Boolean
+  permission_ids_unset: Boolean
+  site_id_unset: Boolean
+  is_system_role: Boolean
+  name: String
+  workspace_id_unset: Boolean
+  createdOn_utc: DateTime
+  _id: ObjectId
+  active: Boolean
+  system_name: String
+  createdOn_utc_unset: Boolean
+  _id_unset: Boolean
+  active_unset: Boolean
+  site_id: RoleSite_idRelationInput
+  name_unset: Boolean
+  system_name_unset: Boolean
+  workspace_id: RoleWorkspace_idRelationInput
+  delete_unset: Boolean
+  delete: Boolean
+}
+
+input PermissionWorkspace_idRelationInput {
+  create: WorkspaceInsertInput
+  link: ObjectId
+}
+
+input StaffdetailSyncUpdateInput {
+  type: String
+  type_unset: Boolean
+  key: String
+  key_unset: Boolean
+}
+
+input AddonUpdateInput {
+  site_id_unset: Boolean
+  workspace_ids: AddonWorkspace_idsRelationInput
+  event_ids: AddonEvent_idsRelationInput
+  variant: [AddonVariantUpdateInput]
+  price_unset: Boolean
+  name: String
+  price: Float
+  site_id: AddonSite_idRelationInput
+  variant_unset: Boolean
+  event_ids_unset: Boolean
+  workspace_ids_unset: Boolean
+  once_per_order: Boolean
+  delete: Boolean
+  _id: ObjectId
+  price_inc: Float
+  name_unset: Boolean
+  show_multiple_time: Boolean
+  active: Boolean
+  active_unset: Boolean
+  delete_unset: Boolean
+  show_multiple_time_unset: Boolean
+  _id_unset: Boolean
+  once_per_order_unset: Boolean
+}
+
+input LocationsettingInpersonInsertInput {
+  buinsess_address: Boolean
+  buinsess_id: LocationsettingInpersonBuinsess_idRelationInput
+  client_address: Boolean
+}
+
+input AddonVariantInsertInput {
+  name: String
+  price: Float
+}
+
+input AdvancepricingInsertInput {
+  updated_at: DateTime
+  servicePricingByStaff: Boolean
+  priceType: String
+  special_price: Float
+  workspace_id: AdvancepricingWorkspace_idRelationInput
+  staff_id: AdvancepricingStaff_idRelationInput
+  buffer_after_min: Int
+  duration_hours: Int
+  duration_minutes: Int
+  nonDiscountedPrice: Float
+  buffer_before_min: Int
+  created_at: DateTime
+  deleted_at: DateTime
+  created_by: AdvancepricingCreated_byRelationInput
+  retailPrice: Float
+  site_id: AdvancepricingSite_idRelationInput
+  _id: ObjectId
+  price_type: String
+  name: String
+  currency: String
+}
+
+input Events_satff_mappingStaff_idRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+input StaffdetailWorkspace_idRelationInput {
+  create: [WorkspaceInsertInput]
+  link: [ObjectId]
+}
+
+input RoleSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input StaffdetailCreated_byRelationInput {
+  create: StaffInsertInput
+  link: ObjectId
+}
+
+type EventAvailability_rangeAdvance {
+  no: Int
+  type: String
+}
+
+input Events_satff_mappingWorkspace_idsRelationInput {
+  link: [ObjectId]
+  create: [WorkspaceInsertInput]
+}
+
+input UserInsertInput {
+  paccess: ObjectId
+  role_ids: UserRole_idsRelationInput
+  site_id: UserSite_idRelationInput
+  workspace_ids: UserWorkspace_idsRelationInput
+  _id: ObjectId
+  active: Boolean
+  delete: Boolean
+  is_owener: Boolean
+}
+
+input EventExcludedUpdateInput {
+  extra_price_unset: Boolean
+  price_unset: Boolean
+  type: String
+  type_unset: Boolean
+  name_unset: Boolean
+  extra_price: Boolean
+  name: String
+  price: Float
+  price_inc: Float
+}
+
+input TimingInsertInput {
+  location_setting_ids: TimingLocation_setting_idsRelationInput
+  service_ids: [ObjectId]
+  start_time: String
+  recurringRule: TimingRecurringRuleInsertInput
+  workspace_ids: TimingWorkspace_idsRelationInput
+  custom_hour: Boolean
+  deleted_at: DateTime
+  name: String
+  type: String
+  is_override_block: Boolean
+  site_id: TimingSite_idRelationInput
+  business_hour: Boolean
+  created_by: TimingCreated_byRelationInput
+  time_zone: String
+  updated_at: DateTime
+  work_day_duration: Int
+  timing_order: Int
+  end_time: String
+  work_day_name: String
+  created_at: DateTime
+  _id: ObjectId
+  breaktime: [TimingBreaktimeInsertInput]
+  include_weekends: Boolean
+  work_day_id: Int
+}
+
+input UserWorkspace_idsRelationInput {
+  link: [ObjectId]
+  create: [WorkspaceInsertInput]
+}
+
+scalar DateTime
+
+type Timing {
+  _id: ObjectId
+  breaktime: [TimingBreaktime]
+  business_hour: Boolean
+  created_at: DateTime
+  created_by: Staff
+  custom_hour: Boolean
+  deleted_at: DateTime
+  end_time: String
+  include_weekends: Boolean
+  is_override_block: Boolean
+  location_setting_ids: [Locationsetting]
+  name: String
+  recurringRule: TimingRecurringRule
+  service_ids: [ObjectId]
+  site_id: Site
+  start_time: String
+  time_zone: String
+  timing_order: Int
+  type: String
+  updated_at: DateTime
+  work_day_duration: Int
+  work_day_id: Int
+  work_day_name: String
+  workspace_ids: [Workspace]
+}
+
+input StaffdetailLocation_setting_idsRelationInput {
+  create: [LocationsettingInsertInput]
+  link: [ObjectId]
+}
+
+input BusinessinfoInsertInput {
+  active: Boolean
+  address_ids: BusinessinfoAddress_idsRelationInput
+  bookingLinks: String
+  is_tax: Boolean
+  created_at: DateTime
+  deleted_at: DateTime
+  business_category: BusinessinfoBusiness_categoryRelationInput
+  date_format: String
+  policy: BusinessinfoPolicyInsertInput
+  time_zone: String
+  updated_at: DateTime
+  timeFormat: Int
+  restrictedDays: [DateTime]
+  site_id: BusinessinfoSite_idRelationInput
+  tax_no: String
+  tax_percentage: Int
+  business_hour_start: Int
+  delete: Boolean
+  business_hour_end: Int
+  created_by: BusinessinfoCreated_byRelationInput
+  workspace_id: BusinessinfoWorkspace_idRelationInput
+  _id: ObjectId
+  accessible: Boolean
+  first_day: Int
+  timing_ids: [ObjectId]
+}
+
+input EventExcludedQueryInput {
+  OR: [EventExcludedQueryInput!]
+  name_gte: String
+  name_lt: String
+  type_nin: [String]
+  type_gte: String
+  price_gte: Float
+  extra_price: Boolean
+  name_lte: String
+  name_in: [String]
+  name_ne: String
+  type_in: [String]
+  price: Float
+  price_ne: Float
+  price_lte: Float
+  type_lte: String
+  type_ne: String
+  price_lt: Float
+  extra_price_ne: Boolean
+  price_gt: Float
+  price_nin: [Float]
+  AND: [EventExcludedQueryInput!]
+  price_exists: Boolean
+  type_exists: Boolean
+  name_gt: String
+  extra_price_exists: Boolean
+  type_gt: String
+  name: String
+  type: String
+  price_in: [Float]
+  type_lt: String
+  name_exists: Boolean
+  name_nin: [String]
+}
+
+enum AcpwinfoSortByInput {
+  UPDATED_AT_DESC
+  CREATED_FROM_ASC
+  CREATED_FROM_DESC
+  PASSWORD_EXPIRE_DATEUTC_ASC
+  PASSWORD_FORMAT_ID_ASC
+  PASSWORD_EXPIRE_DATEUTC_DESC
+  PASSWORD_FORMAT_ID_DESC
+  CREATED_AT_ASC
+  PASSWORD_ASC
+  PASSWORD_CHANGE_DATEUTC_ASC
+  PASSWORD_CHANGE_DATEUTC_DESC
+  CREATED_AT_DESC
+  PASSWORD_SALT_DESC
+  UPDATED_AT_ASC
+  _ID_ASC
+  _ID_DESC
+  PASSWORD_DESC
+  PASSWORD_SALT_ASC
+}
+
+input RoleWorkspace_idRelationInput {
+  create: WorkspaceInsertInput
+  link: ObjectId
+}
+
+input TimeformatQueryInput {
+  workspace_id_nin: [ObjectId]
+  site_id: ObjectId
+  site_id_exists: Boolean
+  business_hour_start_lte: Int
+  site_id_gt: ObjectId
+  _id: ObjectId
+  AND: [TimeformatQueryInput!]
+  business_hour_start_nin: [Int]
+  time_zone_in: [String]
+  first_day_in: [Int]
+  time_zone_lte: String
+  timeFormat: Int
+  date_format_lte: String
+  timeFormat_gte: Int
+  _id_nin: [ObjectId]
+  business_hour_end_ne: Int
+  _id_gte: ObjectId
+  first_day_lt: Int
+  timeFormat_in: [Int]
+  date_format_ne: String
+  site_id_gte: ObjectId
+  business_hour_end_gt: Int
+  _id_in: [ObjectId]
+  workspace_id_exists: Boolean
+  first_day_nin: [Int]
+  business_hour_start_ne: Int
+  first_day_ne: Int
+  date_format_in: [String]
+  business_hour_start_gte: Int
+  date_format_gt: String
+  timeFormat_nin: [Int]
+  timeFormat_lt: Int
+  first_day_lte: Int
+  first_day_gt: Int
+  business_hour_end: Int
+  workspace_id_lte: ObjectId
+  time_zone_nin: [String]
+  timeFormat_ne: Int
+  time_zone_exists: Boolean
+  site_id_lt: ObjectId
+  business_hour_start: Int
+  business_hour_end_lte: Int
+  business_hour_end_in: [Int]
+  business_hour_start_gt: Int
+  OR: [TimeformatQueryInput!]
+  site_id_nin: [ObjectId]
+  time_zone_gt: String
+  _id_lt: ObjectId
+  workspace_id_gte: ObjectId
+  timeFormat_exists: Boolean
+  site_id_lte: ObjectId
+  date_format_lt: String
+  timeFormat_lte: Int
+  _id_exists: Boolean
+  business_hour_end_exists: Boolean
+  time_zone_lt: String
+  workspace_id: ObjectId
+  date_format_exists: Boolean
+  first_day_exists: Boolean
+  date_format: String
+  date_format_nin: [String]
+  _id_ne: ObjectId
+  workspace_id_lt: ObjectId
+  time_zone_ne: String
+  _id_gt: ObjectId
+  business_hour_end_lt: Int
+  time_zone_gte: String
+  site_id_in: [ObjectId]
+  first_day_gte: Int
+  time_zone: String
+  business_hour_start_lt: Int
+  timeFormat_gt: Int
+  first_day: Int
+  business_hour_start_in: [Int]
+  date_format_gte: String
+  business_hour_start_exists: Boolean
+  business_hour_end_nin: [Int]
+  workspace_id_ne: ObjectId
+  workspace_id_in: [ObjectId]
+  _id_lte: ObjectId
+  workspace_id_gt: ObjectId
+  site_id_ne: ObjectId
+  business_hour_end_gte: Int
+}
+
+input EventTiming_idsRelationInput {
+  create: [TimingInsertInput]
+  link: [ObjectId]
+}
+
+input BusinesscategoryInsertInput {
+  created_at: DateTime
+  created_by: BusinesscategoryCreated_byRelationInput
+  deleted_at: DateTime
+  type: String
+  parant_category_id: BusinesscategoryParant_category_idRelationInput
+  site_id: ObjectId
+  updated_at: DateTime
+  active: Boolean
+  category_name: String
+  _id: ObjectId
+  accessible: Boolean
+  deleted: Boolean
+}
+
+type InsertManyPayload {
+  insertedIds: [ObjectId]!
+}
+
+input UserQueryInput {
+  _id_gt: ObjectId
+  site_id: SiteQueryInput
+  paccess_gt: ObjectId
+  paccess_gte: ObjectId
+  workspace_ids: [WorkspaceQueryInput]
+  site_id_exists: Boolean
+  role_ids_in: [RoleQueryInput]
+  _id_exists: Boolean
+  active: Boolean
+  delete_ne: Boolean
+  _id: ObjectId
+  paccess_exists: Boolean
+  delete: Boolean
+  paccess: ObjectId
+  is_owener: Boolean
+  _id_nin: [ObjectId]
+  active_exists: Boolean
+  paccess_in: [ObjectId]
+  _id_ne: ObjectId
+  paccess_lte: ObjectId
+  workspace_ids_nin: [WorkspaceQueryInput]
+  _id_lt: ObjectId
+  is_owener_ne: Boolean
+  paccess_nin: [ObjectId]
+  _id_in: [ObjectId]
+  role_ids_nin: [RoleQueryInput]
+  role_ids: [RoleQueryInput]
+  workspace_ids_in: [WorkspaceQueryInput]
+  workspace_ids_exists: Boolean
+  paccess_ne: ObjectId
+  is_owener_exists: Boolean
+  role_ids_exists: Boolean
+  active_ne: Boolean
+  OR: [UserQueryInput!]
+  delete_exists: Boolean
+  paccess_lt: ObjectId
+  _id_gte: ObjectId
+  AND: [UserQueryInput!]
+  _id_lte: ObjectId
+}
+
+enum LocationsettingSortByInput {
+  LOCATION_ID_ASC
+  SITE_ID_ASC
+  SITE_ID_DESC
+  WORKSPACE_ID_ASC
+  WORKSPACE_ID_DESC
+  CREATED_AT_DESC
+  CREATED_BY_ASC
+  _ID_ASC
+  DELETED_AT_DESC
+  CREATED_AT_ASC
+  DELETED_AT_ASC
+  LOCATION_ID_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  _ID_DESC
+  CREATED_BY_DESC
+}
+
+enum AddonSortByInput {
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  PRICE_ASC
+  PRICE_DESC
+  SITE_ID_ASC
+  SITE_ID_DESC
+  _ID_ASC
+}
+
+type AddressPhone {
+  Ext: String
+  country_code: String
+  name: String
+  no: String
+  type: String
+}
+
+input TimeformatUpdateInput {
+  time_zone: String
+  timeFormat: Int
+  site_id_unset: Boolean
+  business_hour_start_unset: Boolean
+  time_zone_unset: Boolean
+  business_hour_end_unset: Boolean
+  business_hour_start_inc: Int
+  business_hour_end: Int
+  _id: ObjectId
+  business_hour_start: Int
+  date_format: String
+  date_format_unset: Boolean
+  workspace_id_unset: Boolean
+  business_hour_end_inc: Int
+  _id_unset: Boolean
+  first_day_inc: Int
+  first_day_unset: Boolean
+  site_id: ObjectId
+  first_day: Int
+  workspace_id: ObjectId
+  timeFormat_inc: Int
+  timeFormat_unset: Boolean
+}
+
+input UserSite_idRelationInput {
+  link: ObjectId
+  create: SiteInsertInput
+}
+
+input BusinessSocial_networkInsertInput {
+  link: String
+  network: String
+}
+
+input LocationsettingSite_idRelationInput {
+  create: SiteInsertInput
+  link: ObjectId
+}
+
+input UserUpdateInput {
+  is_owener: Boolean
+  paccess_unset: Boolean
+  active: Boolean
+  role_ids: UserRole_idsRelationInput
+  site_id_unset: Boolean
+  workspace_ids_unset: Boolean
+  _id_unset: Boolean
+  site_id: UserSite_idRelationInput
+  delete_unset: Boolean
+  active_unset: Boolean
+  delete: Boolean
+  _id: ObjectId
+  is_owener_unset: Boolean
+  paccess: ObjectId
+  role_ids_unset: Boolean
+  workspace_ids: UserWorkspace_idsRelationInput
+}
+
+input EventcategoryQueryInput {
+  color_code: String
+  icon_path_exists: Boolean
+  deleted_at_gt: DateTime
+  icon_nin: [String]
+  active: Boolean
+  deleted_at_ne: DateTime
+  created_at_in: [DateTime]
+  type_lte: String
+  updated_at_lte: DateTime
+  created_at_nin: [DateTime]
+  deleted_at_exists: Boolean
+  type_lt: String
+  parant_category_id_ne: ObjectId
+  type_ne: String
+  deleted_at_gte: DateTime
+  accessible_exists: Boolean
+  type_exists: Boolean
+  workspace_id_exists: Boolean
+  color_code_gte: String
+  deleted_at: DateTime
+  parant_category_id_gte: ObjectId
+  type_gt: String
+  category_name_gte: String
+  accessible_ne: Boolean
+  accessible: Boolean
+  workspace_id: WorkspaceQueryInput
+  icon: String
+  icon_lt: String
+  _id_gt: ObjectId
+  created_by_exists: Boolean
+  icon_path_gte: String
+  color_code_ne: String
+  category_name_lte: String
+  deleted: Boolean
+  icon_gt: String
+  parant_category_id_lte: ObjectId
+  active_ne: Boolean
+  icon_path: String
+  _id_exists: Boolean
+  parant_category_id_nin: [ObjectId]
+  created_at_gt: DateTime
+  icon_gte: String
+  icon_path_nin: [String]
+  icon_path_lt: String
+  updated_at_ne: DateTime
+  color_code_nin: [String]
+  deleted_at_nin: [DateTime]
+  parant_category_id_exists: Boolean
+  icon_in: [String]
+  icon_path_in: [String]
+  icon_lte: String
+  category_name_ne: String
+  updated_at_gte: DateTime
+  color_code_exists: Boolean
+  deleted_at_lte: DateTime
+  category_name: String
+  icon_path_lte: String
+  created_at_lt: DateTime
+  color_code_gt: String
+  deleted_ne: Boolean
+  deleted_exists: Boolean
+  created_at_gte: DateTime
+  color_code_lte: String
+  AND: [EventcategoryQueryInput!]
+  type_nin: [String]
+  category_name_nin: [String]
+  category_name_in: [String]
+  color_code_lt: String
+  updated_at_exists: Boolean
+  updated_at_nin: [DateTime]
+  type_gte: String
+  created_at_exists: Boolean
+  site_id_exists: Boolean
+  created_at: DateTime
+  parant_category_id_lt: ObjectId
+  category_name_gt: String
+  _id_ne: ObjectId
+  _id_lt: ObjectId
+  created_at_ne: DateTime
+  type: String
+  deleted_at_in: [DateTime]
+  deleted_at_lt: DateTime
+  icon_path_ne: String
+  _id_in: [ObjectId]
+  _id: ObjectId
+  category_name_lt: String
+  icon_path_gt: String
+  updated_at_in: [DateTime]
+  site_id: SiteQueryInput
+  icon_exists: Boolean
+  created_by: StaffQueryInput
+  parant_category_id_gt: ObjectId
+  active_exists: Boolean
+  _id_lte: ObjectId
+  color_code_in: [String]
+  parant_category_id: ObjectId
+  type_in: [String]
+  OR: [EventcategoryQueryInput!]
+  _id_gte: ObjectId
+  created_at_lte: DateTime
+  updated_at: DateTime
+  updated_at_gt: DateTime
+  category_name_exists: Boolean
+  icon_ne: String
+  updated_at_lt: DateTime
+  parant_category_id_in: [ObjectId]
+  _id_nin: [ObjectId]
+}
+
+input AddressPhoneQueryInput {
+  name_lt: String
+  type_exists: Boolean
+  Ext_lte: String
+  no_ne: String
+  country_code_lte: String
+  no_in: [String]
+  type_in: [String]
+  country_code_lt: String
+  country_code_nin: [String]
+  country_code_ne: String
+  type_gte: String
+  OR: [AddressPhoneQueryInput!]
+  name_nin: [String]
+  no_nin: [String]
+  type_lt: String
+  name_gt: String
+  name_gte: String
+  type_gt: String
+  AND: [AddressPhoneQueryInput!]
+  type_lte: String
+  no_lte: String
+  country_code: String
+  no_gt: String
+  type_ne: String
+  no_exists: Boolean
+  name: String
+  Ext_lt: String
+  Ext_in: [String]
+  name_lte: String
+  name_in: [String]
+  country_code_gt: String
+  Ext: String
+  no_lt: String
+  Ext_ne: String
+  country_code_in: [String]
+  type_nin: [String]
+  country_code_exists: Boolean
+  Ext_gt: String
+  name_exists: Boolean
+  Ext_nin: [String]
+  Ext_exists: Boolean
+  no_gte: String
+  type: String
+  Ext_gte: String
+  name_ne: String
+  no: String
+  country_code_gte: String
+}
+
+type LocationsettingInperson {
+  buinsess_address: Boolean
+  buinsess_id: Business
+  client_address: Boolean
+}
+
+enum EventcategorySortByInput {
+  CREATED_BY_DESC
+  DELETED_AT_ASC
+  DELETED_AT_DESC
+  ICON_ASC
+  ICON_PATH_ASC
+  TYPE_ASC
+  UPDATED_AT_DESC
+  _ID_DESC
+  CREATED_AT_DESC
+  CREATED_BY_ASC
+  PARANT_CATEGORY_ID_DESC
+  SITE_ID_ASC
+  SITE_ID_DESC
+  _ID_ASC
+  CATEGORY_NAME_DESC
+  COLOR_CODE_ASC
+  ICON_DESC
+  ICON_PATH_DESC
+  WORKSPACE_ID_ASC
+  WORKSPACE_ID_DESC
+  CATEGORY_NAME_ASC
+  COLOR_CODE_DESC
+  CREATED_AT_ASC
+  PARANT_CATEGORY_ID_ASC
+  TYPE_DESC
+  UPDATED_AT_ASC
+}
+
+enum TimeformatSortByInput {
+  BUSINESS_HOUR_END_ASC
+  FIRST_DAY_ASC
+  BUSINESS_HOUR_START_ASC
+  SITE_ID_DESC
+  TIMEFORMAT_ASC
+  TIMEFORMAT_DESC
+  TIME_ZONE_ASC
+  WORKSPACE_ID_ASC
+  _ID_ASC
+  _ID_DESC
+  DATE_FORMAT_ASC
+  DATE_FORMAT_DESC
+  FIRST_DAY_DESC
+  SITE_ID_ASC
+  WORKSPACE_ID_DESC
+  BUSINESS_HOUR_END_DESC
+  BUSINESS_HOUR_START_DESC
+  TIME_ZONE_DESC
+}
+
+type DeleteManyPayload {
+  deletedCount: Int!
+}

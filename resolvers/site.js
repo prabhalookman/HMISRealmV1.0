@@ -1,13 +1,53 @@
+// function endsWithAny(suffixes, string) {
+//     return suffixes.some(function (suffix) {
+//         console.log(`${suffix} - ${string}`)
+//         return string.endsWith(suffix);
+//     });
+// }
+
+// function endsWith(str, suffix) {
+//      const val = str.indexOf(suffix, str.length - suffix.length) !== -1;
+//      console.log(`${str} - ${suffix} - ${val} `)
+//      return
+// }
+
+//http://localhost:4000/graphql
 export default {
     Query: {
         getSite: async (parent, args, { models }, info) => {
             try {
-                let site = await models.Site.find({deleted:false})
+                let site = await models.Site.find({ deleted: false })
                 return site
             } catch (error) {
                 console.error("Error : ", error)
             }
+        },
+        site: async (parent, args, { models }, info) => {
+            try {
+                let clientKeys = Object.keys(args.query);
+                let i = 0;
+                let suffixes = ["_gt", "_gte", "_lt", "_lte", "_ne", "_in", "_nin", "_exists"];
+                let obj = { $match: {} }
+                while (i < clientKeys.length) {
+                    if (clientKeys[i].includes('_')) {
+                        const leng = clientKeys[i].split("_")[clientKeys[i].split("_").length - 1]
+                        let nam = "$" + leng;
+                        for (var param in args.query) {
+                            obj.$match[clientKeys[i].split("_")[0]] = { ["$" + leng]: args.query[clientKeys[i]] }
+                            console.log(`obj Inside: ${JSON.stringify(obj)} `)
+                        }
 
+                    } else {
+                        obj.$match[clientKeys[i]] = args.query[clientKeys[i]]
+                    }
+                    i++
+                }
+                console.log(`obj : ${JSON.stringify(obj)} `)
+                let site = await models.Site.aggregate(obj)
+                return site                
+            } catch (error) {
+                console.error("Error : ", error)
+            }
         }
     },
     Mutation: {

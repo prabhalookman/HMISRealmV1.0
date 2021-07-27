@@ -158,24 +158,7 @@ type Site {
 }
 
 
-input SiteInput {
-    _id:ID
-    name: String
-    default_language: String
-    account_status: String
-    accessible: Boolean    
-    active: Boolean
-    suspended: Boolean
-    deleted: Boolean
-    payment_status_id: String
-    payment_status: String
-    subcription_id: ID
-    created_by: ID
-    created_at: String
-    updated_at: String
-    deleted_at: String
-    googleAnalyticsCode: String
-}
+
 
 input SiteInsertInput {
     _id:ID
@@ -388,83 +371,83 @@ input SiteQueryInput {
 
 input PermissionSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input LocationsettingSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input TimingSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input BusinessinfoSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input BusinessSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input AddressSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input AddonSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input RoleSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input UserSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input StaffdetailSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input WorkspaceSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input EventcategorySite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input EventSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input StaffSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 input AdvancepricingSite_idRelationInput {
     create: SiteInsertInput
-    link: ObjectId
+    link: ID
 }
 
 
 
 enum SiteSortByInput {
-    _ID: ASC,
+    _ID ASC
     NAME_ASC 
     DEFAULT_LANGUAGE_ASC 
     ACCOUNT_STATUS_ASC 
@@ -480,7 +463,7 @@ enum SiteSortByInput {
     UPDATED_AT_ASC 
     DELETED_AT_ASC 
     GOOGLEANALYTICSCODE_ASC 
-    _ID: DESC
+    
     NAME_DESC 
     DEFAULT_LANGUAGE_DESC 
     ACCOUNT_STATUS_DESC 
@@ -500,6 +483,8 @@ enum SiteSortByInput {
 
 extend type Query {
     getSite: [Site]
+    site(query: SiteQueryInput): Site
+    sites(query: SiteQueryInput, limit: Int = 100, sortBy: SiteSortByInput): [Site]!
 }
 
 extend type Mutation {
@@ -535,4 +520,24 @@ StaffSite_idRelationInput
 AdvancepricingSite_idRelationInput
 
 SiteSortByInput
+
+
+input SiteInput {
+    _id:ID
+    name: String
+    default_language: String
+    account_status: String
+    accessible: Boolean    
+    active: Boolean
+    suspended: Boolean
+    deleted: Boolean
+    payment_status_id: String
+    payment_status: String
+    subcription_id: ID
+    created_by: ID
+    created_at: String
+    updated_at: String
+    deleted_at: String
+    googleAnalyticsCode: String
+}
  */

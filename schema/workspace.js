@@ -37,7 +37,7 @@ input workspaceInput {
     active: Boolean
     deleted: Boolean
     accessible: Boolean
-    site_id: siteInput
+    site_id: SiteInsertInput
     created_by: ID
     created_at: String
     updated_at: String
