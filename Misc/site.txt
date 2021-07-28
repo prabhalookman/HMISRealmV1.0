@@ -1,0 +1,23 @@
+query {
+  sites(
+    query: { name_in: ["Site 02", "Hmis"], active_ne: false, accessible: true }
+    limit: 100
+    sortBy: NAME_ASC
+  ) {
+    _id
+    name
+  }
+}
+----
+mutation {
+  insertOneSite(data: { name: "Prabha" }) {
+    _id
+    name
+  }
+}
+------
+mutation {
+  insertManySites(data: [{ name: "ddd"}, { name: "xyz"}]) {
+    insertedIds
+  }
+}

@@ -158,7 +158,24 @@ type Site {
 }
 
 
-
+input SiteInput {
+    _id:ID
+    name: String
+    default_language: String
+    account_status: String
+    accessible: Boolean    
+    active: Boolean
+    suspended: Boolean
+    deleted: Boolean
+    payment_status_id: String
+    payment_status: String
+    subcription_id: ID
+    created_by: ID
+    created_at: String
+    updated_at: String
+    deleted_at: String
+    googleAnalyticsCode: String
+}
 
 input SiteInsertInput {
     _id:ID
@@ -316,7 +333,7 @@ input SiteQueryInput {
     googleAnalyticsCode_ne: String
 
     _id_in: ID
-    name_in: String
+    name_in: [String]
     default_language_in: String
     account_status_in: String
     accessible_in: Boolean
@@ -333,7 +350,7 @@ input SiteQueryInput {
     googleAnalyticsCode_in: String
 
     _id_nin: ID
-    name_nin: String
+    name_nin: [String]
     default_language_nin: String
     account_status_nin: String
     accessible_nin: Boolean
@@ -447,7 +464,7 @@ input AdvancepricingSite_idRelationInput {
 
 
 enum SiteSortByInput {
-    _ID ASC
+    _ID ASC,
     NAME_ASC 
     DEFAULT_LANGUAGE_ASC 
     ACCOUNT_STATUS_ASC 
@@ -463,7 +480,6 @@ enum SiteSortByInput {
     UPDATED_AT_ASC 
     DELETED_AT_ASC 
     GOOGLEANALYTICSCODE_ASC 
-    
     NAME_DESC 
     DEFAULT_LANGUAGE_DESC 
     ACCOUNT_STATUS_DESC 
@@ -481,13 +497,21 @@ enum SiteSortByInput {
     GOOGLEANALYTICSCODE_DESC
 }
 
+type InsertManyPayload {
+    insertedIds: [ID]!
+}
+
 extend type Query {
     getSite: [Site]
-    site(query: SiteQueryInput): Site
+    site(query: SiteQueryInput): [Site]
     sites(query: SiteQueryInput, limit: Int = 100, sortBy: SiteSortByInput): [Site]!
 }
 
 extend type Mutation {
+    insertOneSite(data: SiteInsertInput!): Site
+    insertManySites(data: [SiteInsertInput!]!): InsertManyPayload
+    updateOneSite(query: SiteQueryInput, set: SiteUpdateInput!): Site
+
     addSite(input: SiteInsertInput): Site
     updateSite(siteID: ID!, input: SiteInsertInput): Site
     deleteSite(siteID: ID!): Site
@@ -520,24 +544,4 @@ StaffSite_idRelationInput
 AdvancepricingSite_idRelationInput
 
 SiteSortByInput
-
-
-input SiteInput {
-    _id:ID
-    name: String
-    default_language: String
-    account_status: String
-    accessible: Boolean    
-    active: Boolean
-    suspended: Boolean
-    deleted: Boolean
-    payment_status_id: String
-    payment_status: String
-    subcription_id: ID
-    created_by: ID
-    created_at: String
-    updated_at: String
-    deleted_at: String
-    googleAnalyticsCode: String
-}
  */

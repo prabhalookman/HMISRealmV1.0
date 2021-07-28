@@ -5,19 +5,19 @@ Clone Realm Grapqhl
  - Document Fields & Operator Fields
 
 # Operators :
- - Comparison Operator Fields (gt,gte,lt,lte,ne,in,nin)7
+ - Comparison Operator Fields (gt,gte,lt,lte,ne,in,nin) - Pass
  - Logical Operator Fields (AND, OR)
- - Element Operator Fields (exists)8
+ - Element Operator Fields (exists)
 
 ### InputTypes 
   - InsertInput,UpdateInput,RelationInput,SortByInput
 
 ## Query Resolvers :
- - Find a Single Document (singular query)
+ - Find a Single Document (singular query) - Pass
  - Find Multiple Documents (plural query)
 ## Mutation Resolvers :
- - Insert a Single Document
- - Insert Multiple Documents
+ - Insert a Single Document - Pass
+ - Insert Multiple Documents - Pass
  - Update a Single Document
  - Update Multiple Documents
  - Upsert a Single Document

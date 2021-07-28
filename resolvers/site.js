@@ -12,11 +12,13 @@
 // }
 
 //http://localhost:4000/graphql
+
+import Site from '../model/site'
 export default {
     Query: {
         getSite: async (parent, args, { models }, info) => {
             try {
-                let site = await models.Site.find({ deleted: false })
+                let site = await models.Site.find({})
                 return site
             } catch (error) {
                 console.error("Error : ", error)
@@ -34,7 +36,6 @@ export default {
                         let nam = "$" + leng;
                         for (var param in args.query) {
                             obj.$match[clientKeys[i].split("_")[0]] = { ["$" + leng]: args.query[clientKeys[i]] }
-                            console.log(`obj Inside: ${JSON.stringify(obj)} `)
                         }
 
                     } else {
@@ -43,7 +44,7 @@ export default {
                     i++
                 }
                 console.log(`obj : ${JSON.stringify(obj)} `)
-                let site = await models.Site.aggregate(obj)
+                let site = await models.Site.aggregate([obj])
                 return site                
             } catch (error) {
                 console.error("Error : ", error)
@@ -51,16 +52,16 @@ export default {
         }
     },
     Mutation: {
-        addSite: async (parent, args, { models }, info) => {
+        insertOneSite: async (parent, args, { models }, info) => {
             try {
                 let newSite = new models.Site();
-                let clientKeys = Object.keys(args.input);
+                let clientKeys = Object.keys(args.data);
                 if (!clientKeys)
                     console.log("Error Site keys")
                 let i = 0;
                 while (i < clientKeys.length) {
                     if (clientKeys[i] in newSite) {
-                        newSite[clientKeys[i]] = args.input[clientKeys[i]]
+                        newSite[clientKeys[i]] = args.data[clientKeys[i]]
                     }
                     i++
                 }
@@ -74,6 +75,58 @@ export default {
             }
 
         },
+
+        insertManySites: async (parent, args, { models }, info) => {
+            try {
+                let newSite = new Site();                
+                
+                //let emp = {}
+                //let tempAr = [];                
+                // args.data.forEach((dat) => {
+                //     let clientKeys = Object.keys(dat);
+                //     if (!clientKeys)
+                //         console.log("Error Site keys")
+                //     let i = 0;
+                //     while (i < clientKeys.length) {
+                //         if (clientKeys[i] in newSite) {
+                //             emp[clientKeys[i]] = dat[clientKeys[i]]
+                //         }
+                //         tempAr.push(emp)
+                //         i++
+                //     }
+                // })
+
+                newSite = await Site.insertMany(args.data);                
+                
+                let Ids = []
+                newSite.forEach((rec)=>{
+                    Ids.push(rec._id)
+                })
+                console.error("Ids : ", {"insertedIds":Ids})
+                
+                return {"insertedIds":Ids}
+            } catch (error) {
+                console.error("Error : ", error)
+            }
+        },
+        updateOneSite: async (parent, args, { models }, info) => {
+            try {
+                let newSite = new Site(); 
+
+                newSite = await Site.insertMany(args.data);                
+                
+                let Ids = []
+                newSite.forEach((rec)=>{
+                    Ids.push(rec._id)
+                })
+                console.error("Ids : ", {"insertedIds":Ids})
+                
+                return {"insertedIds":Ids}
+            } catch (error) {
+                console.error("Error : ", error)
+            }
+        },
+
         updateSite: async (parent, args, { models }, info) => {
             try {
                 let updateObj = { $set: {} };
