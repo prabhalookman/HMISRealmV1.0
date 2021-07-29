@@ -11,9 +11,37 @@
 //      return
 // }
 
-//http://localhost:4000/graphql
 
 import Site from '../model/site'
+
+let GetQuery = async (qryData)=>{
+    try {
+        let newSite = new Site(); 
+        let clientKeys = Object.keys(qryData);
+        let i = 0;
+        let suffixes = ["_gt", "_gte", "_lt", "_lte", "_ne", "_in", "_nin", "_exists"];
+        let obj = { $match: {} }
+        while (i < clientKeys.length) {
+            if (clientKeys[i].includes('_')) {
+                const leng = clientKeys[i].split("_")[clientKeys[i].split("_").length - 1]
+                let nam = "$" + leng;
+                for (var param in qryData) {
+                    obj.$match[clientKeys[i].split("_")[0]] = { ["$" + leng]: qryData[clientKeys[i]] }
+                }
+
+            } else {
+                obj.$match[clientKeys[i]] = qryData[clientKeys[i]]
+            }
+            i++
+        }
+        console.log(`obj : ${JSON.stringify(obj)} `)
+        let site = await Site.aggregate([obj])
+        return site                
+    } catch (error) {
+        console.error("Error : ", error)
+    }
+}
+
 export default {
     Query: {
         getSite: async (parent, args, { models }, info) => {
@@ -111,17 +139,39 @@ export default {
         },
         updateOneSite: async (parent, args, { models }, info) => {
             try {
-                let newSite = new Site(); 
+                let resultQry = await GetQuery(args.query)
+                let newSite = new models.Site(resultQry[0])
+                console.log('newSite._id : ', newSite._id);
+                
+                let updateObj = { $set: {} };
+                for (var param in args.set) {
+                    updateObj.$set[param] = args.set[param];
+                }
 
-                newSite = await Site.insertMany(args.data);                
+                newSite = await models.Site.findOneAndUpdate({_id:newSite._id},updateObj,{multi:true,  new: true}); 
+                return newSite
+            } catch (error) {
+                console.error("Error : ", error)
+            }
+        },
+        updateManySites: async (parent, args, { models }, info) => {
+            try {
+                let resultQry = await GetQuery(args.query)
+                console.log('resultQry._id : ', resultQry[0]._id);
                 
-                let Ids = []
-                newSite.forEach((rec)=>{
-                    Ids.push(rec._id)
-                })
-                console.error("Ids : ", {"insertedIds":Ids})
-                
-                return {"insertedIds":Ids}
+                let updateObj = { $set: {} };
+                for (var param in args.set) {
+                    updateObj.$set[param] = args.set[param];
+                }
+                let matched = []
+
+                for(let i=0; i<resultQry.length; i++){
+                    let result = await models.Site.findOneAndUpdate({_id:resultQry[i]._id},updateObj,{multi:true,  new: true}); 
+                    matched.push(result)
+                }
+
+                return matched
+
             } catch (error) {
                 console.error("Error : ", error)
             }

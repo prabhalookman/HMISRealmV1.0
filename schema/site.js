@@ -501,6 +501,11 @@ type InsertManyPayload {
     insertedIds: [ID]!
 }
 
+type UpdateManyPayload {
+    matchedCount: Int!
+    modifiedCount: Int!
+}
+
 extend type Query {
     getSite: [Site]
     site(query: SiteQueryInput): [Site]
@@ -511,6 +516,7 @@ extend type Mutation {
     insertOneSite(data: SiteInsertInput!): Site
     insertManySites(data: [SiteInsertInput!]!): InsertManyPayload
     updateOneSite(query: SiteQueryInput, set: SiteUpdateInput!): Site
+    updateManySites(set: SiteUpdateInput!, query: SiteQueryInput): [Site]
 
     addSite(input: SiteInsertInput): Site
     updateSite(siteID: ID!, input: SiteInsertInput): Site
@@ -544,4 +550,6 @@ StaffSite_idRelationInput
 AdvancepricingSite_idRelationInput
 
 SiteSortByInput
+
+updateManySites(set: SiteUpdateInput!, query: SiteQueryInput): UpdateManyPayload
  */

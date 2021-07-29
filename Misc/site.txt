@@ -21,3 +21,14 @@ mutation {
     insertedIds
   }
 }
+-------------
+mutation {
+  updateOneSite(
+    query: {accessible: false, name: "Site 03"}, 
+    set: {name:"Site 05"}) {
+    _id
+    name
+    accessible
+  }
+}
+------
