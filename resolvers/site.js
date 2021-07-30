@@ -12,17 +12,18 @@
 // }
 
 
+import { ObjectId } from 'bson';
 import Site from '../model/site'
 
-let GetQuery = async (qryData)=>{
+let GetQuery = async (qryData) => {
     try {
-        let newSite = new Site(); 
+        let newSite = new Site();
         let clientKeys = Object.keys(qryData);
         let i = 0;
         let suffixes = ["_gt", "_gte", "_lt", "_lte", "_ne", "_in", "_nin", "_exists"];
         let obj = { $match: {} }
         while (i < clientKeys.length) {
-            if (clientKeys[i].includes('_')) {
+            if (clientKeys[i].includes('_') && clientKeys[i] != '_id') {
                 const leng = clientKeys[i].split("_")[clientKeys[i].split("_").length - 1]
                 let nam = "$" + leng;
                 for (var param in qryData) {
@@ -30,13 +31,18 @@ let GetQuery = async (qryData)=>{
                 }
 
             } else {
-                obj.$match[clientKeys[i]] = qryData[clientKeys[i]]
+                if (clientKeys[i] == '_id') {
+                    obj.$match[clientKeys[i]] = ObjectId(qryData[clientKeys[i]])
+                } else {
+                    obj.$match[clientKeys[i]] = qryData[clientKeys[i]]
+                }
+
             }
             i++
         }
         console.log(`obj : ${JSON.stringify(obj)} `)
         let site = await Site.aggregate([obj])
-        return site                
+        return site
     } catch (error) {
         console.error("Error : ", error)
     }
@@ -59,7 +65,7 @@ export default {
                 let suffixes = ["_gt", "_gte", "_lt", "_lte", "_ne", "_in", "_nin", "_exists"];
                 let obj = { $match: {} }
                 while (i < clientKeys.length) {
-                    if (clientKeys[i].includes('_')) {
+                    if (clientKeys[i].includes('_') && clientKeys[i] != '_id') {
                         const leng = clientKeys[i].split("_")[clientKeys[i].split("_").length - 1]
                         let nam = "$" + leng;
                         for (var param in args.query) {
@@ -73,7 +79,39 @@ export default {
                 }
                 console.log(`obj : ${JSON.stringify(obj)} `)
                 let site = await models.Site.aggregate([obj])
-                return site                
+                return site
+            } catch (error) {
+                console.error("Error : ", error)
+            }
+        },
+        sites: async (parent, args, { models }, info) => {
+            try {
+                let clientKeys = Object.keys(args.query);
+                let i = 0;
+                let suffixes = ["_gt", "_gte", "_lt", "_lte", "_ne", "_in", "_nin", "_exists"];
+                let exeQuery = { $match: {} }
+                while (i < clientKeys.length) {
+                    if (clientKeys[i].includes('_') && clientKeys[i] != '_id') {
+                        const leng = clientKeys[i].split("_")[clientKeys[i].split("_").length - 1]
+                        let nam = "$" + leng;
+                        for (var param in args.query) {
+                            exeQuery.$match[clientKeys[i].split("_")[0]] = { ["$" + leng]: args.query[clientKeys[i]] }
+                        }
+
+                    } else {
+                        exeQuery.$match[clientKeys[i]] = args.query[clientKeys[i]]
+                    }
+                    i++
+                }
+                if(args.includes('limit')){
+                    //
+                }
+                if(args.includes('sortBy')){
+                    //
+                }
+                console.log(`exeQuery : ${JSON.stringify(exeQuery)} `)
+                let site = await models.Site.aggregate([exeQuery])
+                return site
             } catch (error) {
                 console.error("Error : ", error)
             }
@@ -106,33 +144,17 @@ export default {
 
         insertManySites: async (parent, args, { models }, info) => {
             try {
-                let newSite = new Site();                
-                
-                //let emp = {}
-                //let tempAr = [];                
-                // args.data.forEach((dat) => {
-                //     let clientKeys = Object.keys(dat);
-                //     if (!clientKeys)
-                //         console.log("Error Site keys")
-                //     let i = 0;
-                //     while (i < clientKeys.length) {
-                //         if (clientKeys[i] in newSite) {
-                //             emp[clientKeys[i]] = dat[clientKeys[i]]
-                //         }
-                //         tempAr.push(emp)
-                //         i++
-                //     }
-                // })
+                let newSite = new Site();
 
-                newSite = await Site.insertMany(args.data);                
-                
+                newSite = await Site.insertMany(args.data);
+
                 let Ids = []
-                newSite.forEach((rec)=>{
+                newSite.forEach((rec) => {
                     Ids.push(rec._id)
                 })
-                console.error("Ids : ", {"insertedIds":Ids})
-                
-                return {"insertedIds":Ids}
+                console.error("Ids : ", { "insertedIds": Ids })
+
+                return { "insertedIds": Ids }
             } catch (error) {
                 console.error("Error : ", error)
             }
@@ -141,14 +163,13 @@ export default {
             try {
                 let resultQry = await GetQuery(args.query)
                 let newSite = new models.Site(resultQry[0])
-                console.log('newSite._id : ', newSite._id);
-                
+
                 let updateObj = { $set: {} };
                 for (var param in args.set) {
                     updateObj.$set[param] = args.set[param];
                 }
 
-                newSite = await models.Site.findOneAndUpdate({_id:newSite._id},updateObj,{multi:true,  new: true}); 
+                newSite = await models.Site.findOneAndUpdate({ _id: newSite._id }, updateObj, { multi: true, new: true });
                 return newSite
             } catch (error) {
                 console.error("Error : ", error)
@@ -157,16 +178,15 @@ export default {
         updateManySites: async (parent, args, { models }, info) => {
             try {
                 let resultQry = await GetQuery(args.query)
-                console.log('resultQry._id : ', resultQry[0]._id);
-                
+
                 let updateObj = { $set: {} };
                 for (var param in args.set) {
                     updateObj.$set[param] = args.set[param];
                 }
                 let matched = []
 
-                for(let i=0; i<resultQry.length; i++){
-                    let result = await models.Site.findOneAndUpdate({_id:resultQry[i]._id},updateObj,{multi:true,  new: true}); 
+                for (let i = 0; i < resultQry.length; i++) {
+                    let result = await models.Site.findOneAndUpdate({ _id: resultQry[i]._id }, updateObj, { multi: true, new: true });
                     matched.push(result)
                 }
 
@@ -176,30 +196,58 @@ export default {
                 console.error("Error : ", error)
             }
         },
-
-        updateSite: async (parent, args, { models }, info) => {
+        upsertOneSite: async (parent, args, { models }, info) => {
             try {
+                let resultQry = await GetQuery(args.query)
+                let newSite = new models.Site(resultQry[0])
+
                 let updateObj = { $set: {} };
-                for (var param in args.input) {
-                    updateObj.$set[param] = args.input[param];
+                for (var param in args.data) {
+                    updateObj.$set[param] = args.data[param];
                 }
-                const resultSite = await models.Site.findOneAndUpdate({ _id: args.siteID }, updateObj, { new: true });
 
-                console.log("resultSite created : ", resultSite)
-
-                return resultSite
+                newSite = await models.Site.findOneAndUpdate({ _id: newSite._id }, updateObj, { new: true, upsert: true });
+                return newSite
             } catch (error) {
                 console.error("Error : ", error)
             }
 
         },
-        deleteSite: async (parent, args, { models }, info) => {
+        replaceOneSite: async (parent, args, { models }, info) => {
             try {
-                args = args.siteID;
+                let resultQry = await GetQuery(args.query)
+                let newSite = new models.Site(resultQry[0])
+
+                let updateObj = { $set: {} };
+                let resultKeys = Object.keys(resultQry[0])
+                var filteredAry = resultKeys.filter(function (e) { return (e !== '_id' || e !== '_v') })
+
+                filteredAry.forEach((res) => {
+                    for (var param in args.data) {
+                        if (filteredAry.includes(param) || args.data.includes(res)) {
+                            updateObj.$set[param] = args.data[param];
+                        } else {
+                            updateObj.$set[param] = null
+                        }
+                    }
+                })
+
+                newSite = await models.Site.findOneAndUpdate({ _id: newSite._id }, updateObj, { new: true, upsert: true });
+                return newSite
+            } catch (error) {
+                console.error("Error : ", error)
+            }
+
+        },
+        deleteOneSite: async (parent, args, { models }, info) => {
+            try {
+                let resultQry = await GetQuery(args.query)
+                let newSite = new models.Site(resultQry[0])
+
                 const deleteStatus = true;
                 let updateObj = { deleted: deleteStatus }
 
-                let resultSite = await models.Site.findOneAndUpdate({ _id: args }, updateObj, { new: true });
+                let resultSite = await models.Site.findOneAndUpdate({ _id: newSite._id }, updateObj, { new: true });
                 if (resultSite) {
                     return resultSite;
                 } else {
@@ -211,5 +259,26 @@ export default {
             }
 
         },
+        deleteManySites: async (parent, args, { models }, info) => {
+            try {
+                let resultQry = await GetQuery(args.query)
+
+                const deleteStatus = true;
+                let updateObj = { deleted: deleteStatus }
+
+                let matched = []
+
+                for (let i = 0; i < resultQry.length; i++) {
+                    let result = await models.Site.findOneAndUpdate({ _id: resultQry[i]._id }, updateObj, { multi: true, new: true });
+                    matched.push(result)
+                }
+
+                return matched
+
+            } catch (error) {
+                console.error("Error : ", error)
+            }
+
+        }
     }
 }

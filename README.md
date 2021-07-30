@@ -19,12 +19,12 @@ Clone Realm Grapqhl
 ## Mutation Resolvers :
  - Insert a Single Document - Pass
  - Insert Multiple Documents - Pass
- - Update a Single Document
- - Update Multiple Documents
- - Upsert a Single Document
- - Replace a Single Document
- - Delete a Single Document
- - Delete Multiple Documents
+ - Update a Single Document - Pass
+ - Update Multiple Documents - Pass
+ - Upsert a Single Document - Pass
+ - Replace a Single Document - Pass
+ - Delete a Single Document - Pass
+ - Delete Multiple Documents - Pass
 
 ## MongoDB 
 MONGO_URL=mongodb://localhost:27017/HMISVRealm

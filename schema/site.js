@@ -506,6 +506,10 @@ type UpdateManyPayload {
     modifiedCount: Int!
 }
 
+type DeleteManyPayload {
+    deletedCount: Int!
+}
+
 extend type Query {
     getSite: [Site]
     site(query: SiteQueryInput): [Site]
@@ -517,6 +521,10 @@ extend type Mutation {
     insertManySites(data: [SiteInsertInput!]!): InsertManyPayload
     updateOneSite(query: SiteQueryInput, set: SiteUpdateInput!): Site
     updateManySites(set: SiteUpdateInput!, query: SiteQueryInput): [Site]
+    upsertOneSite(query: SiteQueryInput, data: SiteInsertInput!): Site
+    replaceOneSite(query: SiteQueryInput, data: SiteInsertInput!): Site
+    deleteOneSite(query: SiteQueryInput!): Site
+    deleteManySites(query: SiteQueryInput): [Site]
 
     addSite(input: SiteInsertInput): Site
     updateSite(siteID: ID!, input: SiteInsertInput): Site

@@ -32,3 +32,55 @@ mutation {
   }
 }
 ------
+mutation {
+  upsertOneSite(query: { _id: "60ec2ecc1fb0c42560fbf5d2", name:"Site 05" }, data: { accessible: true }) {
+    _id
+    name
+    accessible
+  }
+}
+------
+mutation {
+  replaceOneSite(
+    query: { _id: "61015414d884bb4924d9add6" }
+    data: { name: "Site 05", accessible: false }
+  ) {
+    _id
+    name
+    accessible
+    account_status
+    active
+    default_language
+    googleAnalyticsCode
+  }
+}
+---------
+mutation {
+  deleteOneSite(
+    query: { accessible: true }
+  ) {
+    _id
+    name
+    accessible
+    account_status
+    active
+    default_language
+    googleAnalyticsCode
+    deleted
+  }
+}
+---------
+mutation {
+  deleteManySites(
+    query: { accessible: true }
+  ) {
+    _id
+    name
+    accessible
+    account_status
+    active
+    default_language
+    googleAnalyticsCode
+    deleted
+  }
+}
