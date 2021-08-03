@@ -14,7 +14,7 @@ type Site {
     payment_status_id: String
     payment_status: String
     subcription_id: ID
-    created_by: ID
+    created_by: User
     created_at: String
     updated_at: String
     deleted_at: String
@@ -170,7 +170,7 @@ input SiteInput {
     payment_status_id: String
     payment_status: String
     subcription_id: ID
-    created_by: ID
+    created_by: RelationUserInput
     created_at: String
     updated_at: String
     deleted_at: String
@@ -189,7 +189,7 @@ input SiteInsertInput {
     payment_status_id: String
     payment_status: String
     subcription_id: ID
-    created_by: ID
+    created_by: RelationUserInput
     created_at: String
     updated_at: String
     deleted_at: String
@@ -205,7 +205,7 @@ input SiteUpdateInput {
     active_unset :Boolean
     created_at: String
     created_at_unset :Boolean
-    created_by: ID
+    created_by: RelationUserInput
     created_by_unset :Boolean
     default_language: String
     default_language_unset :Boolean
@@ -241,7 +241,7 @@ input SiteQueryInput {
     payment_status_id: String
     payment_status: String
     subcription_id: ID
-    created_by: ID
+    created_by: RelationUserInput
     created_at: String
     updated_at: String
     deleted_at: String
@@ -508,6 +508,16 @@ type UpdateManyPayload {
 
 type DeleteManyPayload {
     deletedCount: Int!
+}
+
+type RelationUser {
+    link: [ID]
+    create: [User]
+  }
+
+input RelationUserInput {
+link: [ID]
+create: [userInput]
 }
 
 extend type Query {

@@ -1,48 +1,35 @@
-// function endsWithAny(suffixes, string) {
-//     return suffixes.some(function (suffix) {
-//         console.log(`${suffix} - ${string}`)
-//         return string.endsWith(suffix);
-//     });
-// }
-
-// function endsWith(str, suffix) {
-//      const val = str.indexOf(suffix, str.length - suffix.length) !== -1;
-//      console.log(`${str} - ${suffix} - ${val} `)
-//      return
-// }
-
-
 import { ObjectId } from 'bson';
 import Site from '../model/site'
 
 let GetQuery = async (qryData) => {
     try {
-        let newSite = new Site();
         let clientKeys = Object.keys(qryData);
         let i = 0;
         let suffixes = ["_gt", "_gte", "_lt", "_lte", "_ne", "_in", "_nin", "_exists"];
-        let obj = { $match: {} }
+        let aggQuery = { $match: {} }
+        let execQuery = [];
+        let newSite = new models.Site();
+
         while (i < clientKeys.length) {
             if (clientKeys[i].includes('_') && clientKeys[i] != '_id') {
                 const leng = clientKeys[i].split("_")[clientKeys[i].split("_").length - 1]
                 let nam = "$" + leng;
-                for (var param in qryData) {
-                    obj.$match[clientKeys[i].split("_")[0]] = { ["$" + leng]: qryData[clientKeys[i]] }
-                }
-
+                let val = replacedStr(clientKeys[i], leng)
+                aggQuery.$match[val] = { ["$" + leng]: qryData[clientKeys[i]] }
             } else {
                 if (clientKeys[i] == '_id') {
-                    obj.$match[clientKeys[i]] = ObjectId(qryData[clientKeys[i]])
+                    aggQuery.$match[clientKeys[i]] = ObjectId(qryData[clientKeys[i]])
                 } else {
-                    obj.$match[clientKeys[i]] = qryData[clientKeys[i]]
+                    aggQuery.$match[clientKeys[i]] = qryData[clientKeys[i]]
                 }
-
             }
             i++
         }
-        console.log(`obj : ${JSON.stringify(obj)} `)
-        let site = await Site.aggregate([obj])
-        return site
+        execQuery.push(aggQuery)
+
+        console.log(`execQuery : ${JSON.stringify(execQuery)} `)
+        newSite = await models.Site.aggregate(execQuery)
+        return newSite
     } catch (error) {
         console.error("Error : ", error)
     }
@@ -63,23 +50,26 @@ export default {
                 let clientKeys = Object.keys(args.query);
                 let i = 0;
                 let suffixes = ["_gt", "_gte", "_lt", "_lte", "_ne", "_in", "_nin", "_exists"];
-                let obj = { $match: {} }
+                let aggQuery = { $match: {} }
+                let execQuery = [];
+                let newSite = [];
+
                 while (i < clientKeys.length) {
                     if (clientKeys[i].includes('_') && clientKeys[i] != '_id') {
                         const leng = clientKeys[i].split("_")[clientKeys[i].split("_").length - 1]
                         let nam = "$" + leng;
-                        for (var param in args.query) {
-                            obj.$match[clientKeys[i].split("_")[0]] = { ["$" + leng]: args.query[clientKeys[i]] }
-                        }
-
+                        let val = replacedStr(clientKeys[i], leng)
+                        aggQuery.$match[val] = { ["$" + leng]: args.query[clientKeys[i]] }
                     } else {
-                        obj.$match[clientKeys[i]] = args.query[clientKeys[i]]
+                        aggQuery.$match[clientKeys[i]] = args.query[clientKeys[i]]
                     }
                     i++
                 }
-                console.log(`obj : ${JSON.stringify(obj)} `)
-                let site = await models.Site.aggregate([obj])
-                return site
+                execQuery.push(aggQuery)
+                console.log(`execQuery : ${JSON.stringify(execQuery)} `)
+                let site = await Site.aggregate(execQuery)
+                newSite.push(new models.Site(site[0]));
+                return newSite
             } catch (error) {
                 console.error("Error : ", error)
             }
@@ -89,28 +79,36 @@ export default {
                 let clientKeys = Object.keys(args.query);
                 let i = 0;
                 let suffixes = ["_gt", "_gte", "_lt", "_lte", "_ne", "_in", "_nin", "_exists"];
-                let exeQuery = { $match: {} }
+                let aggQuery = { $match: {} }
+                let execQuery = [];
+
                 while (i < clientKeys.length) {
                     if (clientKeys[i].includes('_') && clientKeys[i] != '_id') {
                         const leng = clientKeys[i].split("_")[clientKeys[i].split("_").length - 1]
                         let nam = "$" + leng;
-                        for (var param in args.query) {
-                            exeQuery.$match[clientKeys[i].split("_")[0]] = { ["$" + leng]: args.query[clientKeys[i]] }
-                        }
-
+                        let val = replacedStr(clientKeys[i], leng)
+                        aggQuery.$match[val] = { ["$" + leng]: args.query[clientKeys[i]] }
                     } else {
-                        exeQuery.$match[clientKeys[i]] = args.query[clientKeys[i]]
+                        aggQuery.$match[clientKeys[i]] = args.query[clientKeys[i]]
                     }
                     i++
                 }
-                if(args.includes('limit')){
-                    //
+                execQuery.push(aggQuery)
+                let sortObj = { $sort: {} }
+                let limitObj = { $limit: {} }
+                if (args.hasOwnProperty("sortBy")) {
+                    let obj = {};
+                    obj[args.sortBy] = 1
+                    sortObj['$sort'] = obj
+                    execQuery.push(sortObj)
                 }
-                if(args.includes('sortBy')){
-                    //
+                if (args.hasOwnProperty("limit")) {
+                    limitObj['$limit'] = args.limit
+                    execQuery.push(limitObj)
                 }
-                console.log(`exeQuery : ${JSON.stringify(exeQuery)} `)
-                let site = await models.Site.aggregate([exeQuery])
+
+                console.log(`execQuery : ${JSON.stringify(execQuery)} `)
+                let site = await models.Site.aggregate(execQuery)
                 return site
             } catch (error) {
                 console.error("Error : ", error)
@@ -165,8 +163,27 @@ export default {
                 let newSite = new models.Site(resultQry[0])
 
                 let updateObj = { $set: {} };
+
                 for (var param in args.set) {
-                    updateObj.$set[param] = args.set[param];
+                    if (param == 'created_by') {
+                        for (let i = 0; i < args.set[param].link.length; i++) {
+                            let linkObj = args.set[param].link[i]
+                            for (let j = 0; j < args.set[param].create.length; j++) {
+                                let updateUserObj = { $set: {} };
+                                let creteObj = args.set[param].create[j]
+                                let creteObjKeys = Object.keys(args.set[param].create[j])
+                                for (let k = 0; k < creteObjKeys.length; k++) {
+                                    updateUserObj.$set[creteObjKeys[k]] = creteObj[creteObjKeys[k]];
+                                }
+                                const resultUser = await models.User.findOneAndUpdate({ _id: linkObj }, updateUserObj, { new: true });
+                                updateObj.$set["created_by"] = resultUser.id
+                                console.log("resultUser created : ", resultUser.id)
+                            }
+                        }
+
+                    } else {
+                        updateObj.$set[param] = args.set[param];
+                    }
                 }
 
                 newSite = await models.Site.findOneAndUpdate({ _id: newSite._id }, updateObj, { multi: true, new: true });
@@ -280,5 +297,18 @@ export default {
             }
 
         }
+    },
+    Site: {
+        created_by: async (site) => {
+            let resultSite = await site.populate('created_by').execPopulate();
+            return resultSite.created_by
+        }
     }
+}
+
+// Local Functions
+function replacedStr(str, suffix) {
+    const val = str.substring(0, str.indexOf(suffix, str.length - suffix.length) - 1);
+    console.log(`${str} - ${suffix} - ${val} `)
+    return val
 }

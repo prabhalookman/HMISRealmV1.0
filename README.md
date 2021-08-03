@@ -14,7 +14,7 @@ Clone Realm Grapqhl
 
 ## Query Resolvers :
  - Find a Single Document (singular query) - Pass
- - Find Multiple Documents (plural query)
+ - Find Multiple Documents (plural query) - Pass
  
 ## Mutation Resolvers :
  - Insert a Single Document - Pass

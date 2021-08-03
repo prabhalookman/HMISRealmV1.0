@@ -1,6 +1,6 @@
 query {
   sites(
-    query: { name_in: ["Site 02", "Hmis"], active_ne: false, accessible: true }
+    query: { name_in: ["Site 09", "Site 05"], active_ne: false, accessible: true }
     limit: 100
     sortBy: NAME_ASC
   ) {
@@ -31,6 +31,30 @@ mutation {
     accessible
   }
 }
+-------
+mutation {
+  updateOneSite(
+    query: { accessible: true, name: "Site 07" }
+    set: {
+      name: "Site 09"
+      created_by: {
+        link: ["61079adaa587cd2dacadb066"]
+        create: [{ active: false, paccess: "ROT" }]
+      }
+    }
+  ) {
+    _id
+    name
+    accessible
+    created_by {
+      _id
+      active
+      delete
+      paccess
+    }
+  }
+}
+
 ------
 mutation {
   upsertOneSite(query: { _id: "60ec2ecc1fb0c42560fbf5d2", name:"Site 05" }, data: { accessible: true }) {
